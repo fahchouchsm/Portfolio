@@ -1,32 +1,33 @@
 import type { FC } from "react";
+import { socialAccounts } from "../../data/data";
 
 const Sidebar: FC = () => {
   return (
-    <div className="drawer">
-      <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
-        {/* Page content here */}
-        <label htmlFor="my-drawer" className="btn btn-primary drawer-button">
-          Open drawer
-        </label>
+    <aside className="w-[20%] bg-white h-full rounded-3xl p-5 shadow-2xl flex flex-col justify-between">
+      <div>
+        <h2 className="text-4xl font-extrabold font-serif tracking-tight text-gray-800">
+          Fahchouch <br /> Mohammed
+        </h2>
+        <h3 className="text-lg font-semibolde text-gray-600">
+          Computer Science Engineer
+        </h3>
       </div>
-      <div className="drawer-side">
-        <label
-          htmlFor="my-drawer"
-          aria-label="close sidebar"
-          className="drawer-overlay"
-        ></label>
-        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-          {/* Sidebar content here */}
+      <ul>
+        <li>
+          <a href="">hallo</a>
+        </li>
+      </ul>
+      {/* social account links */}
+      <ul className="flex justify-center gap-4">
+        {socialAccounts.map((e, i) => (
           <li>
-            <a>Sidebar Item 1</a>
+            <a key={i} href={e.path} target="_blank" rel={e.rel} className="">
+              <e.icon className="border-2 rounded-lg p-0.5 h-7 w-7 shadow-2xl" />
+            </a>
           </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+        ))}
+      </ul>
+    </aside>
   );
 };
 
