@@ -3,7 +3,11 @@ import { sidebarLinks, socialAccounts } from "../../data/data";
 import AOS from "aos";
 import { Link, useLocation } from "react-router-dom";
 
-const Sidebar: FC = () => {
+interface SidebarInt {
+  t: (e: string) => string;
+}
+
+const Sidebar: FC<SidebarInt> = ({ t }) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -24,7 +28,7 @@ const Sidebar: FC = () => {
           Fahchouch <br /> Mohammed
         </h1>
         <h2 className="text-md font-semibold text-gray-600">
-          Computer Science Engineer
+          {t("titleDesc")}
         </h2>
       </header>
 
@@ -42,7 +46,7 @@ const Sidebar: FC = () => {
                   } btn-xs sm:btn-sm md:btn-md lg:btn-lg w-full justify-start rounded-3xl`}
                   aria-current={isSelected ? "page" : undefined}
                 >
-                  {e.title}
+                  {t(e.title)}
                 </Link>
               </li>
             );

@@ -6,22 +6,28 @@ import LanguageDetector from "i18next-browser-languagedetector";
 const resources = {
     en: {
         translation: {
+            french: "French",
+            english: "English",
+            // links
             home: "Home",
             about: "About",
             projects: "Projects",
             contact: "Contact",
-            engineer: "Computer Science Engineer",
-            welcome: "Welcome to my portfolio",
+            // sidebar
+            titleDesc: "Computer Science Engineer"
         },
     },
     fr: {
         translation: {
+            french: "Français",
+            english: "Anglais",
+            // links
             home: "Accueil",
             about: "À propos",
             projects: "Projets",
             contact: "Contact",
-            engineer: "Ingénieur en informatique",
-            welcome: "Bienvenue sur mon portfolio",
+            // sidebar
+            titleDesc: "Ingénieur en informatique",
         },
     },
 };

@@ -18,26 +18,26 @@ interface socialAccountsInt {
 
 export const sidebarLinks: sidebarLinksInt[] = [
   {
-    title: "Home",
+    title: "home",
     icon: "home",
     path: "/",
     rel: "home page link",
     selected: true,
   },
   {
-    title: "About",
+    title: "about",
     icon: "user",
     path: "/about",
     rel: "about page link",
   },
   {
-    title: "Projects",
+    title: "projects",
     icon: "folder",
     path: "/projects",
     rel: "projects page link",
   },
   {
-    title: "Contact",
+    title: "contact",
     icon: "mail",
     path: "/contact",
     rel: "contact page link",

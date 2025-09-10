@@ -4,13 +4,24 @@ import { Loading } from "./components/loading";
 import "aos/dist/aos.css";
 import { Welcome } from "./pages/welcome";
 import "./i18n";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+import { LanguageSelect } from "./components/languageSelect";
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    // i18n.changeLanguage("en");
+  });
+
   return (
     <Router>
       <div className="h-screen bg-gray-100 p-1 flex">
-        <Sidebar />
+        <Sidebar t={t} />
         <main className="h-full w-full p-6">
+          {/* language selector */}
+          <LanguageSelect t={t} i18n={i18n} />
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/about" element={<div>ℹ️ About Page</div>} />
