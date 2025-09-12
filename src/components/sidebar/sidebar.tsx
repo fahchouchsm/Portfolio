@@ -35,7 +35,7 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
         className={`fixed top-0 left-0 z-40 flex h-full w-64 transform flex-col justify-between bg-white p-5 shadow-2xl transition-transform duration-300 ease-in-out md:static md:w-64 ${
           open ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         } ${open ? "rounded-r-3xl" : "rounded-3xl"}`}
-        aria-label="Sidebar with navigation links and social accounts"
+        aria-label={t("sidebar.asideRel")}
       >
         <header>
           <h1 className="font-serif text-3xl font-extrabold tracking-tight text-gray-800 md:text-4xl">
