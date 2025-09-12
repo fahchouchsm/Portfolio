@@ -1,66 +1,66 @@
 import type { FC } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
 
-interface sidebarLinksInt {
-  title: string;
+export interface SidebarLinksInt {
+  titleKey: string;
   icon: string;
   path: string;
-  rel: string;
   selected?: boolean;
 }
 
-interface socialAccountsInt {
+export interface SocialAccount {
   icon: FC<{ className?: string }>;
   path: string;
-  rel: string;
   label: string;
 }
 
-export const sidebarLinks: sidebarLinksInt[] = [
+export const sidebarLinks: SidebarLinksInt[] = [
   {
-    title: "home",
+    titleKey: "home",
     icon: "home",
     path: "/",
-    rel: "home page link",
     selected: true,
   },
   {
-    title: "about",
+    titleKey: "about",
     icon: "user",
     path: "/about",
-    rel: "about page link",
   },
   {
-    title: "projects",
+    titleKey: "projects",
     icon: "folder",
     path: "/projects",
-    rel: "projects page link",
   },
   {
-    title: "contact",
+    titleKey: "contact",
     icon: "mail",
     path: "/contact",
-    rel: "contact page link",
   },
 ];
 
-export const socialAccounts: socialAccountsInt[] = [
+export const socialAccounts: SocialAccount[] = [
   {
     icon: Github,
     path: "https://github.com/fahchouchsm",
-    rel: "personal github account link",
     label: "GitHub",
   },
   {
     icon: Linkedin,
     path: "https://www.linkedin.com/in/fachchouch-mohammed-63b311375",
-    rel: "personal linkedin account link",
     label: "LinkedIn",
   },
   {
     icon: Mail,
     path: "mailto:fahchouchsm@gmail.com",
-    rel: "personal email address link",
     label: "Email",
   },
+];
+
+interface AvailableLanguagesInt {
+  key: string;
+}
+
+export const AvailableLanguages: AvailableLanguagesInt[] = [
+  { key: "en" },
+  { key: "fr" },
 ];

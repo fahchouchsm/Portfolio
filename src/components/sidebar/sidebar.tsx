@@ -28,7 +28,7 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
           Fahchouch <br /> Mohammed
         </h1>
         <h2 className="text-md font-semibold text-gray-600">
-          {t("titleDesc")}
+          {t("sidebar.titleDesc")}
         </h2>
       </header>
 
@@ -41,12 +41,14 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
               <li key={i}>
                 <Link
                   to={e.path}
-                  className={`btn btn-${
-                    isSelected ? "primary" : "ghost"
-                  } btn-xs sm:btn-sm md:btn-md lg:btn-lg w-full justify-start rounded-3xl`}
+                  className={`btn btn-ghost 
+                              ${isSelected ? "text-primary bg-primary/10" : ""} 
+                              btn-xs sm:btn-sm md:btn-md lg:btn-lg 
+                              w-full justify-start rounded-3xl`}
                   aria-current={isSelected ? "page" : undefined}
+                  rel={t("sidebar.linksRel." + e.titleKey)}
                 >
-                  {t(e.title)}
+                  {t("sidebar.links." + e.titleKey)}
                 </Link>
               </li>
             );
@@ -61,10 +63,10 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
             <a
               href={e.path}
               target="_blank"
-              rel="noopener noreferrer"
+              rel={t("sidebar.socialAccountsLinksRel." + e.label.toLowerCase())}
               aria-label={e.label}
             >
-              <e.icon className="border-2 rounded-lg p-0.5 h-7 w-7 shadow-2xl" />
+              <e.icon className="border-2 rounded-lg p-0.5 h-7 w-7 shadow-2xl hover:text-sky-500" />
             </a>
           </li>
         ))}

@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/sidebar/sidebar";
 import { Loading } from "./components/loading";
 import "aos/dist/aos.css";
-import { Welcome } from "./pages/welcome";
+import { Welcome } from "./pages/welcome/welcome";
 import "./i18n";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
