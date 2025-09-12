@@ -23,7 +23,7 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
     <>
       {/* Mobile toggle button for md and smaller */}
       <button
-        className={`fixed top-5 left-5 z-50 rounded-lg bg-white p-2 shadow-lg md:hidden ${open ? "hidden" : ""}`}
+        className={`fixed top-5 left-5 z-50 rounded-lg bg-white p-2 shadow-sm md:hidden ${open ? "hidden" : ""}`}
         onClick={() => setOpen(!open)}
         aria-label="Toggle sidebar"
       >
@@ -55,9 +55,7 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
                 <li key={i}>
                   <Link
                     to={e.path}
-                    className={`btn btn-ghost ${
-                      isSelected ? "text-primary bg-primary/10" : ""
-                    } btn-xs sm:btn-sm md:btn-md lg:btn-lg w-full justify-start rounded-3xl`}
+                    className={`btn btn-ghost w-full justify-start rounded-3xl px-3 py-2 text-sm sm:text-base md:text-lg lg:text-xl ${isSelected ? "bg-primary text-white" : ""}`}
                     aria-current={isSelected ? "page" : undefined}
                     rel={t("sidebar.linksRel." + e.titleKey)}
                     onClick={() => setOpen(false)}
