@@ -5,15 +5,10 @@ import "aos/dist/aos.css";
 import { Welcome } from "./pages/welcome/welcome";
 import "./translation/i18n";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
 import { LanguageSelect } from "./components/languageSelect";
 
 function App() {
   const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    // i18n.changeLanguage("en");
-  });
 
   return (
     <Router>
@@ -41,7 +36,7 @@ function App() {
         <a
           href="https://wakatime.com/badge/user/121014c5-6d47-4868-b332-98e5c1ac55da/project/e8c4deac-9d0d-4dba-8918-c265cbb4e104"
           target="_blank"
-          rel="noopener noreferrer"
+          rel={t("wakaTotal")}
           className="fixed right-0 bottom-0 z-10 rounded-none"
         >
           <img

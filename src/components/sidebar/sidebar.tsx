@@ -32,16 +32,16 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 flex h-full w-64 transform flex-col justify-between bg-white p-5 shadow-2xl transition-transform duration-300 ease-in-out md:static md:w-64 ${
+        className={`fixed top-0 left-0 z-40 flex h-full w-8/12 transform flex-col justify-between bg-white p-5 shadow-2xl transition-transform duration-300 ease-in-out md:static md:w-3/12 ${
           open ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         } ${open ? "rounded-r-3xl" : "rounded-3xl"}`}
         aria-label={t("sidebar.asideRel")}
       >
         <header>
-          <h1 className="font-serif text-3xl font-extrabold tracking-tight text-gray-800 md:text-4xl">
+          <h1 className="font-serif text-4xl font-extrabold tracking-tight text-gray-800 md:text-4xl">
             Fahchouch <br /> Mohammed
           </h1>
-          <h2 className="md:text-md text-sm font-semibold text-gray-600">
+          <h2 className="text-md font-semibold text-gray-600">
             {t("sidebar.titleDesc")}
           </h2>
         </header>
@@ -55,7 +55,7 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
                 <li key={i}>
                   <Link
                     to={e.path}
-                    className={`btn btn-ghost w-full justify-start rounded-3xl px-3 py-2 text-sm sm:text-base md:text-lg lg:text-xl ${isSelected ? "bg-primary text-white" : ""}`}
+                    className={`btn btn-ghost btn-lg w-full justify-start rounded-4xl ${isSelected ? "bg-primary text-white" : ""}`}
                     aria-current={isSelected ? "page" : undefined}
                     rel={t("sidebar.linksRel." + e.titleKey)}
                     onClick={() => setOpen(false)}
