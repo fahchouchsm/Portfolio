@@ -11,14 +11,12 @@ export type TranslationKeys = TranslationShape<{
     };
     sidebar: {
         links: {
-            home: string;
-            about: string;
+            resume: string;
             projects: string;
             contact: string;
         };
         linksRel: {
-            home: string;
-            about: string;
+            resume: string;
             projects: string;
             contact: string;
         };
@@ -36,6 +34,6 @@ export type TranslationKeys = TranslationShape<{
         subtitlePrefix: string;
         typing: string[];
         description: string;
-        cta: string;
+        imgRel: string;
     };
 }>;

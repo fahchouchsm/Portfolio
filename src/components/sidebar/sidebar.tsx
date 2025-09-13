@@ -55,12 +55,15 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
                 <li key={i}>
                   <Link
                     to={e.path}
-                    className={`btn btn-ghost btn-lg w-full justify-start rounded-4xl ${isSelected ? "bg-primary text-white" : ""}`}
+                    className={`flex justify-between btn btn-ghost btn-lg w-full rounded-4xl ${isSelected ? "bg-primary text-white" : ""}`}
                     aria-current={isSelected ? "page" : undefined}
                     rel={t("sidebar.linksRel." + e.titleKey)}
                     onClick={() => setOpen(false)}
                   >
-                    {t("sidebar.links." + e.titleKey)}
+                    <div className="">{t("sidebar.links." + e.titleKey)}</div>
+                    <div className="">
+                      <e.icon />
+                    </div>
                   </Link>
                 </li>
               );
@@ -83,7 +86,7 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
                 )}
                 aria-label={e.label}
               >
-                <e.icon className="h-7 w-7 rounded-lg border-2 p-0.5 shadow-lg hover:text-sky-500" />
+                <e.icon className="h-7 w-7 rounded-lg border-2 p-0.5 shadow-lg hover:text-primary" />
               </a>
             </li>
           ))}

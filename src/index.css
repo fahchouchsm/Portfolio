@@ -1,2 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
 @import "tailwindcss";
 @plugin "daisyui";
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.float-up-down {
+  animation: float 8s ease-in-out infinite;
+}

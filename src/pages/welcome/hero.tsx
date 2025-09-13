@@ -12,33 +12,34 @@ export const Hero: FC = () => {
   ]);
 
   return (
-    <div className="flex flex-col items-center justify-between px-10 md:flex-row">
-      <div className="max-w-xl text-center md:text-left">
-        <h1 className="mb-4 text-5xl font-bold md:text-6xl">
-          {t("hero.greeting")}{" "}
-          <span className="text-primary">{t("hero.name")}</span>
+    <div className="flex flex-col-reverse items-center px-7 md:flex-row h-full mt-10 gap-10">
+      <div className="max-w-xl md:text-left flex-1 lg:flex-3 text-left">
+        <h1 className="text-5xl font-bold md:text-5xl">
+          {t("hero.greeting")} <br />
+          <span className="text-primary font-serif">{t("hero.name")}</span>
         </h1>
 
-        <h2 className="mb-6 text-2xl font-semibold md:text-3xl">
+        <h2 className="mb-6 text-lg font-semibold md:text-xl text-gray-500">
           {t("hero.subtitlePrefix")}{" "}
           <TypeAnimation
             sequence={typingSequence}
             wrapper="span"
-            speed={50}
+            speed={70}
             repeat={Infinity}
           />
         </h2>
 
-        <p className="mb-6 text-lg opacity-80">{t("hero.description")}</p>
-
-        <button className="btn btn-primary">{t("hero.cta")}</button>
+        <p className="mb-6 text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed font-semibold">
+          {t("hero.description")}
+        </p>
       </div>
-
-      <div className="mt-10 md:mt-0">
+      <div className="flex-1 flex ">
         <img
-          src="/react.svg"
+          className="rounded-full float-up-down md:mb-0 mb-10 w-full"
+          src="/pfp.png"
           alt={t("hero.name")}
-          className="h-64 w-64 object-cover shadow-lg"
+          loading="lazy"
+          rel={t("hero.imgRel")}
         />
       </div>
     </div>

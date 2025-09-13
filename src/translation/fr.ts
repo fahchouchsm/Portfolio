@@ -9,14 +9,12 @@ export const fr: { translation: TranslationKeys } = {
         },
         sidebar: {
             links: {
-                home: "Accueil",
-                about: "À propos",
+                resume: "Résumé",
                 projects: "Projets",
                 contact: "Contact",
             },
             linksRel: {
-                home: "Home page link",
-                about: "About page link",
+                resume: "Résumé page",
                 projects: "Projects page link",
                 contact: "Contact page link",
             },
@@ -30,7 +28,7 @@ export const fr: { translation: TranslationKeys } = {
         },
         hero: {
             greeting: "Salut, je suis",
-            name: "Mohammed Fahchouch",
+            name: "Fahchouch Mohammed",
             subtitlePrefix: "Je peux",
             typing: [
                 "créer des sites web modernes",
@@ -38,8 +36,8 @@ export const fr: { translation: TranslationKeys } = {
                 "concevoir des solutions efficaces",
                 "optimiser l'expérience utilisateur",
             ],
-            description: "Un développeur passionné qui crée des produits numériques impactants.",
-            cta: "Contactez-moi",
+            description: "Un ingénieur passionné par l’apprentissage et la découverte de nouvelles technologies, toujours à la recherche de solutions innovantes pour résoudre les problèmes et améliorer les méthodes de travail.",
+            imgRel: "Portrait De Fahchouch Mohammed"
         },
     },
 };

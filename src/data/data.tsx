@@ -1,9 +1,9 @@
 import type { FC } from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { File, FolderGit2, Github, Linkedin, Mail, Send } from "lucide-react";
 
 export interface SidebarLinksInt {
   titleKey: string;
-  icon: string;
+  icon: FC<{ className?: string }>;
   path: string;
   selected?: boolean;
 }
@@ -16,24 +16,18 @@ export interface SocialAccount {
 
 export const sidebarLinks: SidebarLinksInt[] = [
   {
-    titleKey: "home",
-    icon: "home",
+    titleKey: "resume",
+    icon: File,
     path: "/",
-    selected: true,
-  },
-  {
-    titleKey: "about",
-    icon: "user",
-    path: "/about",
   },
   {
     titleKey: "projects",
-    icon: "folder",
+    icon: FolderGit2,
     path: "/projects",
   },
   {
     titleKey: "contact",
-    icon: "mail",
+    icon: Send,
     path: "/contact",
   },
 ];

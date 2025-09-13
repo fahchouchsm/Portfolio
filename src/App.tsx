@@ -14,15 +14,14 @@ function App() {
     <Router>
       <div className="flex h-screen bg-gray-100 p-1">
         <Sidebar t={t} />
-        <main className="h-full w-full p-6">
+        <main className="w-full px-6 py-14 h-full overflow-auto">
           {/* language selector */}
           <LanguageSelect t={t} i18n={i18n} />
           <Routes>
             <Route path="/" element={<Welcome />} />
-            <Route path="/about" element={<div>ℹ️ About Page</div>} />
-            <Route path="/projects" element={<div>💻 Projects Page</div>} />
-            <Route path="/contact" element={<div>📧 Contact Page</div>} />
-            {/* fallback */}
+            <Route path="/about" element={<div>About Page</div>} />
+            <Route path="/projects" element={<div>Projects Page</div>} />
+            <Route path="/contact" element={<div>Contact Page</div>} />
             <Route
               path="*"
               element={
