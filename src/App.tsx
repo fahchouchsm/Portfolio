@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/sidebar/sidebar";
 import { Loading } from "./components/loading";
 import "aos/dist/aos.css";
-import { Welcome } from "./pages/welcome/welcome";
 import "./translation/i18n";
 import { useTranslation } from "react-i18next";
 import { LanguageSelect } from "./components/languageSelect";
+import { Welcome } from "./pages/welcome/Welcome";
 
 function App() {
   const { t, i18n } = useTranslation();

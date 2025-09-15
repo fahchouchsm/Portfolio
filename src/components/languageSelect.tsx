@@ -12,7 +12,7 @@ export const LanguageSelect: FC<LanguageSelectInt> = ({ t, i18n }) => {
     <select
       id="language-select"
       name="language"
-      className="select fixed top-5 right-5 w-fit shadow-sm"
+      className="select fixed top-5 right-5 w-fit shadow-sm z-50"
       defaultValue={i18n.language}
       onChange={(e) => {
         i18n.changeLanguage(e.target.value);
