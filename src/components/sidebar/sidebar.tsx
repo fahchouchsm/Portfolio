@@ -32,7 +32,7 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 flex h-full w-8/12 transform flex-col justify-between bg-white p-5 shadow-2xl transition-transform duration-300 ease-in-out md:static md:w-3/12 ${
+        className={`fixed top-0 left-0 z-40 md:z-0 flex h-full w-8/12 transform flex-col justify-between bg-white p-5 shadow-2xl transition-transform duration-300 ease-in-out md:static md:w-3/12 ${
           open ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         } ${open ? "rounded-r-3xl" : "rounded-3xl"}`}
         aria-label={t("sidebar.asideRel")}
@@ -93,7 +93,6 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
         </ul>
       </aside>
 
-      {/* Mobile overlay for md and smaller */}
       {open && (
         <div
           className="fixed inset-0 z-30 bg-black/30 md:hidden"
