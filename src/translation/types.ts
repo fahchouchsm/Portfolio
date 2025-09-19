@@ -42,7 +42,7 @@ export type TranslationKeys = TranslationShape<{
         imgRel: string;
     };
     timeLine: {
-        aws: TimeLineItem,
+        ehei: TimeLineItem,
         udemy: TimeLineItem
     }
 }>;

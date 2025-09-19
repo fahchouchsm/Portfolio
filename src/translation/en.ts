@@ -40,10 +40,9 @@ export const en: { translation: TranslationKeys } = {
             imgRel: "Portrait of Fahchouch Mohammed"
         },
         timeLine: {
-            aws: {
+            ehei: {
                 title: "Ongoing Certification in Cloud Computing",
                 subtitle: "Coursera / AWS Academy"
-
             },
             udemy: {
                 title: "udemy",

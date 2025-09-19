@@ -64,18 +64,21 @@ export interface educationItemsInt {
   yearBegin: number;
   yearEnd: number | null;
   imgKey: string;
+  type: "education" | "work" | "internship";
 }
 export const educationItems: educationItemsInt[] = [
   {
-    key: "aws",
+    key: "ehei",
     yearBegin: 2024,
-    yearEnd: null,
-    imgKey: "aws",
+    yearEnd: 2027,
+    imgKey: "ehei.webp",
+    type: "education",
   },
   {
     key: "udemy",
     yearBegin: 2024,
     yearEnd: null,
-    imgKey: "aws",
+    imgKey: "charif.jpg",
+    type: "education",
   },
 ];
