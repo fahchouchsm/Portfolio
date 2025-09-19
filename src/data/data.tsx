@@ -58,3 +58,24 @@ export const AvailableLanguages: AvailableLanguagesInt[] = [
   { key: "en" },
   { key: "fr" },
 ];
+
+export interface educationItemsInt {
+  key: string;
+  yearBegin: number;
+  yearEnd: number | null;
+  imgKey: string;
+}
+export const educationItems: educationItemsInt[] = [
+  {
+    key: "aws",
+    yearBegin: 2024,
+    yearEnd: null,
+    imgKey: "aws",
+  },
+  {
+    key: "udemy",
+    yearBegin: 2024,
+    yearEnd: null,
+    imgKey: "aws",
+  },
+];

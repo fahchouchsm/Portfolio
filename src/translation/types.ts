@@ -2,7 +2,12 @@ export type TranslationShape<T> = {
     [K in keyof T]: T[K] extends object ? TranslationShape<T[K]> : string | string[];
 };
 
-// define English translation shape
+interface TimeLineItem {
+    title: string;
+    subtitle: string;
+}
+
+
 export type TranslationKeys = TranslationShape<{
     wakaTotal: string;
     languageName: {
@@ -36,4 +41,8 @@ export type TranslationKeys = TranslationShape<{
         description: string;
         imgRel: string;
     };
+    timeLine: {
+        aws: TimeLineItem,
+        udemy: TimeLineItem
+    }
 }>;

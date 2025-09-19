@@ -39,5 +39,18 @@ export const en: { translation: TranslationKeys } = {
             description: "An engineer that is passionate about learning and exploring new technologies, constantly seeking innovative ways to solve problems and improve workflows.",
             imgRel: "Portrait of Fahchouch Mohammed"
         },
+        timeLine: {
+            aws: {
+                title: "Ongoing Certification in Cloud Computing",
+                subtitle: "Coursera / AWS Academy"
+
+            },
+            udemy: {
+                title: "udemy",
+                subtitle: "udemy internet"
+
+            }
+        }
+
     },
 };

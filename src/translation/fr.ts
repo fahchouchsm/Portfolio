@@ -39,5 +39,17 @@ export const fr: { translation: TranslationKeys } = {
             description: "Un ingénieur passionné par l’apprentissage et la découverte de nouvelles technologies, toujours à la recherche de solutions innovantes pour résoudre les problèmes et améliorer les méthodes de travail.",
             imgRel: "Portrait De Fahchouch Mohammed"
         },
+        timeLine: {
+            aws: {
+                title: "Ongoing Certification in Cloud Computing",
+                subtitle: "Coursera / AWS Academy"
+
+            },
+            udemy: {
+                title: "udemy",
+                subtitle: "udemy internet"
+
+            }
+        }
     },
 };
