@@ -64,21 +64,60 @@ export interface educationItemsInt {
   yearBegin: number;
   yearEnd: number | null;
   imgKey: string;
+  links?: {
+    link: string;
+    name: string;
+  }[];
+  locationLink: string;
   type: "education" | "work" | "internship";
+  skills: string[];
 }
+
 export const educationItems: educationItemsInt[] = [
   {
     key: "ehei",
     yearBegin: 2024,
+    locationLink: "https://maps.app.goo.gl/ULMt4F4VatWtKsEt6",
     yearEnd: 2027,
     imgKey: "ehei.webp",
     type: "education",
-  },
-  {
-    key: "udemy",
-    yearBegin: 2024,
-    yearEnd: null,
-    imgKey: "charif.jpg",
-    type: "education",
+    links: [
+      {
+        link: "https://ehei.ac.ma/",
+        name: "EHEI Website",
+      },
+    ],
+    skills: [
+      "C++",
+      "Java",
+      "Python",
+      "JavaScript",
+      "PHP",
+      "React",
+      "Laravel",
+      "Node.js",
+      "Django",
+      "Spring Boot",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Git",
+      "GitHub",
+      "Linux",
+      "Windows Server",
+      "Cloud Computing",
+      "AWS",
+      "Azure",
+      "Docker",
+      "RESTful API",
+      "GraphQL",
+      "Cybersecurity",
+      "OAuth2",
+      "JWT",
+      "Flutter",
+      "React Native",
+      "Machine Learning",
+      "Unit Testing",
+    ],
   },
 ];

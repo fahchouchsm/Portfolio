@@ -41,14 +41,12 @@ export const en: { translation: TranslationKeys } = {
         },
         timeLine: {
             ehei: {
+                name: "Ehei : School Des Hautes Studies D'ingénierie",
                 title: "Ongoing Certification in Cloud Computing",
-                subtitle: "Coursera / AWS Academy"
+                subtitle: "Coursera / AWS Academy",
+                description: "School of Advanced Engineering Studies (EHEI) in Oujda is a leading private engineering school in Morocco, recognized by the Ministry of Higher Education. It offers programs in Computer Engineering, Industrial Systems, and IT & Management, preparing students for technology-driven careers. The modern campus features advanced laboratories, collaborative learning spaces, and facilities for research, innovation, and student activities, including workshops and sports events. EHEI combines rigorous academic training with practical experience, producing innovative and adaptable engineers ready to contribute to Morocco’s industrial and digital growth.",
+                duration: "3 Years.",
             },
-            udemy: {
-                title: "udemy",
-                subtitle: "udemy internet"
-
-            }
         }
 
     },

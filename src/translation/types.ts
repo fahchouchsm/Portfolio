@@ -3,8 +3,11 @@ export type TranslationShape<T> = {
 };
 
 interface TimeLineItem {
+    name: string;
     title: string;
     subtitle: string;
+    description: string;
+    duration?: string;
 }
 
 
@@ -43,6 +46,6 @@ export type TranslationKeys = TranslationShape<{
     };
     timeLine: {
         ehei: TimeLineItem,
-        udemy: TimeLineItem
+
     }
 }>;

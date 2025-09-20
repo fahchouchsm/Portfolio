@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { Timeline } from "./TimeLine";
+import { Timeline } from "./TimeLine/TimeLine";
 import { Hero } from "./Hero";
 
 export const Welcome: FC = () => {
