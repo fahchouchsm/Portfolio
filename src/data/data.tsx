@@ -74,6 +74,7 @@ export interface educationItemsInt {
 }
 
 export const educationItems: educationItemsInt[] = [
+  // ehei
   {
     key: "ehei",
     yearBegin: 2024,
@@ -120,32 +121,28 @@ export const educationItems: educationItemsInt[] = [
     ],
     locationLink: "https://maps.app.goo.gl/ULMt4F4VatWtKsEt6",
   },
+  // radeeo
   {
-    key: "udemy",
-    yearBegin: 2024,
+    key: "radeeo",
+    yearBegin: 2023,
     yearEnd: null,
-    imgKey: "aws.png",
-    type: "education",
+    imgKey: "radeeo.jpg",
+    type: "internship",
     skills: [
-      "AWS",
-      "Cloud Computing",
-      "DevOps",
-      "CI/CD",
-      "Infrastructure as Code",
-      "Serverless Architecture",
-      "Cloud Security",
-      "AWS Well-Architected Framework",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "Electron",
+      "Tailwind CSS",
+      "MySQL",
     ],
     links: [
       {
-        link: "https://www.udemy.com/course/aws-certified-cloud-practitioner-new/",
-        name: "AWS Cloud Practitioner Course",
-      },
-      {
-        link: "https://www.udemy.com/user/fahchouchsm/",
-        name: "Learning Profile",
+        link: "https://www.radeeo.ma",
+        name: "Radeeo Website",
       },
     ],
-    locationLink: "https://www.udemy.com",
+    locationLink: "https://maps.app.goo.gl/iQpjxcv3bfKoJSff7",
   },
 ];

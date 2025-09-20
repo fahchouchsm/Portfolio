@@ -48,17 +48,17 @@ export const en: { translation: TranslationKeys } = {
         timeLine: {
             ehei: {
                 name: "EHEI: School of Advanced Engineering Studies",
-                title: "Bachelor in Computer Engineering",
+                title: "EHEI: School of Advanced Engineering Studies",
                 subtitle: "EHEI - Oujda, Morocco",
                 description: "Pursuing a comprehensive engineering program focusing on software development, cloud computing, and modern web technologies. The School of Advanced Engineering Studies (EHEI) in Oujda is a leading private engineering school in Morocco, recognized by the Ministry of Higher Education. It offers programs in Computer Engineering, Industrial Systems, and IT & Management, preparing students for technology-driven careers.",
                 duration: "2024 - 2027 (3 years)",
             },
-            udemy: {
-                name: "Udemy Learning Platform",
-                title: "Ongoing AWS Cloud Practitioner Certification",
+            radeeo: {
+                name: "RADEEO Oujda",
+                title: "Internship & Project Experience",
                 subtitle: "Udemy / AWS Certified",
-                description: "Ongoing professional development with a focus on cloud architecture, DevOps practices, and AWS certification preparation. This comprehensive course covers cloud computing fundamentals, AWS services, security best practices, and deployment strategies to build a strong foundation in cloud technologies.",
-                duration: "2024 - Present",
+                description: "Completed an internship where I developed an Electron application to manage MySQL databases, inspired by MongoDB Compass. Built with TypeScript, React, and Node.js, it allowed full database management, including creating, updating, and querying data. Although the project was not saved to GitHub, it demonstrates my ability to build full-stack desktop applications and handle database connectivity effectively.",
+                duration: "1 month.",
             }
         }
     },

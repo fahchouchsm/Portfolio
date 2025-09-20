@@ -45,7 +45,7 @@ export type TranslationKeys = TranslationShape<{
     };
     timeLine: {
         ehei: TimeLineItem;
-        udemy: TimeLineItem;
+        radeeo: TimeLineItem;
     };
     timelineDrawer: {
         overview: string;

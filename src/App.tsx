@@ -14,7 +14,7 @@ function App() {
     <Router>
       <div className="flex h-screen bg-gray-100 p-1">
         <Sidebar t={t} />
-        <main className="w-full px-6 py-14 h-full overflow-auto">
+        <main className="h-full w-full overflow-auto px-6 py-14">
           {/* language selector */}
           <LanguageSelect t={t} i18n={i18n} />
           <Routes>
@@ -32,7 +32,7 @@ function App() {
             />
           </Routes>
         </main>
-        <a
+        {/* <a
           href="https://wakatime.com/badge/user/121014c5-6d47-4868-b332-98e5c1ac55da/project/e8c4deac-9d0d-4dba-8918-c265cbb4e104"
           target="_blank"
           rel={t("wakaTotal")}
@@ -42,7 +42,7 @@ function App() {
             src="https://wakatime.com/badge/user/121014c5-6d47-4868-b332-98e5c1ac55da/project/e8c4deac-9d0d-4dba-8918-c265cbb4e104.svg"
             alt="wakatime"
           />
-        </a>
+        </a> */}
       </div>
     </Router>
   );

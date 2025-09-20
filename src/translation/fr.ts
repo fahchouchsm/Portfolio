@@ -48,17 +48,17 @@ export const fr: { translation: TranslationKeys } = {
         timeLine: {
             ehei: {
                 name: "EHEI: École des Hautes Études d'Ingénierie",
-                title: "Licence en Génie Informatique",
+                title: "EHEI: École des Hautes Études d'Ingénierie",
                 subtitle: "EHEI - Oujda, Maroc",
                 description: "Formation complète en ingénierie axée sur le développement logiciel, le cloud computing et les technologies web modernes. L'École des Hautes Études d'Ingénierie (EHEI) à Oujda est une école d'ingénieurs privée reconnue par le Ministère de l'Enseignement supérieur. Elle propose des programmes en Génie Informatique, Systèmes Industriels et Informatique & Gestion, formant les étudiants à des carrières technologiques de pointe.",
                 duration: "2024 - 2027 (3 ans)",
             },
-            udemy: {
-                name: "Plateforme d'apprentissage Udemy",
-                title: "Certification AWS Cloud Practitioner en cours",
-                subtitle: "Udemy / AWS Certified",
-                description: "Développement professionnel continu axé sur l'architecture cloud, les pratiques DevOps et la préparation à la certification AWS. Ce cours complet couvre les fondamentaux du cloud computing, les services AWS, les meilleures pratiques de sécurité et les stratégies de déploiement pour établir une base solide dans les technologies cloud.",
-                duration: "2024 - Présent",
+            radeeo: {
+                name: "RADEEO Oujda",
+                title: "Stage et Projet",
+                subtitle: "Udemy / Certifié AWS",
+                description: "Réalisation d'un stage où j'ai développé une application Electron pour gérer des bases de données MySQL, inspirée de MongoDB Compass. Développée avec TypeScript, React et Node.js, elle permettait une gestion complète des bases, incluant la création, la mise à jour et les requêtes de données. Bien que le projet n'ait pas été sauvegardé sur GitHub, il démontre ma capacité à créer des applications desktop full-stack et à gérer efficacement la connexion aux bases de données.",
+                duration: "1 mois.",
             }
         }
     },

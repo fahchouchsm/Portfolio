@@ -1,6 +1,14 @@
 import { type FC } from "react";
 import { t } from "i18next";
-import { Calendar, MapPin, Award, Link2, ExternalLink } from "lucide-react";
+import {
+  MapPin,
+  Link2,
+  ExternalLink,
+  GraduationCap,
+  Code,
+  BriefcaseBusiness,
+  CalendarDays,
+} from "lucide-react";
 import type { educationItemsInt } from "../../../data/data";
 
 interface TimelineDrawerContentProps {
@@ -15,12 +23,13 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
   const subtitle = t(`timeLine.${item.key}.subtitle`);
   const description = t(`timeLine.${item.key}.description`);
   const duration = t(`timeLine.${item.key}.duration`);
+  const iconClass = "text-primary h-5 w-5";
 
   const renderLocation = () => {
     if (!item.locationLink) {
       return (
         <div className="flex items-center gap-2 text-sm">
-          <MapPin className="w-4 h-4 text-gray-500" />
+          <MapPin className="h-4 w-4 text-gray-500" />
           <span className="text-gray-600">{name}</span>
         </div>
       );
@@ -31,30 +40,36 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
         href={item.locationLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 text-sm hover:text-primary transition-colors hover:underline"
+        className="hover:text-primary flex items-center gap-2 text-sm transition-colors hover:underline"
       >
-        <MapPin className="w-4 h-4 text-gray-500" />
-        <span className="text-gray-600 hover:text-primary">{name}</span>
-        <ExternalLink className="w-3 h-3 ml-1" />
+        <MapPin className="h-4 w-4 text-gray-500" />
+        <span className="hover:text-primary text-gray-600">{name}</span>
+        <ExternalLink className="ml-1 h-3 w-3" />
       </a>
     );
   };
 
   return (
-    <div className="p-4 bg-white rounded-t-[10px] flex-1 overflow-y-auto">
-      <div className="max-w-xl mx-auto space-y-4">
+    <div className="flex-1 overflow-y-auto rounded-t-[10px] bg-white p-4">
+      <div className="mx-auto max-w-xl space-y-4">
         <div
           aria-hidden
-          className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-4"
+          className="mx-auto mb-4 h-1.5 w-12 flex-shrink-0 rounded-full bg-gray-300"
         />
 
         <div className="space-y-2">
-          <h2 className="font-bold text-xl text-gray-900 flex items-center gap-2">
-            <Award className="w-5 h-5 text-primary" />
+          <h2 className="flex items-center gap-2 text-xl font-bold text-gray-900">
+            {item.type == "education" ? (
+              <GraduationCap className={iconClass} />
+            ) : item.type == "internship" ? (
+              <Code className={iconClass} />
+            ) : (
+              <BriefcaseBusiness className={iconClass} />
+            )}
             {title}
           </h2>
           <div className="flex items-center gap-2 text-sm text-gray-500">
-            <Calendar className="w-4 h-4" />
+            <CalendarDays className="h-4 w-4" />
             <span>
               {item.yearEnd
                 ? `${item.yearBegin} - ${item.yearEnd}`
@@ -72,30 +87,30 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
           <img
             src={`/timeline/${item.imgKey}`}
             alt={title}
-            className="w-full h-48 object-cover rounded-lg border border-gray-200"
+            className="h-64 w-full rounded-lg border border-gray-200 object-cover"
           />
         </div>
 
         <div className="space-y-3">
           <div>
-            <h3 className="font-semibold text-gray-800 mb-2">
+            <h3 className="mb-2 font-semibold text-gray-800">
               {t("timelineDrawer.overview")}
             </h3>
-            <p className="text-gray-600 leading-relaxed">{description}</p>
+            <p className="leading-relaxed text-gray-600">{description}</p>
           </div>
 
           <div className="text-sm">{renderLocation()}</div>
 
           {item.skills.length > 0 && (
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="mb-2 font-semibold text-gray-800">
                 {t("timelineDrawer.keySkills")}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {item.skills.map((skill, index) => (
                   <span
                     key={index}
-                    className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
+                    className="rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800"
                   >
                     {skill}
                   </span>
@@ -106,7 +121,7 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
 
           {item.links && item.links.length > 0 && (
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="mb-2 font-semibold text-gray-800">
                 {t("timelineDrawer.links")}
               </h3>
               <div className="space-y-2">
@@ -116,9 +131,9 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
                     href={link.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors text-sm text-primary hover:text-primary-focus"
+                    className="text-primary hover:text-primary-focus flex items-center gap-2 rounded-lg p-2 text-sm transition-colors hover:bg-gray-50"
                   >
-                    <Link2 className="w-4 h-4 flex-shrink-0" />
+                    <Link2 className="h-4 w-4 flex-shrink-0" />
                     <span className="truncate">{link.name}</span>
                   </a>
                 ))}
