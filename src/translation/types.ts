@@ -3,13 +3,12 @@ export type TranslationShape<T> = {
 };
 
 interface TimeLineItem {
-    name: string;
     title: string;
+    name: string;
     subtitle: string;
     description: string;
-    duration?: string;
+    duration: string;
 }
-
 
 export type TranslationKeys = TranslationShape<{
     wakaTotal: string;
@@ -45,7 +44,13 @@ export type TranslationKeys = TranslationShape<{
         imgRel: string;
     };
     timeLine: {
-        ehei: TimeLineItem,
-
-    }
+        ehei: TimeLineItem;
+        udemy: TimeLineItem;
+    };
+    timelineDrawer: {
+        overview: string;
+        keySkills: string;
+        links: string;
+        duration: string;
+    };
 }>;

@@ -39,15 +39,27 @@ export const en: { translation: TranslationKeys } = {
             description: "An engineer that is passionate about learning and exploring new technologies, constantly seeking innovative ways to solve problems and improve workflows.",
             imgRel: "Portrait of Fahchouch Mohammed"
         },
+        timelineDrawer: {
+            overview: "Overview",
+            keySkills: "Key Skills",
+            links: "Links",
+            duration: "Duration"
+        },
         timeLine: {
             ehei: {
-                name: "Ehei : School Des Hautes Studies D'ingénierie",
-                title: "Ongoing Certification in Cloud Computing",
-                subtitle: "Coursera / AWS Academy",
-                description: "School of Advanced Engineering Studies (EHEI) in Oujda is a leading private engineering school in Morocco, recognized by the Ministry of Higher Education. It offers programs in Computer Engineering, Industrial Systems, and IT & Management, preparing students for technology-driven careers. The modern campus features advanced laboratories, collaborative learning spaces, and facilities for research, innovation, and student activities, including workshops and sports events. EHEI combines rigorous academic training with practical experience, producing innovative and adaptable engineers ready to contribute to Morocco’s industrial and digital growth.",
-                duration: "3 Years.",
+                name: "EHEI: School of Advanced Engineering Studies",
+                title: "Bachelor in Computer Engineering",
+                subtitle: "EHEI - Oujda, Morocco",
+                description: "Pursuing a comprehensive engineering program focusing on software development, cloud computing, and modern web technologies. The School of Advanced Engineering Studies (EHEI) in Oujda is a leading private engineering school in Morocco, recognized by the Ministry of Higher Education. It offers programs in Computer Engineering, Industrial Systems, and IT & Management, preparing students for technology-driven careers.",
+                duration: "2024 - 2027 (3 years)",
             },
+            udemy: {
+                name: "Udemy Learning Platform",
+                title: "Ongoing AWS Cloud Practitioner Certification",
+                subtitle: "Udemy / AWS Certified",
+                description: "Ongoing professional development with a focus on cloud architecture, DevOps practices, and AWS certification preparation. This comprehensive course covers cloud computing fundamentals, AWS services, security best practices, and deployment strategies to build a strong foundation in cloud technologies.",
+                duration: "2024 - Present",
+            }
         }
-
     },
 };

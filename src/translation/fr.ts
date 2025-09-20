@@ -36,18 +36,30 @@ export const fr: { translation: TranslationKeys } = {
                 "concevoir des solutions efficaces",
                 "optimiser l'expérience utilisateur",
             ],
-            description: "Un ingénieur passionné par l’apprentissage et la découverte de nouvelles technologies, toujours à la recherche de solutions innovantes pour résoudre les problèmes et améliorer les méthodes de travail.",
+            description: "Un ingénieur passionné par l'apprentissage et la découverte de nouvelles technologies, toujours à la recherche de solutions innovantes pour résoudre les problèmes et améliorer les méthodes de travail.",
             imgRel: "Portrait De Fahchouch Mohammed"
+        },
+        timelineDrawer: {
+            overview: "Aperçu",
+            keySkills: "Compétences Clés",
+            links: "Liens",
+            duration: "Durée"
         },
         timeLine: {
             ehei: {
-                title: "Ongoing Certification in Cloud Computing",
-                name: "Ehei : Ecole Des Hautes Etudes D'ingénierie",
-                subtitle: "Coursera / AWS Academy",
-                description: "L’École des Hautes Études d’Ingénierie (EHEI) à Oujda est une école d’ingénieurs privée reconnue par le Ministère de l’Enseignement supérieur. Elle propose des programmes en Génie Informatique, Systèmes Industriels et Informatique & Gestion, formant les étudiants à des carrières technologiques de pointe. Le campus moderne dispose de laboratoires avancés, d’espaces collaboratifs et d’infrastructures pour la recherche, l’innovation et la vie étudiante. L’EHEI combine formation académique rigoureuse et expérience pratique, préparant des ingénieurs innovants et adaptables, prêts à contribuer au développement industriel et numérique du Maroc.",
-                duration: "3 Ans."
+                name: "EHEI: École des Hautes Études d'Ingénierie",
+                title: "Licence en Génie Informatique",
+                subtitle: "EHEI - Oujda, Maroc",
+                description: "Formation complète en ingénierie axée sur le développement logiciel, le cloud computing et les technologies web modernes. L'École des Hautes Études d'Ingénierie (EHEI) à Oujda est une école d'ingénieurs privée reconnue par le Ministère de l'Enseignement supérieur. Elle propose des programmes en Génie Informatique, Systèmes Industriels et Informatique & Gestion, formant les étudiants à des carrières technologiques de pointe.",
+                duration: "2024 - 2027 (3 ans)",
             },
-
+            udemy: {
+                name: "Plateforme d'apprentissage Udemy",
+                title: "Certification AWS Cloud Practitioner en cours",
+                subtitle: "Udemy / AWS Certified",
+                description: "Développement professionnel continu axé sur l'architecture cloud, les pratiques DevOps et la préparation à la certification AWS. Ce cours complet couvre les fondamentaux du cloud computing, les services AWS, les meilleures pratiques de sécurité et les stratégies de déploiement pour établir une base solide dans les technologies cloud.",
+                duration: "2024 - Présent",
+            }
         }
     },
 };

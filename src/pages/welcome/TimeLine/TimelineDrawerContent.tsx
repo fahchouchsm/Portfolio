@@ -11,32 +11,32 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
   item,
 }) => {
   const title = t(`timeLine.${item.key}.title`);
+  const name = t(`timeLine.${item.key}.name`);
+  const subtitle = t(`timeLine.${item.key}.subtitle`);
+  const description = t(`timeLine.${item.key}.description`);
+  const duration = t(`timeLine.${item.key}.duration`);
 
   const renderLocation = () => {
-    if (!item.locationLink) return null;
-
-    if (item.locationLink) {
+    if (!item.locationLink) {
       return (
-        <a
-          href={item.locationLink}
-          target={"_blank"}
-          rel={"noopener noreferrer"}
-          className="flex items-center gap-2 text-sm hover:text-primary transition-colors hover:underline"
-        >
+        <div className="flex items-center gap-2 text-sm">
           <MapPin className="w-4 h-4 text-gray-500" />
-          <span className="text-gray-800 hover:text-primary">
-            {t(`timeLine.${item.key}.name`)}
-          </span>
-          <ExternalLink className="w-3 h-3 ml-1" />
-        </a>
+          <span className="text-gray-600">{name}</span>
+        </div>
       );
     }
 
     return (
-      <div className="flex items-center gap-2 text-sm">
-        <MapPin className="w-4 h-4 text-gray-800" />
-        <span className="text-gray-600">{t(`timeLine.${item.key}.name`)}</span>
-      </div>
+      <a
+        href={item.locationLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-sm hover:text-primary transition-colors hover:underline"
+      >
+        <MapPin className="w-4 h-4 text-gray-500" />
+        <span className="text-gray-600 hover:text-primary">{name}</span>
+        <ExternalLink className="w-3 h-3 ml-1" />
+      </a>
     );
   };
 
@@ -61,6 +61,11 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
                 : `${item.yearBegin} - Present`}
             </span>
           </div>
+          {subtitle && (
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <span className="font-medium">{subtitle}</span>
+            </div>
+          )}
         </div>
 
         <div className="w-full">
@@ -73,23 +78,23 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
 
         <div className="space-y-3">
           <div>
-            <h3 className="font-semibold text-gray-800 mb-2">Overview</h3>
-            <p className="text-gray-600 leading-relaxed">
-              {t(`timeLine.${item.key}.description`)}
-            </p>
+            <h3 className="font-semibold text-gray-800 mb-2">
+              {t("timelineDrawer.overview")}
+            </h3>
+            <p className="text-gray-600 leading-relaxed">{description}</p>
           </div>
 
-          {item.locationLink && (
-            <div className="text-sm">{renderLocation()}</div>
-          )}
+          <div className="text-sm">{renderLocation()}</div>
 
           {item.skills.length > 0 && (
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">Key Skills</h3>
+              <h3 className="font-semibold text-gray-800 mb-2">
+                {t("timelineDrawer.keySkills")}
+              </h3>
               <div className="flex flex-wrap gap-2">
-                {item.skills.map((skill) => (
+                {item.skills.map((skill, index) => (
                   <span
-                    key={skill}
+                    key={index}
                     className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
                   >
                     {skill}
@@ -101,7 +106,9 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
 
           {item.links && item.links.length > 0 && (
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">Links</h3>
+              <h3 className="font-semibold text-gray-800 mb-2">
+                {t("timelineDrawer.links")}
+              </h3>
               <div className="space-y-2">
                 {item.links.map((link, i) => (
                   <a
@@ -119,9 +126,9 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
             </div>
           )}
 
-          {t(`timeLine.${item.key}.duration`) && (
+          {duration && (
             <div className="text-sm text-gray-500 italic">
-              Duration : {t(`timeLine.${item.key}.duration`)}
+              {t("timelineDrawer.duration")}: {duration}
             </div>
           )}
         </div>
