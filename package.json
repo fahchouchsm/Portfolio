@@ -14,7 +14,7 @@
     "aos": "^2.3.4",
     "i18next": "^25.5.2",
     "i18next-browser-languagedetector": "^8.2.0",
-    "lucide-react": "^0.543.0",
+    "lucide-react": "^0.544.0",
     "motion": "^12.23.12",
     "react": "^19.1.1",
     "react-chrono": "^2.9.1",

@@ -5,11 +5,11 @@ import "aos/dist/aos.css";
 import "./translation/i18n";
 import { useTranslation } from "react-i18next";
 import { LanguageSelect } from "./components/languageSelect";
-import { Welcome } from "./pages/welcome/Welcome";
+import { Welcome } from "./pages/welcome/welcome";
 
 function App() {
   const { t, i18n } = useTranslation();
-
+  console.log("hamid lamba");
   return (
     <Router>
       <div className="flex h-screen bg-gray-100 p-1">
