@@ -53,6 +53,14 @@ export const fr: { translation: TranslationKeys } = {
                 description: "Formation complète en ingénierie axée sur le développement logiciel, le cloud computing et les technologies web modernes. L'École des Hautes Études d'Ingénierie (EHEI) à Oujda est une école d'ingénieurs privée reconnue par le Ministère de l'Enseignement supérieur. Elle propose des programmes en Génie Informatique, Systèmes Industriels et Informatique & Gestion, formant les étudiants à des carrières technologiques de pointe.",
                 duration: "2024 - 2027 (3 ans)",
             },
+            pfeBts: {
+                title: "BTS - Projet de Fin d'Études",
+                name: "BTS - Projet de Fin d'Études",
+                subtitle: "Application Electron / Gestion de bases de données MySQL",
+                description:
+                    "Projet de fin d'études où j’ai conçu une application desktop avec Electron, React et TypeScript, inspirée de MongoDB Compass, permettant la gestion complète des bases MySQL (création, mise à jour, requêtes). Ce projet démontre ma capacité à développer des applications full-stack, à intégrer des interfaces modernes et à gérer efficacement la connexion aux bases de données.",
+                duration: "1 an",
+            },
             radeeo: {
                 name: "RADEEO Oujda",
                 title: "Stage et Projet",

@@ -74,7 +74,6 @@ export interface educationItemsInt {
 }
 
 export const educationItems: educationItemsInt[] = [
-  // ehei
   {
     key: "ehei",
     yearBegin: 2024,
@@ -121,7 +120,28 @@ export const educationItems: educationItemsInt[] = [
     ],
     locationLink: "https://maps.app.goo.gl/ULMt4F4VatWtKsEt6",
   },
-  // radeeo
+  {
+    key: "pfeBts",
+    yearBegin: 2023,
+    yearEnd: null,
+    imgKey: "pfeBts.png",
+    type: "education",
+    skills: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "Electron",
+      "Tailwind CSS",
+      "MongoDB",
+    ],
+    links: [
+      {
+        link: "https://github.com/fahchouchsm/CasaChores",
+        name: "Source Code",
+      },
+    ],
+  },
   {
     key: "radeeo",
     yearBegin: 2023,

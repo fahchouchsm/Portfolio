@@ -11,14 +11,8 @@ import { Drawer } from "vaul";
 import { TimelineDrawerContent } from "./TimelineDrawerContent";
 import { educationItems } from "../../../data/data";
 
-interface TimelineProps {}
-
 export const Timeline: FC<TimelineProps> = () => {
   const [openDrawerKey, setOpenDrawerKey] = useState<string | null>(null);
-
-  const sortedItems = [...educationItems].sort(
-    (a, b) => b.yearBegin - a.yearBegin,
-  );
 
   const handleDrawerToggle = (itemKey: string) => {
     setOpenDrawerKey(openDrawerKey === itemKey ? null : itemKey);
@@ -29,7 +23,7 @@ export const Timeline: FC<TimelineProps> = () => {
   return (
     <div className="container w-full px-18 py-12">
       <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical mx-auto w-full">
-        {sortedItems.map((item, i) => {
+        {educationItems.map((item, i) => {
           const yearLabel = item.yearEnd
             ? `${item.yearBegin} - ${item.yearEnd}`
             : `${item.yearBegin}`;
