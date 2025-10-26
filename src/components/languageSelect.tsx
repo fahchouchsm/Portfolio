@@ -28,5 +28,3 @@ export const LanguageSelect: FC<LanguageSelectInt> = ({ t, i18n }) => {
     </select>
   );
 };
-
-console.log("hello world")

@@ -9,12 +9,11 @@ import { Welcome } from "./pages/welcome/welcome";
 
 function App() {
   const { t, i18n } = useTranslation();
-  console.log("hamid lamba");
   return (
     <Router>
       <div className="flex h-screen bg-gray-100 p-1">
         <Sidebar t={t} />
-        <main className="h-full w-full overflow-auto px-6 py-14">
+        <main className="h-full w-full overflow-auto md:px-6 px-2 py-14">
           {/* language selector */}
           <LanguageSelect t={t} i18n={i18n} />
           <Routes>

@@ -165,4 +165,24 @@ export const educationItems: educationItemsInt[] = [
     ],
     locationLink: "https://maps.app.goo.gl/iQpjxcv3bfKoJSff7",
   },
+//  todo
+  {
+    key: "persoProjects",
+    yearBegin: 2021,
+    yearEnd: null,
+    imgKey: "udemy.png",
+    type: "education",
+    skills: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "APIs",
+    ],
+    // todo
+    links: [],
+    locationLink: undefined,
+  }
+
 ];

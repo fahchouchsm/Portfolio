@@ -21,7 +21,7 @@ export const Timeline = () => {
   const iconClass = "h-4 w-4 text-white";
 
   return (
-    <div className="container w-full px-18 py-12">
+    <div className="container w-full py-12">
       <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical mx-auto w-full">
         {educationItems.map((item, i) => {
           const yearLabel = item.yearEnd
@@ -71,7 +71,7 @@ export const Timeline = () => {
                     {/* Image - full width of its side */}
                     <div className="mb-4 w-full">
                       <motion.img
-                        className="border-base-200 h-56 w-full rounded-lg border object-cover transition-all duration-300 group-hover/timeline:scale-[1.02] hover:shadow-lg md:h-48"
+                        className="border-base-200 h-56 w-full rounded-lg border object-cover shadow-sm transition-all duration-300 group-hover/timeline:scale-[1.02] hover:shadow-2xl md:h-48"
                         src={`/timeline/${item.imgKey}`}
                         alt={t(`timeLine.${item.key}.title`)}
                         loading="lazy"

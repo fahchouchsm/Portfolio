@@ -12,7 +12,7 @@ export const Hero: FC = () => {
   ]);
 
   return (
-    <div className="flex flex-col-reverse items-center px-7 md:flex-row h-full mt-10 gap-10">
+    <div className="flex flex-col-reverse items-center  md:flex-row h-full mt-10 gap-10">
       <div className="max-w-xl md:text-left flex-1 lg:flex-3 text-left">
         <h1 className="text-5xl font-bold md:text-5xl">
           {t("hero.greeting")} <br />
