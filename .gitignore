@@ -33,7 +33,3 @@ coverage/
 
 # React specific
 *.cache
-
-# ides
-.idea/
-.vscode/
