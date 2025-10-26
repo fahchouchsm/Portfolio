@@ -12,11 +12,12 @@ export const LanguageSelect: FC<LanguageSelectInt> = ({ t, i18n }) => {
     <select
       id="language-select"
       name="language"
-      className="select fixed top-5 right-5 w-fit shadow-sm z-50"
+      className="select fixed top-5 right-5 z-50 w-fit shadow-sm"
       defaultValue={i18n.language}
       onChange={(e) => {
-        i18n.changeLanguage(e.target.value);
-        window.location.reload();
+        i18n.changeLanguage(e.target.value).then(() => {
+          window.location.reload();
+        });
       }}
     >
       {AvailableLanguages.map((e, i) => (
@@ -27,3 +28,5 @@ export const LanguageSelect: FC<LanguageSelectInt> = ({ t, i18n }) => {
     </select>
   );
 };
+
+console.log("hello world")

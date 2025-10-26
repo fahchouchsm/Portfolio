@@ -10,6 +10,7 @@ import {
 import { Drawer } from "vaul";
 import { TimelineDrawerContent } from "./TimelineDrawerContent";
 import { educationItems } from "../../../data/data";
+import type { TimelineProps } from "react-chrono/dist/models/TimelineModel";
 
 export const Timeline: FC<TimelineProps> = () => {
   const [openDrawerKey, setOpenDrawerKey] = useState<string | null>(null);
