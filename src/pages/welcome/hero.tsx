@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 export const Hero: FC = () => {
   const { t } = useTranslation();
 
-  const typingStrings = t("hero.typing", { returnObjects: true }) as string[];
+  const typingStrings = t("welcomePage.hero.typing", { returnObjects: true }) as string[];
   const typingSequence: (string | number)[] = typingStrings.flatMap((s) => [
     s,
     2000,
@@ -15,12 +15,12 @@ export const Hero: FC = () => {
     <div className="flex flex-col-reverse items-center  md:flex-row h-full mt-10 gap-10">
       <div className="max-w-xl md:text-left flex-1 lg:flex-3 text-left">
         <h1 className="text-5xl font-bold md:text-5xl">
-          {t("hero.greeting")} <br />
-          <span className="text-primary font-serif">{t("hero.name")}</span>
+          {t("welcomePage.hero.greeting")} <br />
+          <span className="text-primary font-bold">{t("welcomePage.hero.name")}</span>
         </h1>
 
         <h2 className="mb-6 text-lg font-semibold md:text-xl text-gray-500">
-          {t("hero.subtitlePrefix")}{" "}
+          {t("welcomePage.hero.subtitlePrefix")}{" "}
           <TypeAnimation
             sequence={typingSequence}
             wrapper="span"
@@ -30,16 +30,16 @@ export const Hero: FC = () => {
         </h2>
 
         <p className="mb-6 text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed font-semibold">
-          {t("hero.description")}
+          {t("welcomePage.hero.description")}
         </p>
       </div>
       <div className="flex-1 flex ">
         <img
           className="rounded-full float-up-down md:mb-0 mb-10 w-full"
           src="/pfp.png"
-          alt={t("hero.name")}
+          alt={t("welcomePage.hero.name")}
           loading="lazy"
-          rel={t("hero.imgRel")}
+          rel={t("welcomePage.hero.imgRel")}
         />
       </div>
     </div>

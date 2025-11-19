@@ -37,25 +37,31 @@ export type TranslationKeys = TranslationShape<{
     titleDesc: string;
     asideRel: string;
   };
-  hero: {
-    greeting: string;
-    name: string;
-    subtitlePrefix: string;
-    typing: string[];
-    description: string;
-    imgRel: string;
-  };
-  timelineDrawer: {
-    overview: string;
-    keySkills: string;
-    links: string;
-    duration: string;
-  };
-  timeLine: {
-    title: string;
-    ehei: TimeLineItem;
-    pfeBts: TimeLineItem;
-    radeeo: TimeLineItem;
-    persoProjects: TimeLineItem;
+  welcomePage: {
+    hero: {
+      greeting: string;
+      name: string;
+      subtitlePrefix: string;
+      typing: string[];
+      description: string;
+      imgRel: string;
+    };
+    timelineDrawer: {
+      overview: string;
+      keySkills: string;
+      links: string;
+      duration: string;
+    };
+    timeLine: {
+      title: string;
+      ehei: TimeLineItem;
+      pfeBts: TimeLineItem;
+      radeeo: TimeLineItem;
+      persoProjects: TimeLineItem;
+    };
+    goToProjectsBtn: {
+      text: string;
+      rel: string;
+    };
   };
 }>;

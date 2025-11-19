@@ -1,6 +1,6 @@
-import type { TranslationKeys } from "../types.ts";
+import type { TranslationKeys } from "../../types.ts";
 
-export const timeLineEn: TranslationKeys["timeLine"] = {
+export const timeLineEn: TranslationKeys["welcomePage"]["timeLine"] = {
   title: "Time Line",
   ehei: {
     name: "EHEI: School of Advanced Engineering Studies",
@@ -37,7 +37,7 @@ export const timeLineEn: TranslationKeys["timeLine"] = {
   },
 };
 
-export const timeLineFr: TranslationKeys["timeLine"] = {
+export const timeLineFr: TranslationKeys["welcomePage"]["timeLine"] = {
   title: "Chronologie",
   ehei: {
     name: "EHEI: École des Hautes Études d'Ingénierie",

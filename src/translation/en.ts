@@ -1,8 +1,8 @@
 import type { TranslationKeys } from "./types.ts";
-import { heroEn } from "./components/hero.ts";
-import { timeLineDrawerEN } from "./components/typeLineDrawer.ts";
+import { heroEn } from "./components/home/hero.ts";
+import { timeLineDrawerEN } from "./components/home/typeLineDrawer.ts";
 import { sidebarEn } from "./components/sidebar.ts";
-import { timeLineEn } from "./components/timeLine.ts";
+import { timeLineEn } from "./components/home/timeLine.ts";
 
 export const en: { translation: TranslationKeys } = {
   translation: {
@@ -12,8 +12,14 @@ export const en: { translation: TranslationKeys } = {
       en: "English 🇺🇸",
     },
     sidebar: sidebarEn,
-    hero: heroEn,
-    timelineDrawer: timeLineDrawerEN,
-    timeLine: timeLineEn,
+    welcomePage: {
+      hero: heroEn,
+      timelineDrawer: timeLineDrawerEN,
+      timeLine: timeLineEn,
+      goToProjectsBtn: {
+        text: "See my projects",
+        rel: "Go to the projects section",
+      },
+    },
   },
 };

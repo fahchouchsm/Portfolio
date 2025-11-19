@@ -3,7 +3,7 @@ import { FadeInWhenVisible } from "../animation/FadeInWhenVisible.tsx";
 
 const GitHubStats: React.FC<{ username: string }> = ({ username }) => {
   return (
-    <section className="mt-12">
+    <section>
       {/* Animated title */}
       <FadeInWhenVisible>
         <h2 className="mb-3 font-semibold text-gray-800 md:text-2xl">

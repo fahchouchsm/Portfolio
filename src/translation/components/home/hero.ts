@@ -1,6 +1,6 @@
-import type { TranslationKeys } from "../types.ts";
+import type { TranslationKeys } from "../../types.ts";
 
-export const heroEn: TranslationKeys["hero"] = {
+export const heroEn: TranslationKeys["welcomePage"]["hero"] = {
   greeting: "Salut, je suis",
   name: "Fahchouch Mohammed",
   subtitlePrefix: "Je peux",
@@ -15,7 +15,7 @@ export const heroEn: TranslationKeys["hero"] = {
   imgRel: "Portrait of Fahchouch Mohammed",
 };
 
-export const heroFr: TranslationKeys["hero"] = {
+export const heroFr: TranslationKeys["welcomePage"]["hero"] = {
   greeting: "Salut, je suis",
   name: "Fahchouch Mohammed",
   subtitlePrefix: "Je peux",

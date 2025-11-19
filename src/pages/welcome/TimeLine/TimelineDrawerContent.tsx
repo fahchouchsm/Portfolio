@@ -18,11 +18,11 @@ interface TimelineDrawerContentProps {
 export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
   item,
 }) => {
-  const title = t(`timeLine.${item.key}.title`);
-  const name = t(`timeLine.${item.key}.name`);
-  const subtitle = t(`timeLine.${item.key}.subtitle`);
-  const description = t(`timeLine.${item.key}.description`);
-  const duration = t(`timeLine.${item.key}.duration`);
+  const title = t(`welcomePage.timeLine.${item.key}.title`);
+  const name = t(`welcomePage.timeLine.${item.key}.name`);
+  const subtitle = t(`welcomePage.timeLine.${item.key}.subtitle`);
+  const description = t(`welcomePage.timeLine.${item.key}.description`);
+  const duration = t(`welcomePage.timeLine.${item.key}.duration`);
   const iconClass = "text-primary h-5 w-5";
 
   const renderLocation = () => {
@@ -94,7 +94,7 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
         <div className="space-y-3">
           <div>
             <h3 className="mb-2 font-semibold text-gray-800">
-              {t("timelineDrawer.overview")}
+              {t("welcomePage.timelineDrawer.overview")}
             </h3>
             <p className="leading-relaxed text-gray-600">{description}</p>
           </div>
@@ -104,7 +104,7 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
           {item.skills.length > 0 && (
             <div>
               <h3 className="mb-2 font-semibold text-gray-800">
-                {t("timelineDrawer.keySkills")}
+                {t("welcomePage.timelineDrawer.keySkills")}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {item.skills.map((skill, index) => (
@@ -122,7 +122,7 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
           {item.links && item.links.length > 0 && (
             <div>
               <h3 className="mb-2 font-semibold text-gray-800">
-                {t("timelineDrawer.links")}
+                {t("welcomePage.timelineDrawer.links")}
               </h3>
               <div className="space-y-2">
                 {item.links.map((link, i) => (
@@ -143,7 +143,7 @@ export const TimelineDrawerContent: FC<TimelineDrawerContentProps> = ({
 
           {duration && (
             <div className="text-sm text-gray-500 italic">
-              {t("timelineDrawer.duration")}: {duration}
+              {t("welcomePage.timelineDrawer.duration")}: {duration}
             </div>
           )}
         </div>
