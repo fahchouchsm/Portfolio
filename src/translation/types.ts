@@ -64,4 +64,7 @@ export type TranslationKeys = TranslationShape<{
       rel: string;
     };
   };
+  projectsPage: {
+    title: string;
+  };
 }>;

@@ -3,6 +3,7 @@ import { heroFr } from "./components/home/hero.ts";
 import { timeLineDrawerFR } from "./components/home/typeLineDrawer.ts";
 import { sidebarFr } from "./components/sidebar.ts";
 import { timeLineFr } from "./components/home/timeLine.ts";
+import { projectsFr } from "./components/projects/project.ts";
 
 export const fr: { translation: TranslationKeys } = {
   translation: {
@@ -21,5 +22,6 @@ export const fr: { translation: TranslationKeys } = {
         rel: "Aller à la section des projets",
       },
     },
+    projectsPage: projectsFr,
   },
 };

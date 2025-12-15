@@ -1,6 +1,7 @@
 import { ArrowBigRightDash } from "lucide-react";
 import { Link } from "react-router-dom";
 import { t } from "i18next";
+import type { FC } from "react";
 
 export const GoProjects: FC = () => {
   return (

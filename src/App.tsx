@@ -6,20 +6,22 @@ import "./translation/i18n";
 import { useTranslation } from "react-i18next";
 import { LanguageSelect } from "./components/languageSelect";
 import { Welcome } from "./pages/welcome/welcome";
+import { Projects } from "./pages/proejcts/Projects.tsx";
 
 function App() {
   const { t, i18n } = useTranslation();
+
   return (
     <Router>
       <div className="flex h-screen bg-gray-100 p-1">
         <Sidebar t={t} />
-        <main className="h-full w-full overflow-auto md:px-6 px-2 py-14">
+        <main className="h-full w-full overflow-auto px-2 py-14 md:px-6">
           {/* language selector */}
           <LanguageSelect t={t} i18n={i18n} />
           <Routes>
             <Route path="/" element={<Welcome />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<div>About Page</div>} />
-            <Route path="/projects" element={<div>Projects Page</div>} />
             <Route path="/contact" element={<div>Contact Page</div>} />
             <Route
               path="*"
