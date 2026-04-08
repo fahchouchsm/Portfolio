@@ -10,8 +10,8 @@ export const fr: { translation: TranslationKeys } = {
   translation: {
     wakaTotal: "Temps total du projet",
     languageName: {
-      fr: "Français 🇫🇷",
-      en: "Anglais 🇺🇸",
+      fr: "Français",
+      en: "Anglais",
     },
     sidebar: sidebarFr,
     welcomePage: {
