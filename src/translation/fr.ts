@@ -4,6 +4,7 @@ import { timeLineDrawerFR } from "./components/home/typeLineDrawer.ts";
 import { sidebarFr } from "./components/sidebar.ts";
 import { timeLineFr } from "./components/home/timeLine.ts";
 import { projectsFr } from "./components/projects/project.ts";
+import { contactFr } from "./components/contact.ts";
 
 export const fr: { translation: TranslationKeys } = {
   translation: {
@@ -23,5 +24,6 @@ export const fr: { translation: TranslationKeys } = {
       },
     },
     projectsPage: projectsFr,
+    contactPage: contactFr,
   },
 };

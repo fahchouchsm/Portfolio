@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { LanguageSelect } from "./components/languageSelect";
 import { Welcome } from "./pages/welcome/welcome";
 import { Projects } from "./pages/proejcts/Projects.tsx";
+import { Contact } from "./pages/contact.tsx";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -22,7 +23,7 @@ function App() {
             <Route path="/" element={<Welcome />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<div>About Page</div>} />
-            <Route path="/contact" element={<div>Contact Page</div>} />
+            <Route path="/contact" element={<Contact />} />
             <Route
               path="*"
               element={

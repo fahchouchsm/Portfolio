@@ -30,6 +30,8 @@ Thumbs.db
 # Misc
 coverage/
 *.tsbuildinfo
+.vite/
+.tmp/
 
 # React specific
 *.cache
