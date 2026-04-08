@@ -6,7 +6,7 @@ import { GoProjects } from "./goProjects.tsx";
 
 export const Welcome: FC = () => {
   return (
-    <section className="flex flex-col gap-4 px-10">
+    <section className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-1 sm:px-2 md:gap-8 md:px-0">
       <Hero />
       <Timeline />
       <GithubHeatMap username="fahchouchsm" />

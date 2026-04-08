@@ -21,8 +21,8 @@ export const Timeline = () => {
   const iconClass = "h-4 w-4 text-white";
 
   return (
-    <div className="container w-full">
-      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical mx-auto w-full">
+    <div className="w-full px-1 sm:px-2 md:px-0">
+      <ul className="timeline timeline-snap-icon timeline-vertical mx-auto w-full max-md:timeline-compact">
         {educationItems.map((item, i) => {
           const yearLabel = item.yearEnd
             ? `${item.yearBegin} - ${item.yearEnd}`
@@ -71,7 +71,7 @@ export const Timeline = () => {
                     {/* Image - full width of its side */}
                     <div className="mb-4 w-full">
                       <motion.img
-                        className="border-base-200 h-56 w-full rounded-lg border object-cover shadow-sm transition-all duration-300 group-hover/timeline:scale-[1.02] hover:shadow-2xl md:h-48"
+                        className="border-base-200 h-44 w-full rounded-lg border object-cover shadow-sm transition-all duration-300 group-hover/timeline:scale-[1.02] hover:shadow-2xl sm:h-52 md:h-48"
                         src={`/timeline/${item.imgKey}`}
                         alt={t(`welcomePage.timeLine.${item.key}.title`)}
                         loading="lazy"
@@ -83,21 +83,21 @@ export const Timeline = () => {
                     </div>
 
                     {/* Title - full width of its side */}
-                    <div className="group-hover/timeline:text-primary mb-2 flex w-fit items-center gap-2 text-lg font-black transition-colors">
-                      <span className="w-full">
+                    <div className="group-hover/timeline:text-primary mb-2 flex w-full items-center gap-2 text-base font-black transition-colors sm:text-lg">
+                      <span className="w-full leading-snug">
                         {t(`welcomePage.timeLine.${item.key}.title`)}
                       </span>
                       <ArrowUpRight className="h-4 w-4 flex-shrink-0" />
                     </div>
 
                     {/* Subtitle - full width of its side */}
-                    <p className="mt-2 w-full text-gray-600 transition-colors group-hover/timeline:text-gray-800">
+                    <p className="mt-2 w-full text-sm text-gray-600 transition-colors group-hover/timeline:text-gray-800 sm:text-base">
                       {t(`welcomePage.timeLine.${item.key}.subtitle`)}
                     </p>
 
                     {/* Hover indicator - positioned based on side */}
                     <div
-                      className={`bg-primary absolute -right-2 z-10 flex h-7 w-7 items-center justify-center rounded-full opacity-0 shadow-lg transition-all duration-300 group-hover/timeline:opacity-100 ${isLeft ? "top-0 md:-left-1" : "top-0 md:-right-1"}`}
+                      className={`bg-primary absolute -right-2 z-10 hidden h-7 w-7 items-center justify-center rounded-full opacity-0 shadow-lg transition-all duration-300 group-hover/timeline:opacity-100 md:flex ${isLeft ? "top-0 md:-left-1" : "top-0 md:-right-1"}`}
                     >
                       <ArrowUpRight className="h-4 w-4 text-white" />
                     </div>

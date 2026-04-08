@@ -23,79 +23,90 @@ const Sidebar: FC<SidebarInt> = ({ t }) => {
     <>
       {/* Mobile toggle button for md and smaller */}
       <button
-        className={`fixed top-5 left-5 z-50 rounded-lg bg-white p-2 shadow-sm md:hidden ${open ? "hidden" : ""}`}
-        onClick={() => setOpen(!open)}
+        className={`fixed top-3 left-3 z-50 rounded-xl bg-base-100/95 p-2.5 shadow-md backdrop-blur md:hidden ${open ? "hidden" : ""}`}
+        onClick={() => setOpen(true)}
         aria-label="Toggle sidebar"
       >
-        {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        <Menu className="h-6 w-6" />
       </button>
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 md:z-0 flex h-full w-8/12 transform flex-col justify-between bg-white p-5 shadow-2xl transition-transform duration-300 ease-in-out md:static md:w-3/12 ${
-          open ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-        } ${open ? "rounded-r-3xl" : "rounded-3xl"}`}
+        className={`fixed top-0 left-0 z-40 flex h-full w-[82%] max-w-sm transform flex-col bg-white px-4 py-5 shadow-2xl transition-transform duration-300 ease-in-out md:static md:z-0 md:h-full md:w-3/12 md:max-w-none md:translate-x-0 md:rounded-3xl md:p-5 md:shadow-none ${
+          open ? "translate-x-0 rounded-r-3xl" : "-translate-x-full"
+        }`}
         aria-label={t("sidebar.asideRel")}
       >
-        <header>
-          <h1 className="font-serif text-4xl font-extrabold tracking-tight text-gray-800 md:text-4xl">
-            Fahchouch <br /> Mohammed
-          </h1>
-          <h2 className="text-md font-semibold text-gray-600">
-            {t("sidebar.titleDesc")}
-          </h2>
+        <header className="border-b border-base-200 pb-4 md:border-b-0 md:pb-0">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <h1 className="font-serif text-3xl font-extrabold tracking-tight text-gray-800 md:text-4xl">
+                Fahchouch <br /> Mohammed
+              </h1>
+              <h2 className="text-md font-semibold text-gray-600">
+                {t("sidebar.titleDesc")}
+              </h2>
+            </div>
+            <button
+              className="btn btn-ghost btn-sm btn-circle md:hidden"
+              onClick={() => setOpen(false)}
+              aria-label="Close sidebar"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
         </header>
 
-        {/* Page navigation */}
-        <nav aria-label="Main navigation" className="mt-6 md:mt-8">
-          <ul className="mb-6 flex flex-col gap-2">
-            {sidebarLinks.map((e, i) => {
-              const isSelected = location.pathname === e.path;
-              return (
-                <li key={i}>
-                  <Link
-                    to={e.path}
-                    className={`flex justify-between btn btn-ghost btn-lg w-full rounded-4xl ${isSelected ? "bg-primary text-white" : ""}`}
-                    aria-current={isSelected ? "page" : undefined}
-                    rel={t("sidebar.linksRel." + e.titleKey)}
-                    onClick={() => setOpen(false)}
-                  >
-                    <div className="">{t("sidebar.links." + e.titleKey)}</div>
-                    <div className="">
-                      <e.icon />
-                    </div>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+        <div className="flex min-h-0 flex-1 flex-col">
+          {/* Page navigation */}
+          <nav aria-label="Main navigation" className="mt-4 overflow-y-auto md:mt-8">
+            <ul className="mb-6 flex flex-col gap-2">
+              {sidebarLinks.map((e, i) => {
+                const isSelected = location.pathname === e.path;
+                return (
+                  <li key={i}>
+                    <Link
+                      to={e.path}
+                      className={`btn btn-ghost btn-lg flex w-full justify-between rounded-2xl ${isSelected ? "bg-primary text-white" : ""}`}
+                      aria-current={isSelected ? "page" : undefined}
+                      rel={t("sidebar.linksRel." + e.titleKey)}
+                      onClick={() => setOpen(false)}
+                    >
+                      <div>{t("sidebar.links." + e.titleKey)}</div>
+                      <div>
+                        <e.icon />
+                      </div>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
-        {/* Social account links */}
-        <ul
-          className="mt-auto flex justify-center gap-4"
-          aria-label="Social media links"
-        >
-          {socialAccounts.map((e, i) => (
-            <li key={i}>
-              <a
-                href={e.path}
-                target="_blank"
-                rel={t(
-                  "sidebar.socialAccountsLinksRel." + e.label.toLowerCase(),
-                )}
-                aria-label={e.label}
-              >
-                <e.icon className="h-7 w-7 rounded-lg border-2 p-0.5 shadow-lg hover:text-primary" />
-              </a>
-            </li>
-          ))}
-        </ul>
+          {/* Social account links */}
+          <ul
+            className="mt-auto flex justify-center gap-4 border-t border-base-200 pt-4 md:border-t-0 md:pt-0"
+            aria-label="Social media links"
+          >
+            {socialAccounts.map((e, i) => (
+              <li key={i}>
+                <a
+                  href={e.path}
+                  target="_blank"
+                  rel={t("sidebar.socialAccountsLinksRel." + e.label.toLowerCase())}
+                  aria-label={e.label}
+                >
+                  <e.icon className="h-7 w-7 rounded-lg border-2 p-0.5 shadow-lg hover:text-primary" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </aside>
 
       {open && (
         <div
-          className="fixed inset-0 z-30 bg-black/30 md:hidden"
+          className="fixed inset-0 z-30 bg-black/35 md:hidden"
           onClick={() => setOpen(false)}
         />
       )}
