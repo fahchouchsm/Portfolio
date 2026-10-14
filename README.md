@@ -1,6 +1,6 @@
 # Mohammed Fahchouch — Portfolio
 
-Portfolio en français construit avec React, TypeScript et Vite. Direction éditoriale : papier clair, encre sombre, accent cobalt et schémas d’architecture réalisés en CSS.
+Portfolio en français construit avec React, TypeScript et Vite. Direction visuelle : noir anthracite et vert lime ; typographie Space Grotesk, logo « Mohammed Fahchouch », portrait monochrome et cartes de projets. Les aperçus conceptuels sont réalisés en CSS.
 
 ## Développement
 
@@ -35,6 +35,8 @@ Les anciens chemins /projects, /about et /contact ouvrent les sections correspon
 `npm run build` produit le dossier `dist/`. Pour conserver les anciens chemins, configurer l’hébergeur avec une réécriture SPA vers `index.html`. `npm run preview` permet de vérifier le build localement.
 
 ## Informations à compléter
+
+Le calendrier de contributions est une image distante fournie par [GitHub Chart](https://github.com/2016rshah/githubchart-api), sans clé API. Il se charge à l’approche de la section, permet le défilement horizontal sur mobile et affiche un lien vers GitHub si le service est indisponible.
 
 Le contenu reprend les informations fournies, sans inventer de résultats chiffrés :
 

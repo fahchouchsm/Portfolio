@@ -1,5 +1,22 @@
 import { expect, test } from "@playwright/test";
 
+test("name branding remains visible and unavailable GitHub chart has a fallback", async ({
+  page,
+}) => {
+  await page.route("https://ghchart.rshah.org/**", (route) => route.abort());
+  await page.goto("/");
+  const brand = page.getByRole("link", { name: "Mohammed Fahchouch, accueil" });
+  await expect(brand).toContainText("Mohammed");
+  await expect(brand).toContainText("Fahchouch");
+  await expect(brand).toBeVisible();
+  await page.locator(".github-section").scrollIntoViewIfNeeded();
+  await expect(page.locator(".chart-fallback")).toBeVisible();
+  await expect(page.locator(".chart-fallback a")).toHaveAttribute(
+    "href",
+    "https://github.com/fahchouchsm",
+  );
+});
+
 test("recruiter can explore projects, filter, and inspect a case study", async ({
   page,
 }) => {
@@ -7,7 +24,7 @@ test("recruiter can explore projects, filter, and inspect a case study", async (
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Du code clair.",
+    "Mohammed",
   );
   await expect(page.locator("html")).toHaveAttribute("lang", "fr");
   await expect(page.locator(".project-card")).toHaveCount(6);

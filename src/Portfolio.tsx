@@ -3,6 +3,8 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
+  ArrowLeftRight,
+  ChevronDown,
   Check,
   Code2,
   Copy,
@@ -13,6 +15,10 @@ import {
   MapPin,
   Menu,
   Phone,
+  Plug,
+  Puzzle,
+  Split,
+  Target,
   ShieldCheck,
   Terminal,
   X,
@@ -27,49 +33,13 @@ import {
 
 const github = "https://github.com/fahchouchsm";
 const email = "fahchouchsm@gmail.com";
+const principleIcons = [Target, Puzzle, ArrowLeftRight, Split, Plug];
 const nav = [
   ["projets", "Projets"],
   ["approche", "Approche"],
   ["parcours", "Parcours"],
   ["contact", "Contact"],
 ];
-
-function Architecture() {
-  return (
-    <div
-      className="architecture"
-      aria-label="Schéma conceptuel d’une architecture en couches : interface, application, domaine et infrastructure"
-    >
-      <div className="diagram-top">
-        <span>
-          <span className="tiny-dot" /> SYSTEM DESIGN
-        </span>
-        <span>01 / 04</span>
-      </div>
-      <div className="architecture-layers">
-        {[
-          ["01", "Interface", "React · Angular · Mobile"],
-          ["02", "Application", "API · Cas d’utilisation"],
-          ["03", "Domaine", "Règles métier · Interfaces"],
-          ["04", "Infrastructure", "Persistance · Services externes"],
-        ].map(([n, title, sub]) => (
-          <div className={`architecture-layer layer-${n}`} key={n}>
-            <span className="layer-number">{n}</span>
-            <div>
-              <strong>{title}</strong>
-              <small>{sub}</small>
-            </div>
-            <span className="layer-symbol">{n === "03" ? "{ }" : "↗"}</span>
-          </div>
-        ))}
-      </div>
-      <div className="diagram-bottom">
-        <span>Séparer les responsabilités.</span>
-        <span className="diagram-tag">SOLID</span>
-      </div>
-    </div>
-  );
-}
 
 function ProjectVisual({ kind }: { kind: Project["visual"] }) {
   if (kind === "gateway")
@@ -280,6 +250,7 @@ export default function Portfolio() {
   const [filter, setFilter] = useState("Tous");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [copied, setCopied] = useState(false);
+  const [chartFailed, setChartFailed] = useState(false);
   const copyTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
     undefined,
   );
@@ -319,7 +290,13 @@ export default function Portfolio() {
             className="wordmark"
             aria-label="Mohammed Fahchouch, accueil"
           >
-            mf<span>.</span>
+            <span className="wordmark-first">Mohammed</span>
+            <span className="wordmark-last">
+              Fahchouch
+              <span className="wordmark-star" aria-hidden="true">
+                ✳
+              </span>
+            </span>
           </a>
           <nav
             className={menuOpen ? "navigation open" : "navigation"}
@@ -332,7 +309,7 @@ export default function Portfolio() {
             ))}
           </nav>
           <a href={`mailto:${email}`} className="header-contact">
-            Parlons de votre projet <ArrowUpRight size={16} />
+            Candidature de stage <ArrowUpRight size={16} />
           </a>
           <button
             className="menu-button icon-button"
@@ -352,20 +329,17 @@ export default function Portfolio() {
               développement
             </div>
             <p className="eyebrow hero-name">
-              MOHAMMED FAHCHOUCH / SOFTWARE ENGINEERING
+              INGÉNIEUR EN INFORMATIQUE · RECHERCHE DE STAGE
             </p>
             <h1 id="hero-title">
-              Du code clair.
+              Mohammed
               <br />
-              Des logiciels
-              <br />
-              qui <span>durent.</span>
+              <span>Fahchouch.</span>
             </h1>
             <p className="hero-description">
-              Étudiant ingénieur en 5e année à l’EHEI Oujda.
-              <br className="desktop-break" /> Je développe des applications
-              full-stack avec une conviction :<br className="desktop-break" />{" "}
-              une bonne architecture fait toute la différence.
+              Ingénieur en informatique, intéressé par le développement
+              logiciel et l’architecture applicative. Je recherche un stage
+              pour mettre mes compétences au service d’une équipe.
             </p>
             <div className="hero-actions">
               <a href="#projets" className="button primary">
@@ -381,24 +355,34 @@ export default function Portfolio() {
             </div>
           </div>
           <div className="hero-art">
-            <div className="art-label">
-              <span>LA STRUCTURE AVANT LE DÉTAIL</span>
-              <span>↙</span>
+            <div className="portrait-frame">
+              <span className="portrait-label">ENCHANTÉ !</span>
+              <img
+                src="/pfp.png"
+                alt="Mohammed Fahchouch"
+                width="800"
+                height="800"
+                fetchPriority="high"
+              />
+              <div className="portrait-caption">
+                <span>INGÉNIEUR LOGICIEL</span>
+                <ArrowUpRight size={22} />
+              </div>
             </div>
-            <Architecture />
-            <div className="art-note">
-              <span className="note-line" /> Une interface simple.
-              <br />
-              Une architecture réfléchie.
+            <div className="developer-note">
+              <span className="note-heading">MON PROFIL</span>
+              <p>
+                Développement logiciel,
+                <br />
+                architecture et <em>qualité.</em>
+              </p>
             </div>
           </div>
           <div className="hero-footer">
-            <span>DE L’IDÉE À L’APPLICATION</span>
-            <div>
-              <span>React / TypeScript</span>
-              <span>Java / Spring Boot</span>
-              <span>C# / ASP.NET Core</span>
-            </div>
+            <span>5e ANNÉE · EHEI OUJDA</span>
+            <p className="hero-statement">
+              Ingénieur logiciel · Recherche d’un stage
+            </p>
             <a href="#projets" aria-label="Découvrir les projets">
               <ArrowDown size={17} />
             </a>
@@ -411,7 +395,7 @@ export default function Portfolio() {
               <div>
                 <p className="eyebrow">01 / PROJETS SÉLECTIONNÉS</p>
                 <h2>
-                  Des idées.
+                  Des projets.
                   <br />
                   <span>Du code. Du concret.</span>
                 </h2>
@@ -430,7 +414,7 @@ export default function Portfolio() {
                 role="group"
                 aria-label="Filtrer les projets"
               >
-                {["Tous", "Backend", "Full-stack", "Desktop"].map((item) => (
+                {["Tous", "Backend", "Web", "Desktop"].map((item) => (
                   <button
                     className={filter === item ? "active filter" : "filter"}
                     key={item}
@@ -521,6 +505,56 @@ export default function Portfolio() {
           </div>
         </section>
 
+        <section
+          className="github-section container"
+          aria-labelledby="github-title"
+        >
+          <div className="github-heading">
+            <div>
+              <p className="eyebrow">AU FIL DES COMMITS</p>
+              <h2 id="github-title">Construire, un jour après l’autre.</h2>
+            </div>
+            <a
+              className="text-link"
+              href={github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github size={19} /> @fahchouchsm <ArrowUpRight size={16} />
+            </a>
+          </div>
+          {chartFailed ? (
+            <p className="chart-fallback" role="status">
+              Le graphique est momentanément indisponible. Retrouvez mon
+              activité directement sur{" "}
+              <a href={github} target="_blank" rel="noreferrer">
+                GitHub ↗
+              </a>
+              .
+            </p>
+          ) : (
+            <div
+              className="github-chart-scroll"
+              tabIndex={0}
+              role="region"
+              aria-label="Calendrier de contributions GitHub, défilement horizontal"
+            >
+              <img
+                src="https://ghchart.rshah.org/6fa637/fahchouchsm"
+                alt="Calendrier des contributions GitHub de Mohammed Fahchouch sur les douze derniers mois"
+                loading="lazy"
+                width="722"
+                height="112"
+                onError={() => setChartFailed(true)}
+              />
+            </div>
+          )}
+          <p className="github-caption">
+            Mon activité publique sur GitHub · graphique actualisé par GitHub
+            Chart.
+          </p>
+        </section>
+
         <section className="approach-section section" id="approche">
           <div className="container">
             <div className="section-heading">
@@ -568,23 +602,28 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="solid-list">
-                {principles.map((principle) => (
-                  <details
-                    className="solid-item"
-                    key={principle.letter}
-                    open={principle.letter === "S" || undefined}
-                  >
-                    <summary>
-                      <span className="solid-letter">{principle.letter}</span>
-                      <div>
-                        <strong>{principle.title}</strong>
-                        <small>{principle.english}</small>
-                      </div>
-                      <span className="solid-toggle">+</span>
-                    </summary>
-                    <p>{principle.description}</p>
-                  </details>
-                ))}
+                {principles.map((principle, index) => {
+                  const Icon = principleIcons[index];
+                  return (
+                    <details className="solid-item" key={principle.letter}>
+                      <summary>
+                        <span className="solid-letter" aria-hidden="true">
+                          <Icon size={21} />
+                        </span>
+                        <div>
+                          <strong>{principle.title}</strong>
+                          <small>{principle.english}</small>
+                        </div>
+                        <ChevronDown
+                          className="solid-toggle"
+                          size={18}
+                          aria-hidden="true"
+                        />
+                      </summary>
+                      <p>{principle.description}</p>
+                    </details>
+                  );
+                })}
               </div>
             </div>
             <div className="quality-strip">
@@ -761,7 +800,7 @@ export default function Portfolio() {
               <p>
                 Curieux de comprendre.
                 <br />
-                <strong>Motivé pour contribuer.</strong>
+                <strong>Ingénieur logiciel, prêt à contribuer.</strong>
               </p>
             </div>
           </div>
@@ -785,7 +824,7 @@ export default function Portfolio() {
           <div className="container">
             <div className="contact-top">
               <span className="eyebrow">
-                05 / ET SI ON TRAVAILLAIT ENSEMBLE ?
+                05 / RENCONTRONS-NOUS
               </span>
               <span className="availability">
                 <span className="status-dot" /> À l’écoute d’opportunités de
@@ -794,11 +833,10 @@ export default function Portfolio() {
             </div>
             <div className="contact-main">
               <h2>
-                Votre prochain projet.
+                Disponible pour un stage.
                 <br />
                 <span>
-                  Notre prochaine
-                  <br className="mobile-break" /> conversation.
+                  Prêt à contribuer à votre équipe.
                 </span>
               </h2>
               <a
@@ -810,10 +848,10 @@ export default function Portfolio() {
               </a>
             </div>
             <p className="contact-description">
-              Je recherche un stage en développement logiciel pour contribuer à
-              des projets
-              <br className="desktop-break" /> concrets, apprendre en équipe et
-              mettre mes compétences en pratique.
+              Je recherche un stage en développement logiciel pour intégrer une
+              équipe, contribuer à des produits concrets
+              <br className="desktop-break" /> et consolider mon expérience en
+              ingénierie logicielle.
             </p>
             <div className="contact-links">
               <a className="email-link" href={`mailto:${email}`}>
@@ -856,7 +894,13 @@ export default function Portfolio() {
       </main>
       <footer className="site-footer container">
         <a href="#" className="wordmark" aria-label="Retour en haut">
-          mf<span>.</span>
+          <span className="wordmark-first">Mohammed</span>
+          <span className="wordmark-last">
+            Fahchouch
+            <span className="wordmark-star" aria-hidden="true">
+              ✳
+            </span>
+          </span>
         </a>
         <p>© {new Date().getFullYear()} Mohammed Fahchouch</p>
         <span>Pensé avec soin. Construit avec intention.</span>

@@ -37,3 +37,13 @@ playwright-report/
 
 # React specific
 *.cache
+
+# TypeScript artifacts emitted by local tooling
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+src/**/*.d.ts.map
+vite.config.js
+vite.config.js.map
+vite.config.d.ts
+vite.config.d.ts.map

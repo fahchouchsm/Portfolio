@@ -1,7 +1,7 @@
 export interface Project {
   id: number;
   title: string;
-  category: "Backend" | "Full-stack" | "Desktop";
+  category: "Backend" | "Web" | "Desktop";
   context: string;
   visual: "gateway" | "city" | "database" | "market" | "shop" | "language";
   description: string;
@@ -63,7 +63,7 @@ export const projects: Project[] = [
   {
     id: 3,
     title: "Skillz Hire",
-    category: "Full-stack",
+    category: "Web",
     context: "Projet personnel",
     visual: "market",
     description:
@@ -109,7 +109,7 @@ export const projects: Project[] = [
   {
     id: 5,
     title: "Monark",
-    category: "Full-stack",
+    category: "Web",
     context: "Projet personnel",
     visual: "shop",
     description:
