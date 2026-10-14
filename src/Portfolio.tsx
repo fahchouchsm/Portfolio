@@ -337,9 +337,9 @@ export default function Portfolio() {
               <span>Fahchouch.</span>
             </h1>
             <p className="hero-description">
-              Ingénieur en informatique, intéressé par le développement
-              logiciel et l’architecture applicative. Je recherche un stage
-              pour mettre mes compétences au service d’une équipe.
+              Ingénieur en informatique, intéressé par le développement logiciel
+              et l’architecture applicative. Je recherche un stage pour mettre
+              mes compétences au service d’une équipe.
             </p>
             <div className="hero-actions">
               <a href="#projets" className="button primary">
@@ -356,7 +356,6 @@ export default function Portfolio() {
           </div>
           <div className="hero-art">
             <div className="portrait-frame">
-              <span className="portrait-label">ENCHANTÉ !</span>
               <img
                 src="/pfp.png"
                 alt="Mohammed Fahchouch"
@@ -364,17 +363,11 @@ export default function Portfolio() {
                 height="800"
                 fetchPriority="high"
               />
-              <div className="portrait-caption">
-                <span>INGÉNIEUR LOGICIEL</span>
-                <ArrowUpRight size={22} />
-              </div>
             </div>
             <div className="developer-note">
-              <span className="note-heading">MON PROFIL</span>
+              <span className="note-heading">INGÉNIEUR EN INFORMATIQUE</span>
               <p>
-                Développement logiciel,
-                <br />
-                architecture et <em>qualité.</em>
+                Disponible pour un stage en <em>développement logiciel.</em>
               </p>
             </div>
           </div>
@@ -823,9 +816,7 @@ export default function Portfolio() {
         <section className="contact-section" id="contact">
           <div className="container">
             <div className="contact-top">
-              <span className="eyebrow">
-                05 / RENCONTRONS-NOUS
-              </span>
+              <span className="eyebrow">05 / RENCONTRONS-NOUS</span>
               <span className="availability">
                 <span className="status-dot" /> À l’écoute d’opportunités de
                 stage
@@ -835,9 +826,7 @@ export default function Portfolio() {
               <h2>
                 Disponible pour un stage.
                 <br />
-                <span>
-                  Prêt à contribuer à votre équipe.
-                </span>
+                <span>Prêt à contribuer à votre équipe.</span>
               </h2>
               <a
                 className="contact-arrow"
