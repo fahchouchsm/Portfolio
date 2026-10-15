@@ -2959,6 +2959,53 @@ svg {
   .node-delivery { right: 24px; bottom: 36px; }
   .hero-visual-caption { width: 100%; text-align: left; }
 }
+
+/* Personal profile board: the opening introduces Mohammed, not a service offer. */
+.profile-board {
+  width: min(100%, 450px);
+  min-height: 465px;
+  overflow: hidden;
+  border: 1px solid #404a40;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, transparent 0 69%, rgba(180, 242, 114, .06) 69.1% 69.4%, transparent 69.5%),
+    radial-gradient(circle at 94% 7%, rgba(180, 242, 114, .16), transparent 23%),
+    #151917;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.015), 0 24px 60px rgba(0,0,0,.24);
+}
+.profile-board-bar, .profile-board-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 18px;
+  color: #92a08e;
+  font: 600 9px var(--heading);
+  letter-spacing: 1.1px;
+}
+.profile-board-bar { border-bottom: 1px solid rgba(180,242,114,.14); }
+.profile-board-footer { border-top: 1px solid rgba(180,242,114,.14); font-size: 8px; }
+.profile-board-ready { display: inline-flex; align-items: center; gap: 7px; color: #dce9d4; }
+.profile-board-ready i { width: 6px; height: 6px; border-radius: 50%; background: #b4f272; box-shadow: 0 0 10px #b4f272; }
+.profile-board-main { position: relative; min-height: 367px; padding: 46px 42px 30px; }
+.profile-board-main:before, .profile-board-main:after { position: absolute; content: ""; pointer-events: none; }
+.profile-board-main:before { right: 26px; bottom: 31px; width: 116px; height: 116px; border: 1px solid rgba(180,242,114,.25); border-radius: 50%; box-shadow: 0 0 0 15px rgba(180,242,114,.035), 0 0 0 31px rgba(180,242,114,.02); }
+.profile-board-main:after { right: 66px; bottom: 71px; width: 36px; height: 36px; border: 1px solid #b4f272; border-radius: 50%; background: rgba(180,242,114,.14); box-shadow: 0 0 22px rgba(180,242,114,.23); }
+.profile-board-index { position: absolute; top: 28px; right: 30px; color: #b4f272; font: 600 12px var(--heading); letter-spacing: 1px; }
+.profile-board-kicker { margin: 0 0 12px; color: #b4f272; font: 600 10px var(--heading); letter-spacing: 1.4px; }
+.profile-board h2 { position: relative; z-index: 1; margin: 0; color: #edf2ea; font: 600 clamp(31px, 3.1vw, 43px)/1.03 var(--heading); letter-spacing: -1.8px; }
+.profile-board h2 em { color: #b4f272; font-style: normal; }
+.profile-board-copy { position: relative; z-index: 1; max-width: 285px; margin: 21px 0 19px; color: #aeb9ab; font: 400 13px/1.55 var(--body); }
+.profile-traits { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 7px; max-width: 310px; }
+.profile-traits span { padding: 6px 8px; border: 1px solid #445044; border-radius: 999px; background: rgba(15,18,16,.72); color: #d8e1d4; font: 500 9px var(--heading); letter-spacing: .25px; }
+@media (max-width: 600px) {
+  .profile-board { width: 100%; min-height: 410px; border-radius: 14px; }
+  .profile-board-main { min-height: 312px; padding: 39px 27px 22px; }
+  .profile-board h2 { font-size: 34px; }
+  .profile-board-main:before { right: 19px; bottom: 21px; width: 92px; height: 92px; }
+  .profile-board-main:after { right: 47px; bottom: 49px; }
+  .profile-board-footer { font-size: 7px; }
+}
 .hero h1 span {
   text-decoration: none;
 }
@@ -2987,6 +3034,21 @@ svg {
 .database-visual {
   background: #19262e;
 }
+.bettergit-visual {
+  background: #1b2420;
+  color: #c7e5b4;
+}
+.git-graph { position: relative; height: 157px; margin: 14px 20px 0; overflow: hidden; }
+.graph-line { position: absolute; height: 2px; border-radius: 2px; background: #8ece58; transform-origin: left; }
+.graph-main { width: 210px; left: 18px; top: 91px; }
+.graph-branch { width: 102px; left: 50px; top: 89px; transform: rotate(-28deg); }
+.graph-merge { width: 98px; left: 144px; top: 42px; transform: rotate(31deg); }
+.graph-commit { position: absolute; width: 12px; height: 12px; border: 2px solid #b4f272; border-radius: 50%; background: #1b2420; box-shadow: 0 0 0 5px rgba(180,242,114,.08); }
+.commit-one { left: 43px; top: 85px; }
+.commit-two { left: 141px; top: 36px; }
+.commit-three { left: 203px; top: 85px; background: #b4f272; }
+.commit-four { left: 258px; top: 85px; }
+.git-proof { position: absolute; right: 0; bottom: 12px; padding: 7px 9px; border: 1px solid #537047; background: #141c16; color: #b9d6aa; font: 600 9px var(--heading); letter-spacing: .3px; }
 .shop {
   background: #382e28;
   color: #dac4ad;

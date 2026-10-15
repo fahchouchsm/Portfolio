@@ -27,7 +27,7 @@ test("recruiter can explore projects, filter, and inspect a case study", async (
     "Mohammed",
   );
   await expect(page.locator("html")).toHaveAttribute("lang", "fr");
-  await expect(page.locator(".project-card")).toHaveCount(6);
+  await expect(page.locator(".project-card")).toHaveCount(5);
   await page.getByRole("button", { name: "Backend", exact: true }).click();
   await expect(page.locator(".project-card")).toHaveCount(2);
   await page
@@ -67,7 +67,7 @@ test("recruiter can explore projects, filter, and inspect a case study", async (
   await expect(dialog.getByRole("link")).toHaveCount(0);
   await page.getByRole("button", { name: "Fermer le projet" }).click();
   await page.getByRole("button", { name: "Tous" }).click();
-  await expect(page.locator(".project-card")).toHaveCount(6);
+  await expect(page.locator(".project-card")).toHaveCount(5);
   expect(errors).toEqual([]);
 });
 

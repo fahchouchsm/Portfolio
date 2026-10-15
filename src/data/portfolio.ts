@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   category: "Backend" | "Web" | "Desktop";
   context: string;
-  visual: "gateway" | "city" | "database" | "market" | "shop" | "language";
+  visual: "gateway" | "city" | "database" | "market" | "shop" | "language" | "bettergit";
   description: string;
   problem: string;
   details: string[];
@@ -15,6 +15,37 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
+    title: "BetterGit",
+    category: "Desktop",
+    context: "Stage · CHU Oujda · 2026",
+    visual: "bettergit",
+    description:
+      "Un outil desktop de gestion Git développé en stage, pour rendre l’historique et les flux de travail plus lisibles.",
+    problem:
+      "Aider les développeurs à explorer les branches, l’historique et les preuves de commits dans une interface claire.",
+    details: [
+      "Interface desktop avec graphe interactif des branches et de l’historique.",
+      "Visualiseur de preuves de commits, pipelines configurables et documentation assistée par IA.",
+      "Contribution au moteur Java : quality gate SonarQube, diagrammes de classes et suivi de durée des tests.",
+    ],
+    architecture:
+      "Le projet relie une interface desktop TypeScript / React au moteur Java. La qualité est intégrée au flux de développement avec des contrôles SonarQube, des tests et une documentation de l’architecture.",
+    stack: [
+      "Java 21",
+      "JGit",
+      "Maven",
+      "JUnit",
+      "JavaFX",
+      "TypeScript",
+      "React",
+      "Tauri",
+      "Tailwind CSS",
+      "SonarQube",
+    ],
+    url: "https://github.com/fahchouchsm/betterGit-desktop",
+  },
+  {
+    id: 2,
     title: "AuthGateway",
     category: "Backend",
     context: "Projet de 4e année",
@@ -41,7 +72,7 @@ export const projects: Project[] = [
     url: "https://github.com/fahchouchsm/authGetway-PFA-4year",
   },
   {
-    id: 2,
+    id: 3,
     title: "FixMyCity",
     category: "Backend",
     context: "Projet de 4e année",
@@ -61,7 +92,7 @@ export const projects: Project[] = [
     url: "https://github.com/fahchouchsm/fixMyCity-ASP-RestAPI-4year",
   },
   {
-    id: 3,
+    id: 4,
     title: "Skillz Hire",
     category: "Web",
     context: "Projet personnel",
@@ -81,10 +112,10 @@ export const projects: Project[] = [
     url: "https://github.com/fahchouchsm/Skillz_Hire",
   },
   {
-    id: 4,
+    id: 5,
     title: "MySQL Compass",
     category: "Desktop",
-    context: "Stage · RADEO",
+    context: "Stage · Société Régionale Multiservices de l’Oriental · 2024",
     visual: "database",
     description:
       "Un client bureau pour explorer les schémas MySQL, écrire du SQL et exporter les résultats.",
@@ -105,53 +136,6 @@ export const projects: Project[] = [
       "Node.js",
       "Tailwind CSS",
     ],
-  },
-  {
-    id: 5,
-    title: "Monark",
-    category: "Web",
-    context: "Projet personnel",
-    visual: "shop",
-    description:
-      "Une boutique responsive, des composants réutilisables et un parcours produit soigné.",
-    problem:
-      "Construire une expérience e-commerce adaptable aux différentes tailles d’écran avec une interface cohérente.",
-    details: [
-      "Pages produit et mise en page responsive.",
-      "Composants réutilisables et carrousels.",
-      "Intégrations Stripe et PayPal en développement.",
-    ],
-    architecture:
-      "Une interface React typée avec TypeScript et assemblée avec Vite. Les composants réutilisables favorisent la cohérence et limitent la duplication. Le paiement est en développement.",
-    stack: [
-      "React",
-      "TypeScript",
-      "Vite",
-      "Tailwind CSS",
-      "Stripe (en développement)",
-      "PayPal (en développement)",
-    ],
-    url: "https://github.com/fahchouchsm/Monark-Ecom-Web-App",
-  },
-  {
-    id: 6,
-    title: "Le Défi Français",
-    category: "Desktop",
-    context: "Projet personnel · 2026",
-    visual: "language",
-    description:
-      "Une application desktop hors ligne pour apprendre le français et préparer le TCF B2.",
-    problem:
-      "Permettre de travailler le français et de préparer le TCF B2 sans dépendre d’une connexion internet.",
-    details: [
-      "Application destinée à un usage sur ordinateur.",
-      "Fonctionnement hors ligne.",
-      "Apprentissage du français et préparation au TCF B2.",
-    ],
-    architecture:
-      "Le fonctionnement hors ligne est une contrainte structurante : l’expérience d’apprentissage doit rester disponible sans accès réseau.",
-    stack: ["JavaScript", "Desktop", "Hors ligne"],
-    url: "https://github.com/fahchouchsm/Le-Defi-Francais",
   },
 ];
 
@@ -205,8 +189,7 @@ export const skillGroups = [
       "HTML / CSS",
       "Tailwind CSS",
       "Electron",
-      "Angular",
-      "React Native",
+      "Tauri",
     ],
   },
   {
@@ -233,9 +216,7 @@ export const skillGroups = [
       "PostgreSQL",
       "MySQL",
       "MongoDB",
-      "Redis",
-      "Cassandra",
-      "Prisma",
+      "SQLite",
       "JPA / Hibernate",
       "Doctrine",
       "Entity Framework Core",
@@ -245,17 +226,15 @@ export const skillGroups = [
     title: "Livraison & opérations",
     description: "Versionner, automatiser, déployer et observer.",
     skills: [
-      "Git / GitHub / GitLab",
+      "Git / GitHub",
       "Linux",
       "Docker / Compose",
       "Jenkins",
-      "CI/CD",
-      "Ansible",
       "Nginx",
-      "Grafana",
-      "Prometheus",
-      "Qodana",
-      "Kubernetes",
+      "SonarQube",
+      "Kubernetes (notions)",
+      "Ansible (notions)",
+      "Grafana / Prometheus (notions)",
     ],
   },
   {
@@ -263,6 +242,8 @@ export const skillGroups = [
     description: "Une structure qui accompagne l’évolution du logiciel.",
     skills: [
       "SOLID",
+      "POO",
+      "UML",
       "Architecture en couches",
       "MVC",
       "Microservices",
@@ -278,25 +259,22 @@ export const skillGroups = [
       "C / C++",
       "Python",
       "Algorithmique",
-      "PlantUML",
-      "Stripe / PayPal",
-      "Apprentissage supervisé",
-      "Apprentissage non supervisé",
+      "SQL",
     ],
   },
 ];
 
 export const experiences = [
   {
-    company: "BNB Call Center",
-    date: "NOV. — DÉC. 2025 · 1,5 MOIS",
-    role: "Stage · Support IT & opérations",
+    company: "CHU Oujda · BetterGit",
+    date: "7 AOÛT — 7 SEPTEMBRE 2026",
+    role: "Stage · Développement logiciel",
     description:
-      "Support des opérations IT, surveillance des systèmes internes et coordination des flux de données vers l’application serveur.",
-    tags: ["Support IT", "Surveillance", "Flux de données"],
+      "Développement de l’interface desktop et contribution au moteur Java : graphe Git, quality gate SonarQube, diagrammes de classes et suivi des tests.",
+    tags: ["Java", "React", "Tauri", "SonarQube"],
   },
   {
-    company: "RADEO Oujda",
+    company: "Société Régionale Multiservices de l’Oriental",
     date: "JUIN 2024",
     role: "Stage · Développement d’un client MySQL",
     description:
@@ -311,5 +289,4 @@ export const experiences = [
       "Développement d’une plateforme MVC : authentification par middleware, upload de fichiers et conception du schéma MySQL.",
     tags: ["Express", "EJS", "MySQL", "MVC"],
   },
-  { company: "CHU Oujda", date: "JUILLET · 1 MOIS", role: "Stage" },
 ];

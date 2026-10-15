@@ -8,7 +8,6 @@ import {
   Check,
   Code2,
   Copy,
-  GitBranch,
   Github,
   Layers3,
   Linkedin,
@@ -126,6 +125,24 @@ function ProjectVisual({ kind }: { kind: Project["visual"] }) {
               <span>InnoDB</span>
             </div>
           </div>
+        </div>
+      </div>
+    );
+  if (kind === "bettergit")
+    return (
+      <div className="project-visual bettergit-visual" aria-hidden="true">
+        <div className="visual-caption">
+          BETTERGIT <span>DESKTOP</span>
+        </div>
+        <div className="git-graph">
+          <span className="graph-line graph-main" />
+          <span className="graph-line graph-branch" />
+          <span className="graph-line graph-merge" />
+          <i className="graph-commit commit-one" />
+          <i className="graph-commit commit-two" />
+          <i className="graph-commit commit-three" />
+          <i className="graph-commit commit-four" />
+          <div className="git-proof">✓ quality gate · SonarQube</div>
         </div>
       </div>
     );
@@ -310,7 +327,7 @@ export default function Portfolio() {
             ))}
           </nav>
           <a href={`mailto:${email}`} className="header-contact">
-            Candidature de stage <ArrowUpRight size={16} />
+            Stage PFE 2026—2027 <ArrowUpRight size={16} />
           </a>
           <button
             className="menu-button icon-button"
@@ -326,11 +343,11 @@ export default function Portfolio() {
         <section className="hero container" aria-labelledby="hero-title">
           <div className="hero-copy">
             <div className="availability">
-              <span className="status-dot" /> Disponible pour un stage en
-              développement
+              <span className="status-dot" /> Disponible pour un stage PFE
+              2026—2027
             </div>
             <p className="eyebrow hero-name">
-              INGÉNIEUR EN INFORMATIQUE · RECHERCHE DE STAGE
+              GÉNIE INFORMATIQUE · RECHERCHE DE STAGE PFE
             </p>
             <h1 id="hero-title">
               Mohammed
@@ -338,9 +355,9 @@ export default function Portfolio() {
               <span>Fahchouch.</span>
             </h1>
             <p className="hero-description">
-              Ingénieur en informatique, intéressé par le développement logiciel
-              et l’architecture applicative. Je recherche un stage pour mettre
-              mes compétences au service d’une équipe.
+              Élève ingénieur en 5e année à l’EHEI Oujda. Je recherche un stage
+              PFE en développement logiciel pour apprendre, contribuer et évoluer
+              au sein d’une équipe.
             </p>
             <div className="hero-actions">
               <a href="#projets" className="button primary">
@@ -351,53 +368,45 @@ export default function Portfolio() {
               </a>
             </div>
             <div className="hero-location">
-              <MapPin size={14} /> Oujda, Maroc <span>•</span> Web, backend &
-              desktop
+              <MapPin size={14} /> Oujda, Maroc <span>•</span> API, desktop &
+              architecture
             </div>
           </div>
           <div className="hero-art">
-            <div className="engineering-canvas" aria-label="Aperçu de mon approche d'ingénierie">
-              <div className="canvas-bar">
-                <span className="canvas-status"><i /> CE QUE J’APPORTE À UNE ÉQUIPE</span>
-                <span>01—04</span>
+            <div className="profile-board" aria-label="Mon profil professionnel">
+              <div className="profile-board-bar">
+                <span>PROFIL / PFE 2026—2027</span>
+                <span className="profile-board-ready"><i /> DISPONIBLE</span>
               </div>
-              <div className="canvas-main">
-                <div className="canvas-orbit orbit-one" />
-                <div className="canvas-orbit orbit-two" />
-                <div className="canvas-core">
-                  <Code2 size={31} strokeWidth={1.5} />
-                  <span>MOHAMMED</span>
+              <div className="profile-board-main">
+                <span className="profile-board-index">01</span>
+                <p className="profile-board-kicker">CE QUI M’ANIME</p>
+                <h2>
+                  Comprendre.<br />
+                  <em>Construire.</em><br />
+                  Progresser.
+                </h2>
+                <p className="profile-board-copy">
+                  Un profil analytique, curieux et à l’aise avec les défis qui
+                  demandent de chercher, structurer et apprendre vite.
+                </p>
+                <div className="profile-traits">
+                  <span>Esprit analytique</span>
+                  <span>Apprentissage rapide</span>
+                  <span>Travail en équipe</span>
                 </div>
-                <div className="canvas-node node-architecture">
-                  <Layers3 size={18} />
-                  <span>Architecture</span>
-                </div>
-                <div className="canvas-node node-quality">
-                  <ShieldCheck size={18} />
-                  <span>Rigueur</span>
-                </div>
-                <div className="canvas-node node-delivery">
-                  <GitBranch size={18} />
-                  <span>Curiosité</span>
-                </div>
-                <span className="canvas-line line-one" />
-                <span className="canvas-line line-two" />
-                <span className="canvas-line line-three" />
               </div>
-              <div className="canvas-footer">
-                <span>APPRENDRE</span>
-                <span>→</span>
-                <strong>CONTRIBUER</strong>
-                <span>→</span>
-                <span>PROGRESSER</span>
+              <div className="profile-board-footer">
+                <span>JAVA · TYPESCRIPT · C#</span>
+                <span>ARCHITECTURE LOGICIELLE</span>
               </div>
             </div>
-            <p className="hero-visual-caption">Curieux, rigoureux et attentif à la qualité : des repères que j’apporte à une équipe.</p>
+            <p className="hero-visual-caption">Je cherche une équipe où la curiosité devient une contribution concrète.</p>
           </div>
           <div className="hero-footer">
             <span>5e ANNÉE · EHEI OUJDA</span>
             <p className="hero-statement">
-              Ingénieur logiciel · Recherche d’un stage
+              Génie informatique · Recherche d’un stage PFE
             </p>
             <a href="#projets" aria-label="Découvrir les projets">
               <ArrowDown size={17} />
@@ -757,7 +766,7 @@ export default function Portfolio() {
                   <h4>Cycle ingénieur en informatique</h4>
                   <p>EHEI · Oujda</p>
                   <span className="current-year">
-                    5e année · dernière année
+                    5e année · recherche stage PFE 2026—2027
                   </span>
                   <div className="education-years">
                     <div>
@@ -792,6 +801,9 @@ export default function Portfolio() {
                     Java, HTML, CSS, bases de données et SQL.
                     <br />
                     Développement web, C et algorithmique.
+                  </p>
+                  <p className="education-extra">
+                    Baccalauréat Sciences Physiques · 2020 — 2021
                   </p>
                 </article>
               </div>
@@ -842,12 +854,12 @@ export default function Portfolio() {
               <span className="eyebrow">05 / RENCONTRONS-NOUS</span>
               <span className="availability">
                 <span className="status-dot" /> À l’écoute d’opportunités de
-                stage
+                stage PFE 2026—2027
               </span>
             </div>
             <div className="contact-main">
               <h2>
-                Disponible pour un stage.
+                Disponible pour un stage PFE.
                 <br />
                 <span>Prêt à contribuer à votre équipe.</span>
               </h2>
@@ -860,8 +872,8 @@ export default function Portfolio() {
               </a>
             </div>
             <p className="contact-description">
-              Je recherche un stage en développement logiciel pour intégrer une
-              équipe, contribuer à des produits concrets
+              Je recherche un stage PFE en développement logiciel pour intégrer
+              une équipe, contribuer à des produits concrets
               <br className="desktop-break" /> et consolider mon expérience en
               ingénierie logicielle.
             </p>
