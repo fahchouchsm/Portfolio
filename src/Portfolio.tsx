@@ -8,6 +8,7 @@ import {
   Check,
   Code2,
   Copy,
+  GitBranch,
   Github,
   Layers3,
   Linkedin,
@@ -355,21 +356,43 @@ export default function Portfolio() {
             </div>
           </div>
           <div className="hero-art">
-            <div className="portrait-frame">
-              <img
-                src="/pfp.png"
-                alt="Mohammed Fahchouch"
-                width="800"
-                height="800"
-                fetchPriority="high"
-              />
+            <div className="engineering-canvas" aria-label="Aperçu de mon approche d'ingénierie">
+              <div className="canvas-bar">
+                <span className="canvas-status"><i /> CE QUE J’APPORTE À UNE ÉQUIPE</span>
+                <span>01—04</span>
+              </div>
+              <div className="canvas-main">
+                <div className="canvas-orbit orbit-one" />
+                <div className="canvas-orbit orbit-two" />
+                <div className="canvas-core">
+                  <Code2 size={31} strokeWidth={1.5} />
+                  <span>MOHAMMED</span>
+                </div>
+                <div className="canvas-node node-architecture">
+                  <Layers3 size={18} />
+                  <span>Architecture</span>
+                </div>
+                <div className="canvas-node node-quality">
+                  <ShieldCheck size={18} />
+                  <span>Rigueur</span>
+                </div>
+                <div className="canvas-node node-delivery">
+                  <GitBranch size={18} />
+                  <span>Curiosité</span>
+                </div>
+                <span className="canvas-line line-one" />
+                <span className="canvas-line line-two" />
+                <span className="canvas-line line-three" />
+              </div>
+              <div className="canvas-footer">
+                <span>APPRENDRE</span>
+                <span>→</span>
+                <strong>CONTRIBUER</strong>
+                <span>→</span>
+                <span>PROGRESSER</span>
+              </div>
             </div>
-            <div className="developer-note">
-              <span className="note-heading">INGÉNIEUR EN INFORMATIQUE</span>
-              <p>
-                Disponible pour un stage en <em>développement logiciel.</em>
-              </p>
-            </div>
+            <p className="hero-visual-caption">Curieux, rigoureux et attentif à la qualité : des repères que j’apporte à une équipe.</p>
           </div>
           <div className="hero-footer">
             <span>5e ANNÉE · EHEI OUJDA</span>

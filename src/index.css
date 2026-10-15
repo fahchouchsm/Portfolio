@@ -2895,67 +2895,49 @@ svg {
 .hero-art:before {
   content: none;
 }
-.portrait-frame {
-  width: min(100%, 430px);
-  height: 480px;
-  margin: 0;
-  border: 1px solid #383d42;
-  border-radius: 20px;
-  background: #15191f;
-  box-shadow: none;
-  transform: none;
+.engineering-canvas {
+  width: min(100%, 450px);
+  min-height: 465px;
   overflow: hidden;
+  border: 1px solid #39413b;
+  border-radius: 18px;
+  background: radial-gradient(circle at 50% 48%, #263728 0, #191f1a 42%, #111412 76%);
+  box-shadow: inset 0 0 0 1px rgba(180, 242, 114, .04), 0 22px 55px rgba(0, 0, 0, .2);
 }
-.portrait-frame:after {
-  display: none;
+.canvas-bar, .canvas-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 18px;
+  color: #8d9a8b;
+  font: 600 9px var(--heading);
+  letter-spacing: 1.2px;
 }
-.portrait-frame img {
-  filter: none;
-  mix-blend-mode: normal;
-  object-fit: cover;
-  object-position: center 28%;
-}
-.portrait-label,
-.portrait-caption {
-  display: none;
-}
-.developer-note {
-  position: static;
-  min-width: 0;
-  width: min(100%, 430px);
-  margin: 0;
-  padding: 15px 17px;
-  border: 1px solid #343b30;
-  border-left: 3px solid #b4f272;
-  border-radius: 8px;
-  background: #191b22;
-  box-shadow: none;
-  transform: none;
-}
-.note-heading {
-  margin: 0 0 7px;
-  padding: 0;
-  border: 0;
-  color: #b4f272;
-  font: 600 10px var(--heading);
-  letter-spacing: 1px;
-}
-.developer-note p,
-.developer-note em {
-  font: 500 14px/1.55 var(--heading);
-  color: #dce6d3;
-  font-style: normal;
-}
+.canvas-bar { border-bottom: 1px solid rgba(180, 242, 114, .13); }
+.canvas-footer { border-top: 1px solid rgba(180, 242, 114, .13); gap: 8px; }
+.canvas-footer strong { color: #b4f272; font: inherit; }
+.canvas-status { display: inline-flex; align-items: center; gap: 7px; color: #c9d6c4; }
+.canvas-status i { width: 6px; height: 6px; border-radius: 50%; background: #b4f272; box-shadow: 0 0 12px #b4f272; }
+.canvas-main { position: relative; height: 367px; }
+.canvas-orbit { position: absolute; left: 50%; top: 50%; border: 1px solid rgba(180, 242, 114, .18); border-radius: 50%; transform: translate(-50%, -50%); }
+.orbit-one { width: 266px; height: 266px; }
+.orbit-two { width: 178px; height: 178px; border-style: dashed; }
+.canvas-core { position: absolute; z-index: 2; left: 50%; top: 50%; display: grid; place-items: center; width: 104px; height: 104px; gap: 5px; border: 1px solid #b4f272; border-radius: 50%; background: #1f321e; color: #dfffc4; transform: translate(-50%, -50%); box-shadow: 0 0 0 9px rgba(180, 242, 114, .05), 0 0 35px rgba(180, 242, 114, .16); }
+.canvas-core span { font: 700 10px var(--heading); letter-spacing: 2px; }
+.canvas-node { position: absolute; z-index: 3; display: flex; align-items: center; gap: 8px; padding: 9px 11px; border: 1px solid #3e5141; border-radius: 6px; background: #151b16; color: #d5dfd0; font: 600 10px var(--heading); letter-spacing: .4px; box-shadow: 0 9px 22px rgba(0, 0, 0, .23); }
+.canvas-node svg { color: #b4f272; }
+.node-architecture { top: 52px; left: 24px; }
+.node-quality { top: 70px; right: 22px; }
+.node-delivery { right: 45px; bottom: 58px; }
+.canvas-line { position: absolute; height: 1px; background: linear-gradient(90deg, transparent, #8dc45b, transparent); transform-origin: left; opacity: .6; }
+.line-one { width: 130px; left: 104px; top: 111px; transform: rotate(25deg); }
+.line-two { width: 122px; left: 255px; top: 138px; transform: rotate(142deg); }
+.line-three { width: 116px; left: 251px; top: 255px; transform: rotate(72deg); }
+.hero-visual-caption { width: min(100%, 450px); margin: 0; color: #98a596; font: 500 12px/1.55 var(--body); text-align: right; }
 @media (max-width: 800px) {
   .hero-art {
     align-items: center;
     padding: 0;
-  }
-  .portrait-frame {
-    height: 410px;
-  }
-  .developer-note {
-    width: 100%;
   }
 }
 @media (max-width: 600px) {
@@ -2964,19 +2946,18 @@ svg {
     padding: 0;
     gap: 12px;
   }
-  .portrait-frame {
+  .engineering-canvas {
     width: 100%;
-    height: 430px;
-    border-radius: 16px;
+    min-height: 410px;
+    border-radius: 14px;
   }
-  .developer-note {
-    width: 100%;
-    padding: 14px 15px;
-  }
-  .developer-note p,
-  .developer-note em {
-    font-size: 13px;
-  }
+  .canvas-main { height: 312px; }
+  .orbit-one { width: 235px; height: 235px; }
+  .orbit-two { width: 158px; height: 158px; }
+  .node-architecture { left: 11px; top: 40px; }
+  .node-quality { right: 11px; top: 58px; }
+  .node-delivery { right: 24px; bottom: 36px; }
+  .hero-visual-caption { width: 100%; text-align: left; }
 }
 .hero h1 span {
   text-decoration: none;
