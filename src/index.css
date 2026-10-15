@@ -3094,8 +3094,8 @@ svg {
   outline-color: #192211;
 }
 .github-chart-scroll img {
-  filter: invert(1) hue-rotate(180deg);
-  opacity: 0.9;
+  filter: grayscale(1) invert(1) sepia(1) hue-rotate(58deg) saturate(2.2) brightness(.72) contrast(1.12);
+  opacity: 1;
 }
 @media print {
   .contact-section {

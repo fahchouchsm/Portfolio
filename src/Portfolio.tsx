@@ -414,6 +414,56 @@ export default function Portfolio() {
           </div>
         </section>
 
+        <section
+          className="github-section container"
+          aria-labelledby="github-title"
+        >
+          <div className="github-heading">
+            <div>
+              <p className="eyebrow">AU FIL DES COMMITS</p>
+              <h2 id="github-title">Construire, un jour après l’autre.</h2>
+            </div>
+            <a
+              className="text-link"
+              href={github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github size={19} /> @fahchouchsm <ArrowUpRight size={16} />
+            </a>
+          </div>
+          {chartFailed ? (
+            <p className="chart-fallback" role="status">
+              Le graphique est momentanément indisponible. Retrouvez mon
+              activité directement sur{" "}
+              <a href={github} target="_blank" rel="noreferrer">
+                GitHub ↗
+              </a>
+              .
+            </p>
+          ) : (
+            <div
+              className="github-chart-scroll"
+              tabIndex={0}
+              role="region"
+              aria-label="Calendrier de contributions GitHub, défilement horizontal"
+            >
+              <img
+                src="https://ghchart.rshah.org/b4f272/fahchouchsm"
+                alt="Calendrier des contributions GitHub de Mohammed Fahchouch sur les douze derniers mois"
+                loading="lazy"
+                width="722"
+                height="112"
+                onError={() => setChartFailed(true)}
+              />
+            </div>
+          )}
+          <p className="github-caption">
+            Mon activité publique sur GitHub · graphique actualisé par GitHub
+            Chart.
+          </p>
+        </section>
+
         <section className="section projects-section" id="projets">
           <div className="container">
             <div className="section-heading">
@@ -528,56 +578,6 @@ export default function Portfolio() {
               </a>
             </div>
           </div>
-        </section>
-
-        <section
-          className="github-section container"
-          aria-labelledby="github-title"
-        >
-          <div className="github-heading">
-            <div>
-              <p className="eyebrow">AU FIL DES COMMITS</p>
-              <h2 id="github-title">Construire, un jour après l’autre.</h2>
-            </div>
-            <a
-              className="text-link"
-              href={github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Github size={19} /> @fahchouchsm <ArrowUpRight size={16} />
-            </a>
-          </div>
-          {chartFailed ? (
-            <p className="chart-fallback" role="status">
-              Le graphique est momentanément indisponible. Retrouvez mon
-              activité directement sur{" "}
-              <a href={github} target="_blank" rel="noreferrer">
-                GitHub ↗
-              </a>
-              .
-            </p>
-          ) : (
-            <div
-              className="github-chart-scroll"
-              tabIndex={0}
-              role="region"
-              aria-label="Calendrier de contributions GitHub, défilement horizontal"
-            >
-              <img
-                src="https://ghchart.rshah.org/6fa637/fahchouchsm"
-                alt="Calendrier des contributions GitHub de Mohammed Fahchouch sur les douze derniers mois"
-                loading="lazy"
-                width="722"
-                height="112"
-                onError={() => setChartFailed(true)}
-              />
-            </div>
-          )}
-          <p className="github-caption">
-            Mon activité publique sur GitHub · graphique actualisé par GitHub
-            Chart.
-          </p>
         </section>
 
         <section className="approach-section section" id="approche">
