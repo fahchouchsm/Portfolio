@@ -902,7 +902,7 @@ export default function Portfolio() {
                   <Github size={17} /> GitHub <ArrowUpRight size={14} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/fahchchouch-mohammed-63b311375"
+                  href="https://www.linkedin.com/in/fahchchouch-mohammed/"
                   target="_blank"
                   rel="noreferrer"
                 >
