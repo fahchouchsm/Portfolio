@@ -21,6 +21,7 @@ import {
   Target,
   ShieldCheck,
   Terminal,
+  FileText,
   X,
 } from "lucide-react";
 import {
@@ -362,6 +363,15 @@ export default function Portfolio() {
             <div className="hero-actions">
               <a href="#projets" className="button primary">
                 Explorer mes projets <ArrowDown size={17} />
+              </a>
+              <a
+                href="/cv.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="button secondary"
+                style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+              >
+                <FileText size={17} /> Télécharger mon CV
               </a>
               <a href="#contact" className="text-link">
                 Faisons connaissance <ArrowUpRight size={17} />
