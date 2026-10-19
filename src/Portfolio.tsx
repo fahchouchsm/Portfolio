@@ -32,7 +32,7 @@ import {
 } from "./data/portfolio.ts";
 
 const github = "https://github.com/fahchouchsm";
-const email = "fahchouchsm@gmail.com";
+const email = "fahchouchmd@gmail.com";
 const principleIcons = [Target, Puzzle, ArrowLeftRight, Split, Plug];
 const nav = [
   ["projets", "Projets"],

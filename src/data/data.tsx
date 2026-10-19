@@ -45,7 +45,7 @@ export const socialAccounts: SocialAccount[] = [
   },
   {
     icon: Mail,
-    path: "mailto:fahchouchsm@gmail.com",
+    path: "mailto:fahchouchmd@gmail.com",
     label: "Email",
   },
 ];
