@@ -80,8 +80,8 @@ test("SOLID explanations and contact actions are usable", async ({ page }) => {
   await expect(principle).toHaveAttribute("open", "");
   await expect(principle.locator("p")).toBeVisible();
   await expect(
-    page.getByRole("link", { name: "fahchouchsm@gmail.com", exact: true }),
-  ).toHaveAttribute("href", "mailto:fahchouchsm@gmail.com");
+    page.getByRole("link", { name: "fahchouchmd@gmail.com", exact: true }),
+  ).toHaveAttribute("href", "mailto:fahchouchmd@gmail.com");
   await expect(
     page.getByRole("link", { name: "+212 600 242 374" }),
   ).toHaveAttribute("href", "tel:+212600242374");
@@ -89,7 +89,7 @@ test("SOLID explanations and contact actions are usable", async ({ page }) => {
   await page.getByRole("button", { name: "Copier l’adresse email" }).click();
   await expect(page.getByText("Copié !", { exact: true })).toBeVisible();
   expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(
-    "fahchouchsm@gmail.com",
+    "fahchouchmd@gmail.com",
   );
 });
 
