@@ -46,17 +46,20 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
         </div>
         <div className="spec-panel-body">
           <div className="branch-flow">
-            <div className="branch-node branch-master">
-              <span className="node-dot dot-accent" />
-              <span className="node-text">main : commit 5ac40df · SonarQube score A</span>
+            <div className="branch-node">
+              <span className="branch-label branch-main">main</span>
+              <span className="branch-hash">5ac40df</span>
+              <span className="branch-text">SonarQube score A</span>
             </div>
-            <div className="branch-node branch-feature">
-              <span className="node-dot" />
-              <span className="node-text">feat/ast : analyse AST JavaParser → PlantUML</span>
+            <div className="branch-node">
+              <span className="branch-label">feat/ast</span>
+              <span className="branch-hash">parser</span>
+              <span className="branch-text">JavaParser → PlantUML</span>
             </div>
-            <div className="branch-node branch-sub">
-              <span className="node-dot" />
-              <span className="node-text">core/dag : index staging &amp; graphe DAG</span>
+            <div className="branch-node">
+              <span className="branch-label">core/dag</span>
+              <span className="branch-hash">staging</span>
+              <span className="branch-text">Index &amp; graphe DAG</span>
             </div>
           </div>
         </div>
@@ -68,8 +71,10 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
     return (
       <div className="project-spec-panel" aria-label="Architecture AuthGateway">
         <div className="spec-panel-bar">
-          <span className="spec-panel-title">Microservices · RS256</span>
-          <span className="spec-panel-status status-success">JWKS Active</span>
+          <span className="spec-panel-title">
+            {lang === "fr" ? "Sécurité Microservices" : "Microservices Security"}
+          </span>
+          <span className="spec-panel-status status-success">Tokens RS256</span>
         </div>
         <div className="spec-panel-body">
           <div className="service-pipeline">
@@ -106,19 +111,19 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
     return (
       <div className="project-spec-panel" aria-label="Routage de signalements FixMyCity">
         <div className="spec-panel-bar">
-          <span className="spec-panel-title">Clean Architecture · REST</span>
-          <span className="spec-panel-status status-success">201 Created</span>
+          <span className="spec-panel-title">Clean Architecture</span>
+          <span className="spec-panel-status status-success">Route active</span>
         </div>
         <div className="spec-panel-body">
           <div className="api-preview-row">
             <span className="http-method">POST</span>
-            <span className="api-route">/api/v1/incidents/route</span>
+            <code className="api-route">/api/v1/incidents/route</code>
             <span className="http-status">201 Created</span>
           </div>
           <p className="api-note">
             {lang === "fr"
-              ? "Routage dynamique vers les services municipaux compétents avec Entity Framework Core."
-              : "Dynamic incident routing to municipal departments powered by Entity Framework Core."}
+              ? "Routage dynamique vers les services municipaux via Entity Framework Core."
+              : "Dynamic incident routing to municipal departments via Entity Framework Core."}
           </p>
         </div>
       </div>
@@ -132,7 +137,7 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
           <span className="spec-panel-title">
             {lang === "fr" ? "Moteur SGBD & Intégrité" : "DBMS Engine & Integrity"}
           </span>
-          <span className="spec-panel-status status-accent">50 000+ tuples</span>
+          <span className="spec-panel-status status-accent">Multi-SGBD</span>
         </div>
         <div className="spec-panel-body">
           <div className="db-dataset-preview">
@@ -141,8 +146,8 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
               <span>MySQL 8.0, PostgreSQL 16 et SQLite</span>
             </div>
             <div className="db-stats-row">
-              <span className="db-stat-highlight">50 000+</span>
-              <span>
+              <span className="db-stat-highlight">50&nbsp;000+</span>
+              <span className="db-stat-caption">
                 {lang === "fr"
                   ? "tuples synthétiques avec contraintes FK vérifiées"
                   : "synthetic tuples with foreign keys validated"}
@@ -158,19 +163,20 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
     <div className="project-spec-panel" aria-label="Plateforme web réactive">
       <div className="spec-panel-bar">
         <span className="spec-panel-title">WebSockets &amp; MongoDB</span>
-        <span className="spec-panel-status status-success">Live (wss://)</span>
+        <span className="spec-panel-status status-success">Live stream</span>
       </div>
       <div className="spec-panel-body">
         <div className="realtime-stream">
           <div className="stream-badge">
             <span className="stream-live-indicator" />
-            <code>wss://api.skillzhire.com/socket.io</code>
+            <span className="stream-protocol">wss://</span>
+            <code>api.skillzhire.com/socket.io</code>
           </div>
-          <span className="stream-desc">
+          <p className="stream-desc">
             {lang === "fr"
               ? "Canaux de messagerie instantanée bidirectionnelle et indexation MongoDB."
               : "Bidirectional instant messaging channels and indexed MongoDB queries."}
-          </span>
+          </p>
         </div>
       </div>
     </div>
@@ -715,7 +721,7 @@ export default function Portfolio() {
                         <ArrowRight size={14} className="cta-arrow" />
                       </button>
 
-                      {project.url && (
+                      {project.url ? (
                         <a
                           href={project.url}
                           target="_blank"
@@ -725,6 +731,14 @@ export default function Portfolio() {
                         >
                           <Github size={16} />
                         </a>
+                      ) : (
+                        <span
+                          className="project-btn-confidential"
+                          title={lang === "fr" ? "Code source interne · CHU / SRMO" : "Internal source code · CHU / SRMO"}
+                          aria-label={lang === "fr" ? "Code interne" : "Internal code"}
+                        >
+                          <Layers size={16} />
+                        </span>
                       )}
                     </div>
                   </div>
