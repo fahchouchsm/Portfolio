@@ -300,7 +300,6 @@ export default function Portfolio() {
           <div className="hero-grid">
             <div className="hero-lead-col">
               <div className="hero-status-pill">
-                <span className="status-dot"></span>
                 <span>
                   {lang === "fr"
                     ? "Recherche de stage PFE : Février à Juillet 2027"
