@@ -69,7 +69,7 @@
   --color-rule: oklch(26% 0.025 245);
   --color-rule-2: oklch(34% 0.03 245);
 
-  /* Primary Accent: Azure */
+  /* Primary Accent: Engineering Azure */
   --color-accent: oklch(74% 0.15 225);
   --color-accent-hover: oklch(80% 0.14 225);
   --color-accent-ink: oklch(15% 0.05 225);
@@ -82,10 +82,6 @@
   --color-btn-primary-hover: oklch(38% 0.22 255);
   --color-btn-primary-text: oklch(99% 0.002 240);
   --color-btn-primary-border: oklch(52% 0.2 255);
-
-  /* Status Emerald */
-  --color-emerald: oklch(76% 0.16 155);
-  --color-emerald-wash: oklch(24% 0.04 155);
 
   /* Surfaces & Overlays */
   --color-header-bg: oklch(14% 0.02 245);
