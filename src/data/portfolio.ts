@@ -3,14 +3,105 @@ export interface Project {
   title: string;
   category: "Backend" | "Web" | "Desktop";
   context: string;
-  visual: "gateway" | "city" | "database" | "market" | "shop" | "language" | "bettergit";
+  visual: "gateway" | "city" | "database" | "market" | "bettergit";
   description: string;
   problem: string;
   details: string[];
   architecture: string;
   stack: string[];
   url?: string;
+  commandSnippet?: string;
 }
+
+export interface CvVariant {
+  id: string;
+  title: string;
+  roleSubtitle: string;
+  path: string;
+  highlights: string[];
+  primaryTech: string[];
+}
+
+export const cvVariants: CvVariant[] = [
+  {
+    id: "general",
+    title: "Génie logiciel",
+    roleSubtitle: "Profil polyvalent · Conception logicielle & architecture",
+    path: "/cv/CV_Fahchouch_Mohammed.pdf",
+    highlights: [
+      "Architectures logicielles résilientes et conception modulaire",
+      "Écosystème backend distribué (Java / Spring Boot & C# / ASP.NET Core)",
+      "Interfaces desktop et web réactives (React, TypeScript, Tauri, Electron)",
+      "Orchestration conteneurisée et environnement Linux au quotidien",
+    ],
+    primaryTech: ["Java", "Spring Boot", "C#", ".NET", "React", "TypeScript", "Docker"],
+  },
+  {
+    id: "backend-java",
+    title: "Backend Java",
+    roleSubtitle: "Spécialisation microservices & Spring Boot",
+    path: "/cv/CV_Fahchouch_Mohammed_Backend_Java.pdf",
+    highlights: [
+      "Sécurisation des flux distribués avec Spring Security, JWT et rotation JWKS",
+      "Mise en cache haute performance sous Redis et requêtes spatiales PostGIS",
+      "Conception du moteur Git et analyse AST JavaParser (projet BetterGit)",
+      "Quality Gate SonarQube strict avec score A et couverture de tests JUnit",
+    ],
+    primaryTech: ["Java 17/21", "Spring Boot 3", "Spring Security", "Redis", "PostgreSQL", "SonarQube"],
+  },
+  {
+    id: "devops-cloud",
+    title: "DevOps & cloud",
+    roleSubtitle: "Automatisation, conteneurisation & infrastructure",
+    path: "/cv/CV_Fahchouch_Mohammed_DevOps_Cloud.pdf",
+    highlights: [
+      "Déploiement et orchestration de grappes de conteneurs sous Docker et Kubernetes",
+      "Pipelines CI/CD automatisés sous GitLab CI et Jenkins",
+      "Supervision des métriques applicatives avec Prometheus et Grafana",
+      "Gestion de configuration avec Ansible et automatisation de scripts bash Linux",
+    ],
+    primaryTech: ["Docker", "Kubernetes", "GitLab CI", "Linux", "Ansible", "Nginx"],
+  },
+  {
+    id: "fullstack",
+    title: "Fullstack",
+    roleSubtitle: "Applications web de bout en bout & temps réel",
+    path: "/cv/CV_Fahchouch_Mohammed_Fullstack.pdf",
+    highlights: [
+      "Interfaces modernes sous React, Next.js et TypeScript avec gestion d'état",
+      "Services backend modulaires RESTful et protocoles temps réel WebSockets",
+      "Bases relationnelles et documentaires (PostgreSQL, MongoDB, SQL Server)",
+      "Expérience utilisateur fluide sans compromis sur la rigueur d'ingénierie",
+    ],
+    primaryTech: ["React", "Next.js", "TypeScript", "Node.js", "Express", "Tailwind CSS"],
+  },
+  {
+    id: "dotnet-csharp",
+    title: "C# & .NET",
+    roleSubtitle: "Services métiers d'entreprise & architecture en couches",
+    path: "/cv/CV_Fahchouch_Mohammed_DotNet_CSharp.pdf",
+    highlights: [
+      "APIs sous ASP.NET Core et Entity Framework Core",
+      "Architecture Clean / en couches avec DTOs, AutoMapper et gestion globale d'erreurs",
+      "Migrations de schémas automatisées et persistance sous SQL Server",
+      "Interopérabilité dans un réseau de microservices conteneurisés",
+    ],
+    primaryTech: ["C#", "ASP.NET Core", "EF Core", "SQL Server", "Clean Architecture", "Docker"],
+  },
+  {
+    id: "data-ai",
+    title: "Data & IA",
+    roleSubtitle: "Pipelines de données, RAG & intégration de modèles",
+    path: "/cv/CV_Fahchouch_Mohammed_Data_AI.pdf",
+    highlights: [
+      "Pipelines de recherche vectorielle RAG avec FAISS et bases documentaires",
+      "Intégration d'APIs d'inférence sous Python et FastAPI",
+      "Analyses de données volumiques et requêtes géospatiales sous PostGIS",
+      "Expérimentations de fine-tuning et exploitation de modèles ouverts",
+    ],
+    primaryTech: ["Python", "FastAPI", "PyTorch", "FAISS", "PostgreSQL/PostGIS", "Scikit-Learn"],
+  },
+];
 
 export const projects: Project[] = [
   {
@@ -20,76 +111,88 @@ export const projects: Project[] = [
     context: "Stage · CHU Oujda · 2026",
     visual: "bettergit",
     description:
-      "Un outil desktop de gestion Git développé en stage, pour rendre l’historique et les flux de travail plus lisibles.",
+      "Outil desktop d'exploration Git et d'analyse de code conçu lors d'un stage au CHU Oujda pour rendre l'historique et les structures logicielles limpides.",
     problem:
-      "Aider les développeurs à explorer les branches, l’historique et les preuves de commits dans une interface claire.",
+      "Comprendre visuellement des graphes de branches complexes, auditer les preuves de commits et extraire automatiquement des diagrammes d'architecture du code.",
     details: [
-      "Interface desktop avec graphe interactif des branches et de l’historique.",
-      "Visualiseur de preuves de commits, pipelines configurables et documentation assistée par IA.",
-      "Contribution au moteur Java : quality gate SonarQube, diagrammes de classes et suivi de durée des tests.",
+      "Moteur Git modulaire en Java (Eclipse JGit) manipulant l'index de staging et les graphes orientés acycliques (DAG).",
+      "Outil CLI Java2Diagram : parsing syntaxique de l'AST avec JavaParser pour générer des diagrammes UML PlantUML.",
+      "Interface desktop native sous Tauri, React et TypeScript communicant de façon asynchrone avec le moteur.",
+      "Validation par Quality Gate SonarQube strict avec score A (0 vulnérabilité critique et respect des normes de maintenabilité).",
     ],
     architecture:
-      "Le projet relie une interface desktop TypeScript / React au moteur Java. La qualité est intégrée au flux de développement avec des contrôles SonarQube, des tests et une documentation de l’architecture.",
+      "Le pont Tauri / IPC découple la couche présentation réactive du moteur d'analyse Java. La modularité garantit que l'inspection Git et la génération de diagrammes AST restent des modules isolés et testables unitairement.",
     stack: [
       "Java 21",
-      "JGit",
-      "Maven",
+      "Eclipse JGit",
+      "JavaParser",
       "JUnit",
-      "JavaFX",
-      "TypeScript",
       "React",
+      "TypeScript",
       "Tauri",
-      "Tailwind CSS",
       "SonarQube",
     ],
     url: "https://github.com/fahchouchsm/betterGit-desktop",
+    commandSnippet: "bettergit graph --branch=main --ast-inspect",
   },
   {
     id: 2,
     title: "AuthGateway",
     category: "Backend",
-    context: "Projet de 4e année",
+    context: "Projet académique PFA · 4e année EHEIM",
     visual: "gateway",
     description:
-      "Une passerelle d’authentification pour centraliser la sécurité d’une architecture microservices.",
+      "Passerelle d'authentification et de routage centralisée assurant la sécurité périmétrique d'un écosystème de microservices.",
     problem:
-      "Gérer l’identité et les autorisations à l’entrée d’un système composé de plusieurs services.",
+      "Fournir une source de vérité unique pour l'authentification et les autorisations sans surcharger les services métiers de logique cryptographique.",
     details: [
-      "Validation des jetons JWT signés en RS256.",
-      "Contrôle d’accès par rôles (RBAC) et rotation des clés via JWKS.",
-      "Injection de claims vers les services et déploiement avec Docker.",
+      "Validation de jetons JWT asymétriques signés en RS256 avec rotation des clés publiques exposées via endpoint JWKS.",
+      "Contrôle d'accès granulaire basé sur les rôles (RBAC) et injection de claims fiables aux services avals.",
+      "Gestion de refresh tokens révocables stockés dans un cache Redis en mémoire (cookies HttpOnly stricts).",
+      "Orchestration d'une plateforme de 11 conteneurs avec BusWay GIS sous Docker Compose avec sondes de santé.",
     ],
     architecture:
-      "La passerelle porte les préoccupations transversales d’authentification. Les services restent centrés sur leur métier. Ce découpage illustre la séparation des responsabilités ; la frontière de confiance entre passerelle et services doit être explicite.",
+      "La passerelle isole la responsabilité transversale d'authentification. Les microservices applicatifs en aval font confiance aux en-têtes injectés par le réseau interne, éliminant la duplication de code de sécurité.",
     stack: [
-      "Java",
-      "Spring Boot",
+      "Java 21",
+      "Spring Boot 3",
+      "Spring Security",
       "JWT / JWKS",
-      "Docker",
-      "RBAC",
-      "Microservices",
+      "Redis",
+      "PostgreSQL",
+      "Docker Compose",
     ],
     url: "https://github.com/fahchouchsm/authGetway-PFA-4year",
+    commandSnippet: "docker compose up -d auth-gateway redis-cache busway-gis",
   },
   {
     id: 3,
     title: "FixMyCity",
     category: "Backend",
-    context: "Projet de 4e année",
+    context: "Projet académique PFA · 4e année EHEIM",
     visual: "city",
     description:
-      "Une API de signalement urbain qui relie les problèmes du quotidien aux autorités concernées.",
+      "API REST pour la gestion et le routage des signalements urbains vers les services municipaux compétents.",
     problem:
-      "Structurer les signalements urbains et les orienter vers les autorités compétentes à travers une API dédiée.",
+      "Organiser le cycle de vie d'un incident urbain (dépôt, catégorisation, affectation et résolution) à travers des contrats HTTP stricts.",
     details: [
-      "API REST développée avec ASP.NET Core et C#.",
-      "Routage des signalements vers les autorités concernées.",
-      "Intégration avec AuthGateway et déploiement Dockerisé.",
+      "Développement sous C# et ASP.NET Core suivant une architecture en couches (Controllers, Services, Repositories).",
+      "Persistance relationnelle avec Entity Framework Core, migrations automatiques au démarrage et base SQL Server.",
+      "Gestion centralisée des erreurs via middleware global et validation rigoureuse des entrées DTO.",
+      "Connexion sécurisée au réseau Docker d'AuthGateway.",
     ],
     architecture:
-      "Un service métier distinct de la passerelle d’authentification. L’API expose les opérations de signalement et s’intègre dans une architecture distribuée par des contrats HTTP explicites.",
-    stack: ["C#", "ASP.NET Core", "REST", "Docker", "AuthGateway"],
+      "Service métier autonome appliquant le principe d'inversion des dépendances. Les contrôleurs ne connaissent que les abstractions de service, facilitant les tests unitaires et le remplacement de la couche persistance.",
+    stack: [
+      "C#",
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "SQL Server",
+      "REST",
+      "Docker",
+    ],
     url: "https://github.com/fahchouchsm/fixMyCity-ASP-RestAPI-4year",
+    commandSnippet: "dotnet run --project FixMyCity.Api",
   },
   {
     id: 4,
@@ -98,44 +201,57 @@ export const projects: Project[] = [
     context: "Projet personnel",
     visual: "market",
     description:
-      "Une marketplace freelance avec profils, services et échanges en temps réel.",
+      "Plateforme web collaborative avec gestion de compétences, catalogues de profils et messagerie instantanée en temps réel.",
     problem:
-      "Réunir la présentation des compétences, la publication de services et les échanges entre utilisateurs dans une même application.",
+      "Offrir une interface fluide et instantanée permettant aux utilisateurs de collaborer et d'échanger des messages sans rechargement de page.",
     details: [
-      "Authentification JWT, profils utilisateurs et inscription vendeur.",
-      "Création de services et organisation par catégories.",
-      "Communication temps réel avec WebSockets / Socket.IO.",
+      "Authentification par jetons et gestion des profils utilisateurs.",
+      "Canaux de discussion bidirectionnels temps réel propulsés par WebSockets (Socket.IO).",
+      "Catalogue dynamique avec filtres multicritères et requêtes optimisées sous MongoDB.",
+      "Interface réactive sous Next.js et TypeScript avec composants stylisés.",
     ],
     architecture:
-      "Une interface Next.js, une API Express et une persistance MongoDB. La communication temps réel complète les échanges HTTP pour les interactions qui nécessitent des mises à jour immédiates.",
-    stack: ["Next.js", "TypeScript", "Express", "MongoDB", "JWT", "Socket.IO"],
+      "Séparation entre le rendu applicatif Next.js et l'API Express Node.js. Les flux de données temps réel sont gérés sur un canal WebSocket persistant distinct des requêtes HTTP déclaratives.",
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Socket.IO",
+    ],
     url: "https://github.com/fahchouchsm/Skillz_Hire",
+    commandSnippet: "npm run dev",
   },
   {
     id: 5,
     title: "MySQL Compass",
     category: "Desktop",
-    context: "Stage · Société Régionale Multiservices de l’Oriental · 2024",
+    context: "Stage · Société Régionale Multiservices de l'Oriental · 2024",
     visual: "database",
     description:
-      "Un client bureau pour explorer les schémas MySQL, écrire du SQL et exporter les résultats.",
+      "Client desktop d'exploration multi-bases et générateur volumique de jeux d'essais relationnels pour les équipes de développement.",
     problem:
-      "Faciliter l’exploration et l’interrogation de bases MySQL depuis une interface de bureau dédiée.",
+      "Permettre l'exploration de bases de données locales et la génération sécurisée de millions de lignes synthétiques respectant l'intégrité référentielle.",
     details: [
-      "Exploration des schémas de bases de données.",
-      "Éditeur de requêtes SQL et pont API Node.js / MySQL embarqué.",
-      "Export des données aux formats CSV et JSON.",
+      "Interface d'exploration de schémas, tables, index et colonnes pour MySQL, PostgreSQL et SQLite.",
+      "Générateur volumique automatisé respectant les contraintes de clés primaires et clés étrangères.",
+      "Éditeur de requêtes SQL intégré avec exécution asynchrone et exports de données en CSV / JSON.",
+      "Architecture desktop sous Electron et React avec pont IPC isolé vers le connecteur Node.js natif.",
     ],
     architecture:
-      "Electron héberge l’application ; React et Tailwind composent l’interface. Le pont Node.js / MySQL isole l’accès aux données de la présentation.",
+      "Isolation stricte du processus de rendu vis-à-vis du moteur d'exécution SQL dans le processus principal Node.js. Cette séparation prévient tout blocage de l'interface lors d'opérations volumiques.",
     stack: [
       "Electron",
       "React",
       "TypeScript",
       "MySQL",
+      "PostgreSQL",
       "Node.js",
-      "Tailwind CSS",
+      "SQL",
     ],
+    commandSnippet: "electron . --safe-ipc",
   },
 ];
 
@@ -145,148 +261,174 @@ export const principles = [
     title: "Une responsabilité claire",
     english: "Single Responsibility",
     description:
-      "Une classe ou un module a une raison de changer. Exemple : séparer la validation d’une requête, la logique métier et l’accès à la base de données.",
+      "Une classe ou un module ne doit avoir qu'une seule raison de changer. Dans BetterGit et AuthGateway, la validation des requêtes, la logique métier de sécurité et l'accès aux données résident dans des modules strictement indépendants.",
   },
   {
     letter: "O",
-    title: "Étendre sans tout modifier",
+    title: "Étendre sans modifier le cœur",
     english: "Open / Closed",
     description:
-      "Prévoir des contrats stables pour ajouter un comportement. Exemple : une nouvelle stratégie de notification implémente une interface commune sans modifier le service métier.",
+      "Les composants logiciels doivent être ouverts à l'extension mais fermés à la modification. Dans l'analyseur Java2Diagram, de nouveaux formats d'export de diagrammes s'implémentent via une interface commune sans altérer le parser AST.",
   },
   {
     letter: "L",
-    title: "Des contrats fiables",
+    title: "Des contrats fiables et substituables",
     english: "Liskov Substitution",
     description:
-      "Une implémentation doit pouvoir en remplacer une autre sans casser les attentes du code appelant. Les préconditions, résultats et erreurs restent cohérents avec le contrat.",
+      "Les sous-types doivent pouvoir remplacer leurs types de base sans altérer la cohérence du système. Dans FixMyCity et MySQL Compass, chaque connecteur de base de données respecte les mêmes garanties de contrat sans effets de bord inattendus.",
   },
   {
     letter: "I",
-    title: "Des interfaces ciblées",
+    title: "Des interfaces ciblées et modulaires",
     english: "Interface Segregation",
     description:
-      "Un client ne dépend que des opérations dont il a besoin. Exemple : distinguer la lecture d’un catalogue de sa gestion plutôt qu’imposer une grande interface à tous les consommateurs.",
+      "Un module ne doit jamais dépendre de méthodes qu'il n'utilise pas. Au lieu d'imposer de volumineuses interfaces génériques, chaque service microservice n'expose que les contrats HTTP et interfaces nécessaires à son consommateur.",
   },
   {
     letter: "D",
     title: "Dépendre des abstractions",
     english: "Dependency Inversion",
     description:
-      "Le métier dépend de contrats, pas des détails techniques. Exemple : injecter une interface de repository pour pouvoir remplacer la persistance ou la simuler dans un test.",
+      "Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau : tous deux doivent dépendre d'abstractions. Dans nos microservices Spring Boot et ASP.NET Core, les contrôleurs et cas d'usage dialoguent avec des interfaces de dépôt (repositories), permettant d'interchanger ou simuler la persistance sans réécrire la logique métier.",
   },
 ];
 
 export const skillGroups = [
   {
-    title: "Interfaces & applications",
-    description: "Des interfaces web aux applications desktop et mobiles.",
+    title: "Backend & microservices",
+    description: "Architectures distribuées, APIs résilientes et sécurité.",
     skills: [
-      "TypeScript",
-      "JavaScript",
-      "React",
-      "Next.js",
-      "HTML / CSS",
-      "Tailwind CSS",
-      "Electron",
-      "Tauri",
+      "Java (17 / 21)",
+      "Spring Boot 3",
+      "Spring Security",
+      "Spring Data JPA",
+      "C# / ASP.NET Core",
+      "Node.js / Express",
+      "PHP (Symfony)",
+      "APIs RESTful",
+      "JWT & JWKS",
+      "Microservices",
     ],
   },
   {
-    title: "Backend & intégration",
-    description: "Des API structurées et des échanges maîtrisés.",
-    skills: [
-      "Java",
-      "Spring Boot",
-      "C#",
-      "ASP.NET Core",
-      "Node.js",
-      "Express",
-      "PHP",
-      "Symfony / Twig",
-      "REST",
-      "JWT",
-      "WebSockets",
-    ],
-  },
-  {
-    title: "Données & persistance",
-    description: "Modélisation, requêtes et accès aux données.",
+    title: "Données & cache",
+    description: "Modélisation relationnelle, volumétrie et requêtes spatiales.",
     skills: [
       "PostgreSQL",
+      "PostGIS",
       "MySQL",
+      "Redis (cache & tokens)",
+      "SQL Server",
       "MongoDB",
       "SQLite",
-      "JPA / Hibernate",
-      "Doctrine",
+      "Hibernate ORM",
       "Entity Framework Core",
     ],
   },
   {
-    title: "Livraison & opérations",
-    description: "Versionner, automatiser, déployer et observer.",
+    title: "Cloud, DevOps & Linux",
+    description: "Conteneurisation, automatisation et exploitation système.",
     skills: [
-      "Git / GitHub",
-      "Linux",
-      "Docker / Compose",
-      "Jenkins",
-      "Nginx",
-      "SonarQube",
+      "Docker & Compose",
       "Kubernetes (notions)",
+      "GitLab CI/CD",
+      "Jenkins",
+      "Linux (bash quotidien)",
+      "Nginx",
       "Ansible (notions)",
-      "Grafana / Prometheus (notions)",
+      "SonarQube",
+      "Git / GitHub",
+    ],
+  },
+  {
+    title: "Interfaces & applications",
+    description: "Applications web et clients desktop multiplateformes.",
+    skills: [
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "React",
+      "Next.js",
+      "Tauri",
+      "Electron",
+      "Tailwind CSS",
+      "HTML5 / CSS3",
+      "WebSockets",
     ],
   },
   {
     title: "Conception & qualité",
-    description: "Une structure qui accompagne l’évolution du logiciel.",
+    description: "Méthodologie d'ingénierie et maintenabilité du code.",
     skills: [
       "SOLID",
-      "POO",
-      "UML",
-      "Architecture en couches",
-      "MVC",
-      "Microservices",
-      "Séparation des responsabilités",
-      "Injection de dépendances",
-      "Clean code",
+      "Clean Architecture",
+      "Design Patterns",
+      "POO avancée",
+      "AST (JavaParser)",
+      "Tests JUnit & xUnit",
+      "Quality Gate SonarQube (score A)",
+      "Méthode Agile Scrum",
     ],
   },
   {
-    title: "Autres explorations",
-    description: "Des fondamentaux et des technologies complémentaires.",
+    title: "Système & langages complémentaires",
+    description: "Fondamentaux algorithmiques et programmation système.",
     skills: [
       "C / C++",
-      "Python",
-      "Algorithmique",
-      "SQL",
+      "Python (FastAPI)",
+      "Algorithmique & structures de données",
+      "Shell Scripting Bash",
+      "UML & PlantUML",
     ],
   },
 ];
 
 export const experiences = [
   {
-    company: "CHU Oujda · BetterGit",
-    date: "7 AOÛT — 7 SEPTEMBRE 2026",
-    role: "Stage · Développement logiciel",
+    company: "CHU Oujda · Projet BetterGit",
+    date: "7 août au 7 septembre 2026",
+    role: "Stagiaire développement logiciel",
     description:
-      "Développement de l’interface desktop et contribution au moteur Java : graphe Git, quality gate SonarQube, diagrammes de classes et suivi des tests.",
-    tags: ["Java", "React", "Tauri", "SonarQube"],
+      "Conception d'un moteur Git modulaire en Java (Eclipse JGit, gestion du staging et graphes DAG) et d'un client desktop Tauri / React. Développement de l'extension CLI Java2Diagram analysant l'arbre syntaxique abstrait (AST) pour générer des diagrammes UML. Intégration d'un Quality Gate SonarQube avec score A.",
+    tags: ["Java 21", "Eclipse JGit", "JavaParser AST", "React", "Tauri", "SonarQube score A"],
   },
   {
-    company: "Société Régionale Multiservices de l’Oriental",
-    date: "JUIN 2024",
-    role: "Stage · Développement d’un client MySQL",
+    company: "Société Régionale Multiservices de l'Oriental",
+    date: "Juin 2024",
+    role: "Stagiaire développement d'un client multi-SGBD",
     description:
-      "Développement de MySQL Compass : exploration de schéma, éditeur SQL et export CSV / JSON dans une application Electron avec un pont Node.js / MySQL.",
-    tags: ["Electron", "React", "Node.js", "MySQL"],
+      "Conception et implémentation de MySQL Compass : client desktop sous Electron, React et Node.js permettant l'exploration multi-bases (MySQL, PostgreSQL, SQLite) et la génération volumique de jeux d'essais synthétiques respectant l'intégrité référentielle.",
+    tags: ["Electron", "React", "TypeScript", "Node.js", "SQL", "Bases relationnelles"],
   },
   {
-    company: "Conseil Régional de l’Oriental",
-    date: "JUIN 2023",
-    role: "Stage · Plateforme de gestion des stages",
+    company: "Conseil Régional de l'Oriental",
+    date: "Juin 2023",
+    role: "Stagiaire développement web MVC",
     description:
-      "Développement d’une plateforme MVC : authentification par middleware, upload de fichiers et conception du schéma MySQL.",
-    tags: ["Express", "EJS", "MySQL", "MVC"],
+      "Déploiement d'une application web fullstack sous architecture MVC (Node.js, Express, MySQL) dédiée à la centralisation, au filtrage dynamique et au suivi administratif des dossiers de candidatures de stages.",
+    tags: ["Node.js", "Express", "MySQL", "Architecture MVC", "Bootstrap"],
+  },
+];
+
+export const educations = [
+  {
+    degree: "Cycle ingénieur d'État en Génie Informatique (5e année)",
+    institution: "EHEIM Oujda",
+    period: "2024 à 2027",
+    description:
+      "Admis sur concours directement en 3e année. Actuellement en 5e année. Recherche active d'un stage de fin d'études (PFE) de 4 à 6 mois (Février à Juillet 2027).",
+  },
+  {
+    degree: "BTS Technicien Spécialisé en Développement Informatique",
+    institution: "Maghreb Al Arabi",
+    period: "2022 à 2024",
+    description:
+      "Formation approfondie en algorithmique, programmation orientée objet (Java, C++), conception de bases de données relationnelles et développement web.",
+  },
+  {
+    degree: "Baccalauréat Sciences Physiques",
+    institution: "Lycée",
+    period: "2020 à 2021",
+    description:
+      "Série scientifique avec mention, base solide en raisonnement mathématique et modélisation physique.",
   },
 ];

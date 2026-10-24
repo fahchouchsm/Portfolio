@@ -1,183 +1,180 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUpRight,
-  ArrowLeftRight,
-  ChevronDown,
-  Check,
-  Code2,
-  Copy,
+  Terminal,
+  ShieldCheck,
   Github,
-  Layers3,
   Linkedin,
   Mail,
+  Phone,
   MapPin,
   Menu,
-  Phone,
-  Plug,
-  Puzzle,
-  Split,
-  Target,
-  ShieldCheck,
-  Terminal,
-  FileText,
   X,
+  Copy,
+  Check,
+  FileText,
+  Download,
+  ExternalLink,
+  Calendar,
+  Building2,
+  Server,
+  Database,
 } from "lucide-react";
 import {
   projects,
-  skillGroups,
+  cvVariants,
   principles,
+  skillGroups,
   experiences,
+  educations,
   type Project,
+  type CvVariant,
 } from "./data/portfolio.ts";
 
-const github = "https://github.com/fahchouchsm";
-const email = "fahchouchmd@gmail.com";
-const principleIcons = [Target, Puzzle, ArrowLeftRight, Split, Plug];
-const nav = [
-  ["projets", "Projets"],
-  ["approche", "Approche"],
-  ["parcours", "Parcours"],
-  ["contact", "Contact"],
+const GITHUB_URL = "https://github.com/fahchouchsm";
+const LINKEDIN_URL = "https://www.linkedin.com/in/fahchchouch-mohammed/";
+const EMAIL_ADDRESS = "fahchouchmd@gmail.com";
+const PHONE_NUMBER = "+212 600 242 374";
+
+const NAV_LINKS = [
+  { href: "#projets", label: "Projets" },
+  { href: "#cv-variantes", label: "Variantes CV" },
+  { href: "#approche", label: "Approche" },
+  { href: "#competences", label: "Compétences" },
+  { href: "#parcours", label: "Parcours" },
+  { href: "#contact", label: "Contact" },
 ];
 
-function ProjectVisual({ kind }: { kind: Project["visual"] }) {
-  if (kind === "gateway")
+function ProjectVisual({ project }: { project: Project }) {
+  if (project.visual === "bettergit") {
     return (
-      <div className="project-visual gateway-visual" aria-hidden="true">
-        <div className="visual-caption">
-          AUTHENTICATION FLOW <span>RS256</span>
+      <div className="terminal-panel" aria-label="Visualisation Git et analyse AST">
+        <div className="terminal-bar">
+          <span className="terminal-prompt">$</span>
+          <code>bettergit graph --inspect</code>
         </div>
-        <div className="gateway-flow">
-          <div className="flow-node">
-            <Code2 size={20} />
-            <span>Client</span>
+        <div className="terminal-body">
+          <div className="git-dag">
+            <span className="git-line git-line-main">● main [5ac40df] Quality Gate SonarQube: Score A (0 bugs)</span>
+            <span className="git-line git-line-branch">├── ● feat/ast [c194f82] JavaParser AST → UML PlantUML</span>
+            <span className="git-line git-line-sub">└── ● core/dag [71d61dd] JGit staging index & commit tree</span>
           </div>
-          <span className="flow-line" />
-          <div className="flow-node main-node">
-            <ShieldCheck size={25} />
-            <span>AuthGateway</span>
-            <small>JWT · RBAC · JWKS</small>
-          </div>
-          <span className="flow-line" />
-          <div className="services">
-            <span>Service A</span>
-            <span>Service B</span>
-          </div>
-        </div>
-        <div className="visual-foot">
-          <span className="tiny-dot" /> Une identité. Des services indépendants.
-        </div>
-      </div>
-    );
-  if (kind === "city")
-    return (
-      <div className="project-visual city-visual" aria-hidden="true">
-        <div className="visual-caption">
-          URBAN REPORTING <span>REST API</span>
-        </div>
-        <div className="city-map">
-          <span className="road road-one" />
-          <span className="road road-two" />
-          <span className="road road-three" />
-          <span className="map-pin pin-one">
-            <MapPin size={22} />
-          </span>
-          <span className="map-pin pin-two">
-            <MapPin size={18} />
-          </span>
-          <div className="report-chip">
-            <span className="tiny-dot" />
-            <span>Signalement → Autorité</span>
-            <ArrowUpRight size={17} />
+          <div className="code-pill-row">
+            <span className="code-pill">SonarQube: A</span>
+            <span className="code-pill">AST JavaParser</span>
+            <span className="code-pill">Tauri / React</span>
           </div>
         </div>
       </div>
     );
-  if (kind === "database")
+  }
+
+  if (project.visual === "gateway") {
     return (
-      <div className="project-visual database-visual" aria-hidden="true">
-        <div className="visual-caption">
-          <span>MYSQL COMPASS</span>
-          <span>DESKTOP</span>
+      <div className="terminal-panel" aria-label="Architecture AuthGateway">
+        <div className="terminal-bar">
+          <span className="terminal-prompt">$</span>
+          <code>auth-gateway --jwks-rotation --redis-cache</code>
         </div>
-        <div className="sql-window">
-          <aside>
-            ▦ schemas
-            <br />
-            <br />⌄ database
-            <br />
-            <span>▤ tables</span>
-            <br />
-            <span>▤ columns</span>
-          </aside>
-          <div>
-            <code>
-              <b>SELECT</b> *<br />
-              <b>FROM</b> information_schema.tables;
-            </code>
-            <div className="fake-table">
-              <span>TABLE_NAME</span>
-              <span>ENGINE</span>
-              <span>users</span>
-              <span>InnoDB</span>
-              <span>projects</span>
-              <span>InnoDB</span>
+        <div className="terminal-body">
+          <div className="diagram-grid">
+            <div className="diagram-node node-accent">
+              <ShieldCheck size={18} />
+              <span>AuthGateway</span>
+              <small>jwt rs256 / jwks</small>
+            </div>
+            <span className="diagram-arrow">→</span>
+            <div className="diagram-node">
+              <Database size={18} />
+              <span>Redis</span>
+              <small>Refresh tokens HttpOnly</small>
+            </div>
+            <span className="diagram-arrow">→</span>
+            <div className="diagram-node">
+              <Server size={18} />
+              <span>Microservices</span>
+              <small>BusWay GIS + FixMyCity</small>
             </div>
           </div>
+          <div className="code-pill-row">
+            <span className="code-pill">11 conteneurs</span>
+            <span className="code-pill">Docker Compose</span>
+            <span className="code-pill">RBAC strict</span>
+          </div>
         </div>
       </div>
     );
-  if (kind === "bettergit")
+  }
+
+  if (project.visual === "city") {
     return (
-      <div className="project-visual bettergit-visual" aria-hidden="true">
-        <div className="visual-caption">
-          BETTERGIT <span>DESKTOP</span>
+      <div className="terminal-panel" aria-label="Routage de signalements FixMyCity">
+        <div className="terminal-bar">
+          <span className="terminal-prompt">$</span>
+          <code>curl -X POST /api/v1/incidents/route</code>
         </div>
-        <div className="git-graph">
-          <span className="graph-line graph-main" />
-          <span className="graph-line graph-branch" />
-          <span className="graph-line graph-merge" />
-          <i className="graph-commit commit-one" />
-          <i className="graph-commit commit-two" />
-          <i className="graph-commit commit-three" />
-          <i className="graph-commit commit-four" />
-          <div className="git-proof">✓ quality gate · SonarQube</div>
+        <div className="terminal-body">
+          <div className="code-block">
+            <span className="code-comment">// ASP.NET Core · Architecture Clean</span>
+            <span className="code-kw">POST</span> /api/incidents <span className="code-num">201 Created</span>
+            <br />
+            Payload: IncidentDto &#123; Category: Voirie, Lat: 34.68, Lon: -1.91 &#125;
+            <br />
+            Persistence: Entity Framework Core → SQL Server
+          </div>
+          <div className="code-pill-row">
+            <span className="code-pill">C# / .NET 10</span>
+            <span className="code-pill">EF Core</span>
+            <span className="code-pill">Clean Architecture</span>
+          </div>
         </div>
       </div>
     );
+  }
+
+  if (project.visual === "database") {
+    return (
+      <div className="terminal-panel" aria-label="Exploration SGBD MySQL Compass">
+        <div className="terminal-bar">
+          <span className="terminal-prompt">$</span>
+          <code>mysql-compass --generate-dataset --rows=50000</code>
+        </div>
+        <div className="terminal-body">
+          <div className="code-block">
+            <span className="code-comment">// Moteur synthétique multi-SGBD</span>
+            TARGET: MySQL 8.0 & PostgreSQL 16
+            <br />
+            STATUS: 50,000 tuples insérés avec contraintes FK vérifiées
+            <br />
+            EXPORT: CSV, JSON & SQL dumps générés
+          </div>
+          <div className="code-pill-row">
+            <span className="code-pill">Electron</span>
+            <span className="code-pill">React / TypeScript</span>
+            <span className="code-pill">Node.js IPC</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className={`project-visual type-visual ${kind}`} aria-hidden="true">
-      <div className="visual-caption">
-        {kind === "market"
-          ? "FREELANCE MARKETPLACE"
-          : kind === "shop"
-            ? "E-COMMERCE EXPERIENCE"
-            : "LEARNING, OFFLINE"}
-        <span>↗</span>
+    <div className="terminal-panel" aria-label="Plateforme web réactive">
+      <div className="terminal-bar">
+        <span className="terminal-prompt">$</span>
+        <code>next start -p 3000 --websockets</code>
       </div>
-      <div className="type-visual-title">
-        {kind === "market" ? (
-          <>
-            skillz<span>hire.</span>
-          </>
-        ) : kind === "shop" ? (
-          <>
-            MONARK<span className="shop-sub">EVERYDAY, CONSIDERED.</span>
-          </>
-        ) : (
-          <>
-            Le Défi<span>Français.</span>
-          </>
-        )}
-      </div>
-      <div className="visual-foot">
-        {kind === "market"
-          ? "Les compétences rencontrent les projets."
-          : kind === "shop"
-            ? "Découvrir. Choisir. Commander."
-            : "Apprendre à son rythme, sans connexion."}
+      <div className="terminal-body">
+        <div className="code-block">
+          <span className="code-comment">// Connexion temps réel bidirectionnelle</span>
+          SOCKET_READY: ws://gateway:8080/channels/jobs
+          <br />
+          EVENTS: profile.update, message.received, catalog.sync
+        </div>
+        <div className="code-pill-row">
+          <span className="code-pill">Next.js</span>
+          <span className="code-pill">TypeScript</span>
+          <span className="code-pill">Socket.IO</span>
+        </div>
       </div>
     </div>
   );
@@ -185,767 +182,882 @@ function ProjectVisual({ kind }: { kind: Project["visual"] }) {
 
 function ProjectDialog({
   project,
-  close,
+  onClose,
 }: {
   project: Project | null;
-  close: () => void;
+  onClose: () => void;
 }) {
-  const ref = useRef<HTMLDialogElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
   useEffect(() => {
-    if (!project) return;
-    ref.current?.showModal();
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previous;
-    };
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    if (project) {
+      if (!dialog.open) {
+        dialog.showModal();
+        const previous = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        return () => {
+          document.body.style.overflow = previous;
+        };
+      }
+    } else {
+      if (dialog.open) {
+        dialog.close();
+      }
+    }
   }, [project]);
+
   return (
     <dialog
-      ref={ref}
-      className="project-dialog"
-      onClose={close}
+      ref={dialogRef}
+      className="project-modal"
+      onClose={onClose}
       onClick={(event) => {
-        if (event.target === event.currentTarget) ref.current?.close();
+        if (event.target === event.currentTarget) {
+          dialogRef.current?.close();
+        }
       }}
-      aria-labelledby="dialog-title"
+      aria-labelledby="modal-project-title"
     >
       {project && (
-        <>
-          <div className="dialog-heading">
-            <span className="eyebrow">DANS LE DÉTAIL / {project.category}</span>
+        <div className="modal-content">
+          <div className="modal-header">
+            <div className="modal-tag-group">
+              <span className="code-pill">{project.category}</span>
+              <span className="modal-context">{project.context}</span>
+            </div>
             <button
-              className="icon-button"
+              type="button"
+              className="btn-icon"
               autoFocus
-              onClick={() => ref.current?.close()}
+              onClick={() => dialogRef.current?.close()}
               aria-label="Fermer le projet"
             >
-              <X />
+              <X size={18} />
             </button>
           </div>
-          <h2 id="dialog-title">{project.title}</h2>
-          <p className="dialog-intro">{project.description}</p>
-          <ProjectVisual kind={project.visual} />
-          <h3>Le besoin</h3>
-          <p>{project.problem}</p>
-          <h3>La réalisation</h3>
-          <ul className="deliverables">
-            {project.details.map((detail) => (
-              <li key={detail}>
-                <Check size={17} />
-                {detail}
-              </li>
-            ))}
-          </ul>
-          <h3>Le regard architecture</h3>
-          <p>{project.architecture}</p>
-          <div className="tags">
-            {project.stack.map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
+
+          <h3 id="modal-project-title" className="modal-title">
+            {project.title}
+          </h3>
+
+          <p className="modal-lead">{project.description}</p>
+
+          <div className="modal-section">
+            <h4>Problématique traitée</h4>
+            <p>{project.problem}</p>
           </div>
-          {project.url ? (
-            <a
-              className="button primary"
-              href={project.url}
-              target="_blank"
-              rel="noreferrer"
+
+          <div className="modal-section">
+            <h4>Réalisations clés</h4>
+            <ul className="modal-bullets">
+              {project.details.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="modal-section">
+            <h4>Le regard architecture</h4>
+            <p>{project.architecture}</p>
+          </div>
+
+          <div className="modal-section">
+            <h4>Technologies utilisées</h4>
+            <div className="stack-wrap">
+              {project.stack.map((item) => (
+                <span key={item} className="code-pill">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="modal-footer">
+            {project.url ? (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                <Github size={16} />
+                Explorer le code
+              </a>
+            ) : (
+              <p className="source-note">code source non publié (propriété d’entreprise)</p>
+            )}
+
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => dialogRef.current?.close()}
             >
-              Explorer le code <Github size={17} />
-            </a>
-          ) : (
-            <p className="source-note">
-              Projet réalisé en stage · code source non publié.
-            </p>
-          )}
-        </>
+              Fermer
+            </button>
+          </div>
+        </div>
       )}
     </dialog>
   );
 }
 
 export default function Portfolio() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [filter, setFilter] = useState("Tous");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [copied, setCopied] = useState(false);
-  const [chartFailed, setChartFailed] = useState(false);
-  const copyTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
-    undefined,
-  );
-  useEffect(() => {
-    const aliases: Record<string, string> = {
-      "/projects": "projets",
-      "/about": "approche",
-      "/contact": "contact",
-    };
-    const section = aliases[window.location.pathname];
-    if (section) document.getElementById(section)?.scrollIntoView();
-    return () => clearTimeout(copyTimer.current);
-  }, []);
-  const copyEmail = async () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string>("Tous");
+  const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
+  const [lastTriggerButton, setLastTriggerButton] = useState<HTMLButtonElement | null>(null);
+  const [selectedCv, setSelectedCv] = useState<CvVariant>(cvVariants[0]);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [githubChartFailed, setGithubChartFailed] = useState(false);
+
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  const handleCopyEmail = async () => {
     try {
-      await navigator.clipboard.writeText(email);
-      setCopied(true);
-      clearTimeout(copyTimer.current);
-      copyTimer.current = setTimeout(() => setCopied(false), 2500);
+      await navigator.clipboard.writeText(EMAIL_ADDRESS);
+      setCopiedEmail(true);
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+      copyTimerRef.current = setTimeout(() => {
+        setCopiedEmail(false);
+      }, 2500);
     } catch {
-      window.location.href = `mailto:${email}`;
+      // Fallback
     }
   };
-  const visibleProjects = projects.filter(
-    (project) => filter === "Tous" || project.category === filter,
-  );
+
+  const openProjectModal = (project: Project, buttonElement: HTMLButtonElement) => {
+    setLastTriggerButton(buttonElement);
+    setActiveModalProject(project);
+  };
+
+  const closeProjectModal = () => {
+    setActiveModalProject(null);
+    if (lastTriggerButton) {
+      lastTriggerButton.focus();
+    }
+  };
+
+  const filteredProjects = projects.filter((project) => {
+    if (activeCategory === "Tous") return true;
+    return project.category === activeCategory;
+  });
 
   return (
-    <>
-      <a href="#main" className="skip-link">
-        Aller au contenu
-      </a>
+    <div className="site-canvas" id="top">
       <header className="site-header">
-        <div className="header-inner container">
+        <div className="container header-inner">
           <a
-            href="#"
-            className="wordmark"
+            href="#top"
+            className="brand-link"
             aria-label="Mohammed Fahchouch, accueil"
           >
-            <span className="wordmark-first">Mohammed</span>
-            <span className="wordmark-last">
-              Fahchouch
-              <span className="wordmark-star" aria-hidden="true">
-                ✳
-              </span>
+            <span className="brand-prompt">$</span>
+            <span className="brand-name">
+              Mohammed <strong>Fahchouch</strong>
             </span>
+            <span className="brand-role">Génie Informatique</span>
           </a>
+
           <nav
-            className={menuOpen ? "navigation open" : "navigation"}
+            className={`site-nav ${mobileMenuOpen ? "nav-open" : ""}`}
             aria-label="Navigation principale"
           >
-            {nav.map(([id, label]) => (
-              <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>
-                {label}
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
               </a>
             ))}
           </nav>
-          <a href={`mailto:${email}`} className="header-contact">
-            Stage PFE 2026—2027 <ArrowUpRight size={16} />
-          </a>
-          <button
-            className="menu-button icon-button"
-            aria-expanded={menuOpen}
-            aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? <X /> : <Menu />}
-          </button>
+
+          <div className="header-actions">
+            <a
+              href="#cv-variantes"
+              className="btn btn-secondary btn-sm header-cv-btn"
+            >
+              <FileText size={14} />
+              Variantes CV
+            </a>
+
+            <button
+              type="button"
+              className="mobile-toggle"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-expanded={mobileMenuOpen}
+              aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </header>
-      <main id="main">
-        <section className="hero container" aria-labelledby="hero-title">
-          <div className="hero-copy">
-            <div className="availability">
-              <span className="status-dot" /> Disponible pour un stage PFE
-              2026—2027
-            </div>
-            <p className="eyebrow hero-name">
-              GÉNIE INFORMATIQUE · RECHERCHE DE STAGE PFE
-            </p>
-            <h1 id="hero-title">
-              Mohammed
-              <br />
-              <span>Fahchouch.</span>
-            </h1>
-            <p className="hero-description">
-              Élève ingénieur en 5e année à l’EHEI Oujda. Je recherche un stage
-              PFE en développement logiciel pour apprendre, contribuer et évoluer
-              au sein d’une équipe.
-            </p>
-            <div className="hero-actions">
-              <a href="#projets" className="button primary">
-                Explorer mes projets <ArrowDown size={17} />
-              </a>
-              <a
-                href="/cv.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="button secondary"
-                style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
-              >
-                <FileText size={17} /> Télécharger mon CV
-              </a>
-              <a href="#contact" className="text-link">
-                Faisons connaissance <ArrowUpRight size={17} />
-              </a>
-            </div>
-            <div className="hero-location">
-              <MapPin size={14} /> Oujda, Maroc <span>•</span> API, desktop &
-              architecture
-            </div>
-          </div>
-          <div className="hero-art">
-            <div className="profile-board" aria-label="Mon profil professionnel">
-              <div className="profile-board-bar">
-                <span>PROFIL / PFE 2026—2027</span>
-                <span className="profile-board-ready"><i /> DISPONIBLE</span>
+
+      <main id="main-content">
+        {/* HERO SECTION */}
+        <section className="hero-section container" aria-labelledby="hero-title">
+          <div className="hero-grid">
+            <div className="hero-lead-col">
+              <div className="hero-badge-row">
+                <span className="status-badge">Élève ingénieur 5e année · EHEIM Oujda</span>
+                <span className="status-badge status-accent">Stage PFE 2026/2027</span>
               </div>
-              <div className="profile-board-main">
-                <span className="profile-board-index">01</span>
-                <p className="profile-board-kicker">CE QUI M’ANIME</p>
-                <h2>
-                  Comprendre.<br />
-                  <em>Construire.</em><br />
-                  Progresser.
-                </h2>
-                <p className="profile-board-copy">
-                  Un profil analytique, curieux et à l’aise avec les défis qui
-                  demandent de chercher, structurer et apprendre vite.
-                </p>
-                <div className="profile-traits">
-                  <span>Esprit analytique</span>
-                  <span>Apprentissage rapide</span>
-                  <span>Travail en équipe</span>
+
+              <h1 id="hero-title" className="hero-title">
+                Mohammed Fahchouch
+              </h1>
+
+              <p className="hero-summary">
+                Élève ingénieur logiciel orienté architectures distribuées, moteurs Git et conception résiliente.
+              </p>
+
+              <div className="hero-cta-row">
+                <a href="#projets" className="btn btn-primary">
+                  <Terminal size={16} />
+                  Consulter les projets
+                </a>
+                <a href="#cv-variantes" className="btn btn-secondary">
+                  <Download size={16} />
+                  Télécharger un CV (6 variantes)
+                </a>
+              </div>
+
+              <div className="hero-metrics-grid">
+                <div className="metric-cell">
+                  <span className="metric-val">CHU Oujda</span>
+                  <span className="metric-label">Stage · BetterGit & AST JavaParser</span>
+                </div>
+                <div className="metric-cell">
+                  <span className="metric-val">Score A</span>
+                  <span className="metric-label">SonarQube · 0 vulnérabilité critique</span>
+                </div>
+                <div className="metric-cell">
+                  <span className="metric-val">11 conteneurs</span>
+                  <span className="metric-label">Écosystème microservices Docker</span>
                 </div>
               </div>
-              <div className="profile-board-footer">
-                <span>JAVA · TYPESCRIPT · C#</span>
-                <span>ARCHITECTURE LOGICIELLE</span>
+            </div>
+
+            <div className="hero-terminal-col">
+              <div className="system-spec-box">
+                <div className="terminal-bar">
+                  <span className="terminal-prompt">simo@oujda:~$</span>
+                  <code>cat profile.spec</code>
+                </div>
+                <div className="system-spec-content">
+                  <div className="spec-row">
+                    <span className="spec-key">profil</span>
+                    <span className="spec-val">Élève ingénieur d'État en Génie Informatique</span>
+                  </div>
+                  <div className="spec-row">
+                    <span className="spec-key">recherche</span>
+                    <span className="spec-val highlight-val">Stage PFE 4 à 6 mois (2026/2027)</span>
+                  </div>
+                  <div className="spec-row">
+                    <span className="spec-key">localisation</span>
+                    <span className="spec-val">Oujda, Maroc (mobile & remote)</span>
+                  </div>
+                  <div className="spec-row">
+                    <span className="spec-key">langages</span>
+                    <span className="spec-val">Java 21, TypeScript, C#, SQL, Python, C/C++</span>
+                  </div>
+                  <div className="spec-row">
+                    <span className="spec-key">écosystème</span>
+                    <span className="spec-val">Spring Boot 3, ASP.NET Core, Docker, React</span>
+                  </div>
+                  <div className="spec-row">
+                    <span className="spec-key">qualité</span>
+                    <span className="spec-val">SOLID, Clean Arch, SonarQube score A</span>
+                  </div>
+                  <div className="spec-row spec-footer-row">
+                    <span className="spec-key">contacts</span>
+                    <span className="spec-val">fahchouchmd@gmail.com · +212 600 242 374</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <p className="hero-visual-caption">Je cherche une équipe où la curiosité devient une contribution concrète.</p>
-          </div>
-          <div className="hero-footer">
-            <span>5e ANNÉE · EHEI OUJDA</span>
-            <p className="hero-statement">
-              Génie informatique · Recherche d’un stage PFE
-            </p>
-            <a href="#projets" aria-label="Découvrir les projets">
-              <ArrowDown size={17} />
-            </a>
           </div>
         </section>
 
-        <section
-          className="github-section container"
-          aria-labelledby="github-title"
-        >
-          <div className="github-heading">
-            <div>
-              <p className="eyebrow">AU FIL DES COMMITS</p>
-              <h2 id="github-title">Construire, un jour après l’autre.</h2>
-            </div>
-            <a
-              className="text-link"
-              href={github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Github size={19} /> @fahchouchsm <ArrowUpRight size={16} />
-            </a>
-          </div>
-          {chartFailed ? (
-            <p className="chart-fallback" role="status">
-              Le graphique est momentanément indisponible. Retrouvez mon
-              activité directement sur{" "}
-              <a href={github} target="_blank" rel="noreferrer">
-                GitHub ↗
-              </a>
-              .
-            </p>
-          ) : (
-            <div
-              className="github-chart-scroll"
-              tabIndex={0}
-              role="region"
-              aria-label="Calendrier de contributions GitHub, défilement horizontal"
-            >
-              <img
-                src="https://ghchart.rshah.org/b4f272/fahchouchsm"
-                alt="Calendrier des contributions GitHub de Mohammed Fahchouch sur les douze derniers mois"
-                loading="lazy"
-                width="722"
-                height="112"
-                onError={() => setChartFailed(true)}
-              />
-            </div>
-          )}
-          <p className="github-caption">
-            Mon activité publique sur GitHub · graphique actualisé par GitHub
-            Chart.
-          </p>
-        </section>
-
-        <section className="section projects-section" id="projets">
+        {/* GITHUB ACTIVITY SECTION */}
+        <section className="section github-section" aria-labelledby="github-title">
           <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">01 / PROJETS SÉLECTIONNÉS</p>
-                <h2>
-                  Des projets.
-                  <br />
-                  <span>Du code. Du concret.</span>
-                </h2>
-              </div>
-              <p>
-                Du backend distribué à l’interface utilisateur,
-                <br />
-                une sélection de projets qui racontent
-                <br />
-                ma façon de construire.
+            <div className="section-head">
+              <h2 id="github-title" className="section-title">
+                Activité GitHub
+              </h2>
+              <p className="section-subtitle">
+                Régularité des contributions et versioning continu sur GitHub.
               </p>
             </div>
-            <div className="projects-toolbar">
-              <div
-                className="filters"
-                role="group"
-                aria-label="Filtrer les projets"
-              >
-                {["Tous", "Backend", "Web", "Desktop"].map((item) => (
-                  <button
-                    className={filter === item ? "active filter" : "filter"}
-                    key={item}
-                    aria-pressed={filter === item}
-                    onClick={() => setFilter(item)}
+
+            <div className="github-card">
+              <div className="github-card-header">
+                <div className="github-user-info">
+                  <Github size={20} />
+                  <a
+                    href={GITHUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="github-username-link"
                   >
-                    {item}
-                    {item === "Tous" && (
-                      <span>{projects.length.toString().padStart(2, "0")}</span>
-                    )}
+                    github.com/fahchouchsm
+                  </a>
+                </div>
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary btn-sm"
+                >
+                  <ExternalLink size={14} />
+                  Profil GitHub
+                </a>
+              </div>
+
+              <div className="github-chart-wrap">
+                {!githubChartFailed ? (
+                  <img
+                    src="https://ghchart.rshah.org/57ab5a/fahchouchsm"
+                    alt="Graphique des contributions GitHub de Mohammed Fahchouch"
+                    className="github-chart-img"
+                    onError={() => setGithubChartFailed(true)}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="chart-fallback">
+                    <p>Visualisation des contributions disponible directement sur GitHub :</p>
+                    <a
+                      href={GITHUB_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary"
+                    >
+                      <Github size={16} />
+                      Accéder au dépôt GitHub de Mohammed Fahchouch
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PROJECTS SECTION */}
+        <section className="section projects-section" id="projets" aria-labelledby="projects-title">
+          <div className="container">
+            <div className="section-head-row">
+              <div>
+                <h2 id="projects-title" className="section-title">
+                  Projets d’ingénierie
+                </h2>
+                <p className="section-subtitle">
+                  Sélection de travaux réalisés en stage et en cycle d’ingénieur.
+                </p>
+              </div>
+
+              <div className="category-filters" role="group" aria-label="Filtrer les projets">
+                {["Tous", "Backend", "Desktop", "Web"].map((category) => (
+                  <button
+                    key={category}
+                    type="button"
+                    className={`filter-btn ${activeCategory === category ? "active" : ""}`}
+                    onClick={() => setActiveCategory(category)}
+                  >
+                    {category}
                   </button>
                 ))}
               </div>
-              <a
-                className="text-link github-all"
-                href={github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Tout mon GitHub <ArrowUpRight size={16} />
-              </a>
             </div>
-            <p className="sr-only" aria-live="polite">
-              {visibleProjects.length} projets affichés
-            </p>
-            <div className="project-grid">
-              {visibleProjects.map((project) => (
-                <article className="project-card" key={project.id}>
+
+            <div className="projects-grid">
+              {filteredProjects.map((project) => (
+                <article key={project.id} className="project-card">
+                  <div className="project-card-header">
+                    <div className="project-meta-row">
+                      <span className="code-pill">{project.category}</span>
+                      <span className="project-context-label">{project.context}</span>
+                    </div>
+                    <h3 className="project-title">{project.title}</h3>
+                    <p className="project-short-desc">{project.description}</p>
+                  </div>
+
+                  <div className="project-card-visual">
+                    <ProjectVisual project={project} />
+                  </div>
+
+                  <div className="project-card-footer">
+                    <div className="stack-wrap">
+                      {project.stack.slice(0, 4).map((tech) => (
+                        <span key={tech} className="tech-badge">
+                          {tech}
+                        </span>
+                      ))}
+                      {project.stack.length > 4 && (
+                        <span className="tech-badge-more">
+                          +{project.stack.length - 4}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="project-actions">
+                      <button
+                        type="button"
+                        className="btn btn-primary btn-sm"
+                        onClick={(e) => openProjectModal(project, e.currentTarget)}
+                        aria-label={`Découvrir le projet ${project.title}`}
+                      >
+                        Découvrir le projet {project.title}
+                      </button>
+
+                      {project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-icon"
+                          aria-label={`Code source ${project.title}`}
+                        >
+                          <Github size={16} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CV VARIANTS HUB SECTION */}
+        <section
+          className="section cv-hub-section"
+          id="cv-variantes"
+          aria-labelledby="cv-hub-title"
+        >
+          <div className="container">
+            <div className="section-head">
+              <h2 id="cv-hub-title" className="section-title">
+                Curriculum Vitae ciblés
+              </h2>
+              <p className="section-subtitle">
+                Six variantes adaptées aux besoins de recrutement pour le stage PFE (2026/2027).
+              </p>
+            </div>
+
+            <div className="cv-hub-grid">
+              <div className="cv-selector-list" role="tablist" aria-label="Variantes de CV">
+                {cvVariants.map((variant) => (
                   <button
-                    className="project-preview-button"
-                    onClick={() => setSelectedProject(project)}
-                    aria-label={`Découvrir le projet ${project.title}`}
+                    key={variant.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={selectedCv.id === variant.id}
+                    className={`cv-tab-item ${selectedCv.id === variant.id ? "cv-tab-active" : ""}`}
+                    onClick={() => setSelectedCv(variant)}
                   >
-                    <ProjectVisual kind={project.visual} />
-                    <span className="preview-arrow">
-                      <ArrowUpRight size={22} />
-                    </span>
+                    <div className="cv-tab-text">
+                      <strong className="cv-tab-title">{variant.title}</strong>
+                      <span className="cv-tab-subtitle">{variant.roleSubtitle}</span>
+                    </div>
+                    <FileText size={18} className="cv-tab-icon" />
                   </button>
-                  <div className="project-info">
-                    <div className="project-meta">
-                      <span>{project.category}</span>
-                      <span>{project.context}</span>
+                ))}
+              </div>
+
+              <div className="cv-preview-panel" role="tabpanel">
+                <div className="terminal-bar">
+                  <span className="terminal-prompt">$</span>
+                  <code>render --cv="{selectedCv.title}"</code>
+                </div>
+
+                <div className="cv-preview-body">
+                  <div className="cv-preview-header">
+                    <div>
+                      <h3 className="cv-preview-title">{selectedCv.title}</h3>
+                      <p className="cv-preview-subtitle">{selectedCv.roleSubtitle}</p>
                     </div>
-                    <div className="project-title-row">
-                      <h3>
-                        <button onClick={() => setSelectedProject(project)}>
-                          {project.title}
-                        </button>
-                      </h3>
-                      <span className="project-number">
-                        /{project.id.toString().padStart(2, "0")}
-                      </span>
-                    </div>
-                    <p>{project.description}</p>
-                    <div className="tags">
-                      {project.stack.slice(0, 4).map((tag) => (
-                        <span key={tag}>{tag}</span>
+                    <a
+                      href={selectedCv.path}
+                      download
+                      className="btn btn-primary"
+                    >
+                      <Download size={16} />
+                      Télécharger ce CV PDF
+                    </a>
+                  </div>
+
+                  <div className="cv-highlights-box">
+                    <h4>Points d’ancrage du profil</h4>
+                    <ul className="cv-points-list">
+                      {selectedCv.highlights.map((pt, i) => (
+                        <li key={i}>{pt}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="cv-tech-row">
+                    <h4>Technologies prioritaires</h4>
+                    <div className="stack-wrap">
+                      {selectedCv.primaryTech.map((item) => (
+                        <span key={item} className="code-pill">
+                          {item}
+                        </span>
                       ))}
                     </div>
-                    <button
-                      className="text-link project-detail-link"
-                      onClick={() => setSelectedProject(project)}
-                    >
-                      Voir le projet <ArrowRight size={16} />
-                    </button>
                   </div>
-                </article>
-              ))}
-            </div>
-            <div className="more-work">
-              <Terminal size={20} />
-              <p>J’explore aussi les outils développeur et la modélisation.</p>
-              <a
-                href={`${github}/Java2Diagram`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Java2Diagram <ArrowUpRight size={15} />
-              </a>
-              <a
-                href={`${github}/betterGit-core`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                BetterGit <ArrowUpRight size={15} />
-              </a>
+
+                  <div className="cv-direct-actions">
+                    <a
+                      href={selectedCv.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-secondary btn-sm"
+                    >
+                      <ExternalLink size={14} />
+                      Ouvrir le PDF dans un nouvel onglet
+                    </a>
+                    <a
+                      href="/cv/CV_Fahchouch_Mohammed.pdf"
+                      download
+                      className="btn btn-secondary btn-sm"
+                    >
+                      <Download size={14} />
+                      Version généraliste standard
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="approach-section section" id="approche">
+        {/* APPROACH & SOLID PRINCIPLES */}
+        <section className="section approach-section" id="approche" aria-labelledby="approach-title">
           <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">02 / MA FAÇON DE CONSTRUIRE</p>
-                <h2>
-                  Ça fonctionne.
-                  <br />
-                  <span>Et ça se maintient.</span>
-                </h2>
-              </div>
-              <div className="approach-intro">
-                <Layers3 size={29} />
-                <p>
-                  Les frameworks évoluent. Les fondamentaux restent.
-                  <br />
-                  J’accorde une place centrale à l’architecture logicielle,
-                  <br />à la lisibilité et aux principes SOLID.
-                </p>
-              </div>
-            </div>
-            <div className="approach-content">
-              <div className="architecture-statement">
-                <span className="eyebrow">ARCHITECTURE & BONNES PRATIQUES</span>
-                <h3>
-                  Chaque responsabilité
-                  <br />à sa place.
-                </h3>
-                <p>
-                  Découper les couches, expliciter les contrats et limiter le
-                  couplage : une base pour faire évoluer un logiciel sans perdre
-                  le fil.
-                </p>
-                <div className="practice-tags">
-                  <span>Architecture en couches</span>
-                  <span>MVC</span>
-                  <span>Microservices</span>
-                  <span>API REST</span>
-                  <span>Injection de dépendances</span>
-                  <span>Clean code</span>
-                </div>
-                <div className="code-note">
-                  <span>// mon fil conducteur</span>
-                  <code>lisibilité + cohésion − couplage</code>
-                </div>
-              </div>
-              <div className="solid-list">
-                {principles.map((principle, index) => {
-                  const Icon = principleIcons[index];
-                  return (
-                    <details className="solid-item" key={principle.letter}>
-                      <summary>
-                        <span className="solid-letter" aria-hidden="true">
-                          <Icon size={21} />
-                        </span>
-                        <div>
-                          <strong>{principle.title}</strong>
-                          <small>{principle.english}</small>
-                        </div>
-                        <ChevronDown
-                          className="solid-toggle"
-                          size={18}
-                          aria-hidden="true"
-                        />
-                      </summary>
-                      <p>{principle.description}</p>
-                    </details>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="quality-strip">
-              <span>
-                <Check size={16} /> Conventions & revue de code
-              </span>
-              <span>
-                <Check size={16} /> Tests & validation
-              </span>
-              <span>
-                <Check size={16} /> Git & intégration continue
-              </span>
-              <span>
-                <Check size={16} /> Documentation utile
-              </span>
-            </div>
-          </div>
-        </section>
-
-        <section className="section skills-section">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">03 / COMPÉTENCES</p>
-                <h2>
-                  Une vision d’ensemble.
-                  <br />
-                  <span>Des outils adaptés.</span>
-                </h2>
-              </div>
-              <p>
-                Technologies pratiquées en projets et en formation.
-                <br />
-                Du développement à la mise en service.
+            <div className="section-head">
+              <h2 id="approach-title" className="section-title">
+                Approche & principes de conception
+              </h2>
+              <p className="section-subtitle">
+                Application concrète des principes SOLID et de l’architecture logicielle.
               </p>
             </div>
+
+            <div className="principles-list">
+              {principles.map((principle) => (
+                <details key={principle.letter} className="principle-item">
+                  <summary className="principle-summary">
+                    <div className="principle-lead">
+                      <span className="principle-letter">{principle.letter}</span>
+                      <div className="principle-head-text">
+                        <span className="principle-title-fr">{principle.title}</span>
+                        <span className="principle-title-en">{principle.english}</span>
+                      </div>
+                    </div>
+                    <span className="principle-toggle-indicator" aria-hidden="true">+</span>
+                  </summary>
+                  <div className="principle-body">
+                    <p>{principle.description}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TECHNICAL SKILLS */}
+        <section className="section skills-section" id="competences" aria-labelledby="skills-title">
+          <div className="container">
+            <div className="section-head">
+              <h2 id="skills-title" className="section-title">
+                Compétences techniques
+              </h2>
+              <p className="section-subtitle">
+                Outils, frameworks et langages maîtrisés au fil des projets et stages.
+              </p>
+            </div>
+
             <div className="skills-grid">
-              {skillGroups.map((group, index) => (
-                <article className="skill-group" key={group.title}>
-                  <span className="skill-index">0{index + 1}</span>
-                  <h3>{group.title}</h3>
-                  <p>{group.description}</p>
-                  <div className="skill-list">
+              {skillGroups.map((group) => (
+                <div key={group.title} className="skill-card">
+                  <h3 className="skill-group-title">{group.title}</h3>
+                  <p className="skill-group-desc">{group.description}</p>
+                  <div className="skill-tags">
                     {group.skills.map((skill) => (
-                      <span key={skill}>{skill}</span>
+                      <span key={skill} className="skill-tag">
+                        {skill}
+                      </span>
                     ))}
                   </div>
-                </article>
+                </div>
               ))}
-            </div>
-            <div className="learning-note">
-              <span className="tiny-dot" />
-              <strong>En 5e année</strong>
-              <span>
-                Approfondissement de React, Angular, React Native et Kubernetes.
-              </span>
             </div>
           </div>
         </section>
 
-        <section className="section journey-section" id="parcours">
+        {/* JOURNEY & EDUCATION */}
+        <section className="section journey-section" id="parcours" aria-labelledby="journey-title">
           <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">04 / PARCOURS</p>
-                <h2>
-                  Apprendre.
-                  <br />
-                  <span>Construire. Progresser.</span>
-                </h2>
-              </div>
-              <p>
-                Un parcours en informatique nourri par
-                <br />
-                la formation, les stages et les projets personnels.
+            <div className="section-head">
+              <h2 id="journey-title" className="section-title">
+                Parcours & formations
+              </h2>
+              <p className="section-subtitle">
+                Expériences professionnelles en entreprise et cursus académique.
               </p>
             </div>
-            <div className="journey-grid">
-              <div>
-                <h3 className="column-heading">
-                  Sur le terrain <span>EXPÉRIENCES</span>
+
+            <div className="journey-dual-grid">
+              <div className="journey-col">
+                <h3 className="journey-subhead">
+                  <Building2 size={18} />
+                  Expériences professionnelles
                 </h3>
-                <div className="experience-list">
-                  {experiences.map((experience) => (
-                    <article className="experience" key={experience.company}>
-                      <div className="timeline-dot" />
-                      <p className="experience-date">{experience.date}</p>
-                      <h4>{experience.company}</h4>
-                      <p className="experience-role">{experience.role}</p>
-                      {experience.description && (
-                        <p className="experience-description">
-                          {experience.description}
-                        </p>
-                      )}
-                      {experience.tags && (
-                        <div className="tags">
-                          {experience.tags.map((tag) => (
-                            <span key={tag}>{tag}</span>
-                          ))}
-                        </div>
-                      )}
-                    </article>
+                <div className="journey-cards-list">
+                  {experiences.map((exp) => (
+                    <div key={exp.company} className="journey-card">
+                      <div className="journey-card-top">
+                        <span className="journey-date">{exp.date}</span>
+                        <span className="journey-company">{exp.company}</span>
+                      </div>
+                      <h4 className="journey-role">{exp.role}</h4>
+                      <p className="journey-desc">{exp.description}</p>
+                      <div className="stack-wrap">
+                        {exp.tags.map((t) => (
+                          <span key={t} className="tech-badge">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
-              <div>
-                <h3 className="column-heading">
-                  Les fondations <span>FORMATION</span>
+
+              <div className="journey-col">
+                <h3 className="journey-subhead">
+                  <Calendar size={18} />
+                  Formation académique
                 </h3>
-                <article className="education-card">
-                  <div className="education-header">
-                    <span className="education-monogram">E</span>
-                    <span className="education-date">2024 — 2027</span>
-                  </div>
-                  <h4>Cycle ingénieur en informatique</h4>
-                  <p>EHEI · Oujda</p>
-                  <span className="current-year">
-                    5e année · recherche stage PFE 2026—2027
-                  </span>
-                  <div className="education-years">
-                    <div>
-                      <span>03</span>
-                      <p>
-                        <strong>Les fondamentaux</strong>Algorithmique, C++,
-                        Java et commandes Linux.
-                      </p>
+                <div className="journey-cards-list">
+                  {educations.map((edu) => (
+                    <div key={edu.degree} className="journey-card">
+                      <div className="journey-card-top">
+                        <span className="journey-date">{edu.period}</span>
+                        <span className="journey-company">{edu.institution}</span>
+                      </div>
+                      <h4 className="journey-role">{edu.degree}</h4>
+                      <p className="journey-desc">{edu.description}</p>
                     </div>
-                    <div>
-                      <span>04</span>
-                      <p>
-                        <strong>Le génie logiciel & le déploiement</strong>Java,
-                        Symfony, Spring Boot, Python, ASP.NET, Entity Framework
-                        Core, Hibernate, Doctrine. Git, Docker, Ansible,
-                        Jenkins, Grafana, Prometheus et Nginx.
-                      </p>
-                    </div>
-                    <div className="active-year">
-                      <span>05</span>
-                      <p>
-                        <strong>Les interfaces & l’orchestration</strong>React,
-                        Angular, React Native et Kubernetes.
-                      </p>
-                    </div>
-                  </div>
-                </article>
-                <article className="bts-card">
-                  <span className="eyebrow">BTS · MAGHREB AL ARABI</span>
-                  <h4>Technicien spécialisé</h4>
-                  <p>
-                    Java, HTML, CSS, bases de données et SQL.
-                    <br />
-                    Développement web, C et algorithmique.
-                  </p>
-                  <p className="education-extra">
-                    Baccalauréat Sciences Physiques · 2020 — 2021
-                  </p>
-                </article>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section
-          className="about-strip container"
-          aria-label="Profil et langues"
-        >
-          <div className="about-person">
-            <img
-              src="/pfp.png"
-              alt="Mohammed Fahchouch"
-              width="72"
-              height="72"
-              loading="lazy"
-            />
-            <div>
-              <p className="eyebrow">DERRIÈRE LE CODE</p>
-              <p>
-                Curieux de comprendre.
-                <br />
-                <strong>Ingénieur logiciel, prêt à contribuer.</strong>
-              </p>
+        {/* BEHIND THE CODE / PROFILE PHOTO */}
+        <section className="section profile-photo-section" aria-labelledby="profile-title">
+          <div className="container">
+            <div className="profile-photo-grid">
+              <div className="profile-portrait-wrap">
+                <div className="portrait-terminal-frame">
+                  <img
+                    src="/pfp.png"
+                    alt="Portrait de Mohammed Fahchouch"
+                    className="portrait-img"
+                    width={400}
+                    height={480}
+                  />
+                  <div className="portrait-caption-bar">
+                    <code>mohammed.jpg · Oujda, Maroc</code>
+                  </div>
+                </div>
+              </div>
+
+              <div className="profile-story-wrap">
+                <h2 id="profile-title" className="section-title">
+                  Derrière le code
+                </h2>
+                <div className="profile-paragraphs">
+                  <p>
+                    Passionné par les entrailles du logiciel : ce qui fait qu’un système tient
+                    la charge, qu’une architecture reste compréhensible deux ans plus tard et
+                    qu’un contrat d’API protège ses consommateurs sans rigidité inutile.
+                  </p>
+                  <p>
+                    Mon parcours mêle l’exploration bas niveau des structures de données (moteur Git
+                    en Java, parcours d'arbres syntaxiques AST) et la mise en œuvre de systèmes
+                    distribués résilients (sécurité JWT/JWKS, cache Redis, pipelines Docker et
+                    services ASP.NET Core).
+                  </p>
+                  <p>
+                    Disponible pour un <strong>Stage PFE (2026/2027)</strong> de 4 à 6 mois.
+                    Ouvert aux opportunités à Casablanca, Rabat, Tanger, Oujda ou en travail hybride / distant.
+                  </p>
+                </div>
+
+                <div className="profile-direct-links">
+                  <a
+                    href="mailto:fahchouchmd@gmail.com"
+                    className="btn btn-primary"
+                  >
+                    <Mail size={16} />
+                    Contacter par email
+                  </a>
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary"
+                  >
+                    <Linkedin size={16} />
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="languages" aria-label="Langues">
-            <span>
-              Arabe <strong>Natif</strong>
-            </span>
-            <span>
-              Anglais <strong>C1</strong>
-            </span>
-            <span>
-              Français <strong>B2</strong>
-            </span>
-            <span>
-              Allemand <strong>A2</strong>
-            </span>
           </div>
         </section>
 
-        <section className="contact-section" id="contact">
+        {/* CONTACT SECTION */}
+        <section className="section contact-section" id="contact" aria-labelledby="contact-title">
           <div className="container">
-            <div className="contact-top">
-              <span className="eyebrow">05 / RENCONTRONS-NOUS</span>
-              <span className="availability">
-                <span className="status-dot" /> À l’écoute d’opportunités de
-                stage PFE 2026—2027
-              </span>
-            </div>
-            <div className="contact-main">
-              <h2>
-                Disponible pour un stage PFE.
-                <br />
-                <span>Prêt à contribuer à votre équipe.</span>
+            <div className="section-head">
+              <h2 id="contact-title" className="section-title">
+                Coordonnées & échanges
               </h2>
-              <a
-                className="contact-arrow"
-                href={`mailto:${email}`}
-                aria-label="Envoyer un email à Mohammed"
-              >
-                <ArrowUpRight />
-              </a>
+              <p className="section-subtitle">
+                Contact direct pour opportunités de stage PFE ou échanges techniques.
+              </p>
             </div>
-            <p className="contact-description">
-              Je recherche un stage PFE en développement logiciel pour intégrer
-              une équipe, contribuer à des produits concrets
-              <br className="desktop-break" /> et consolider mon expérience en
-              ingénierie logicielle.
-            </p>
-            <div className="contact-links">
-              <a className="email-link" href={`mailto:${email}`}>
-                {email}
-              </a>
-              <button
-                className="copy-button"
-                onClick={copyEmail}
-                aria-label="Copier l’adresse email"
-              >
-                {copied ? <Check size={18} /> : <Copy size={18} />}
-                <span aria-live="polite">{copied ? "Copié !" : "Copier"}</span>
-              </button>
-            </div>
-            <div className="contact-bottom">
-              <a href="tel:+212600242374">
-                <Phone size={16} /> +212 600 242 374
-              </a>
-              <span>
-                <MapPin size={16} /> Oujda, Maroc
-              </span>
-              <div className="social-links">
-                <a href={github} target="_blank" rel="noreferrer">
-                  <Github size={17} /> GitHub <ArrowUpRight size={14} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/fahchchouch-mohammed/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Linkedin size={17} /> LinkedIn <ArrowUpRight size={14} />
-                </a>
-                <a href={`mailto:${email}`}>
-                  <Mail size={17} /> Email <ArrowUpRight size={14} />
-                </a>
+
+            <div className="contact-box">
+              <div className="contact-grid">
+                <div className="contact-channel">
+                  <Mail size={22} className="contact-icon" />
+                  <div className="contact-details">
+                    <span className="contact-type">Courrier électronique</span>
+                    <a
+                      href={`mailto:${EMAIL_ADDRESS}`}
+                      className="contact-value-link"
+                    >
+                      {EMAIL_ADDRESS}
+                    </a>
+                  </div>
+                  <button
+                    type="button"
+                    className="btn btn-secondary btn-sm"
+                    onClick={handleCopyEmail}
+                    aria-label="Copier l’adresse email"
+                  >
+                    {copiedEmail ? (
+                      <>
+                        <Check size={14} />
+                        <span>Copié !</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={14} />
+                        <span>Copier l’adresse email</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                <div className="contact-channel">
+                  <Phone size={22} className="contact-icon" />
+                  <div className="contact-details">
+                    <span className="contact-type">Téléphone direct</span>
+                    <a
+                      href={`tel:${PHONE_NUMBER.replace(/\s+/g, "")}`}
+                      className="contact-value-link"
+                    >
+                      {PHONE_NUMBER}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-channel">
+                  <Linkedin size={22} className="contact-icon" />
+                  <div className="contact-details">
+                    <span className="contact-type">Réseau professionnel</span>
+                    <a
+                      href={LINKEDIN_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-value-link"
+                    >
+                      linkedin.com/in/fahchchouch-mohammed
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-channel">
+                  <Github size={22} className="contact-icon" />
+                  <div className="contact-details">
+                    <span className="contact-type">Code & dépôts</span>
+                    <a
+                      href={GITHUB_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-value-link"
+                    >
+                      github.com/fahchouchsm
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-channel">
+                  <MapPin size={22} className="contact-icon" />
+                  <div className="contact-details">
+                    <span className="contact-type">Localisation</span>
+                    <span className="contact-value-static">
+                      Oujda, Maroc (mobilité nationale & internationale)
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
       </main>
-      <footer className="site-footer container">
-        <a href="#" className="wordmark" aria-label="Retour en haut">
-          <span className="wordmark-first">Mohammed</span>
-          <span className="wordmark-last">
-            Fahchouch
-            <span className="wordmark-star" aria-hidden="true">
-              ✳
-            </span>
-          </span>
-        </a>
-        <p>© {new Date().getFullYear()} Mohammed Fahchouch</p>
-        <span>Pensé avec soin. Construit avec intention.</span>
-        <a href="#" className="text-link">
-          Retour en haut ↑
-        </a>
+
+      {/* FOOTER */}
+      <footer className="site-footer">
+        <div className="container footer-inner">
+          <div className="footer-left">
+            <span className="footer-name">Mohammed Fahchouch</span>
+            <span className="footer-role">Élève ingénieur en Génie Informatique (EHEIM)</span>
+          </div>
+
+          <div className="footer-links">
+            <a href="#projets">Projets</a>
+            <a href="#cv-variantes">CV</a>
+            <a href="#parcours">Parcours</a>
+            <a href="#contact">Contact</a>
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+
+          <div className="footer-right">
+            <span>Stage PFE (2026/2027)</span>
+          </div>
+        </div>
       </footer>
+
+      {/* PROJECT DETAILS DIALOG */}
       <ProjectDialog
-        project={selectedProject}
-        close={() => setSelectedProject(null)}
+        project={activeModalProject}
+        onClose={closeProjectModal}
       />
-    </>
+    </div>
   );
 }
