@@ -124,12 +124,14 @@ function ProjectDialog({
                 {project.metrics.map((metric, idx) => (
                   <div key={idx} className="modal-metric-card">
                     <span className="modal-metric-value">{metric.value}</span>
-                    <strong className="modal-metric-label">
-                      {lang === "fr" ? metric.label : metric.labelEn}
-                    </strong>
-                    <span className="modal-metric-caption">
-                      {lang === "fr" ? metric.caption : metric.captionEn}
-                    </span>
+                    <div className="modal-metric-info">
+                      <strong className="modal-metric-label">
+                        {lang === "fr" ? metric.label : metric.labelEn}
+                      </strong>
+                      <span className="modal-metric-caption">
+                        {lang === "fr" ? metric.caption : metric.captionEn}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>

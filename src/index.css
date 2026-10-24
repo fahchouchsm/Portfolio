@@ -1212,13 +1212,24 @@ button:disabled {
 .modal-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: var(--space-sm);
 }
 
 .modal-tag-group {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--space-2xs) var(--space-xs);
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.modal-context {
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .pill-badge {
@@ -1236,11 +1247,6 @@ button:disabled {
   background-color: var(--color-accent-wash);
   border-color: var(--color-accent);
   color: var(--color-accent);
-}
-
-.modal-context {
-  font-size: var(--text-xs);
-  color: var(--color-muted);
 }
 
 .modal-title {
@@ -1415,6 +1421,12 @@ button:disabled {
   padding: var(--space-sm);
 }
 
+.modal-metric-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
 .modal-metric-value {
   font-size: var(--text-xl);
   font-weight: 700;
@@ -1484,15 +1496,168 @@ button:disabled {
 }
 
 @media (max-width: 48rem) {
+  .project-modal {
+    width: calc(100% - var(--space-md));
+    max-width: calc(100% - var(--space-md));
+    margin: auto;
+    border-radius: var(--radius-card);
+  }
+
+  .modal-content {
+    padding: var(--space-md);
+    gap: var(--space-md);
+    max-height: 90vh;
+  }
+
+  .modal-header {
+    gap: var(--space-xs);
+  }
+
+  .modal-tag-group {
+    gap: var(--space-2xs) var(--space-xs);
+  }
+
+  .modal-title {
+    font-size: var(--text-xl);
+    line-height: 1.25;
+  }
+
+  .modal-lead {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+  }
+
+  .modal-section h4 {
+    font-size: var(--text-2xs);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .modal-section p {
+    font-size: var(--text-xs);
+    line-height: 1.5;
+  }
+
+  .modal-bullets {
+    padding-left: var(--space-sm);
+    font-size: var(--text-xs);
+    line-height: 1.5;
+  }
+
+  /* Compact Diagram on Mobile */
+  .project-diagram {
+    padding: var(--space-sm);
+    margin-top: var(--space-2xs);
+  }
+
+  .diagram-track {
+    gap: var(--space-2xs);
+  }
+
+  .diagram-stage {
+    padding: var(--space-xs) var(--space-sm);
+    gap: var(--space-3xs);
+  }
+
+  .diagram-stage-badge {
+    font-size: var(--text-2xs);
+  }
+
+  .diagram-box-title {
+    font-size: var(--text-xs);
+  }
+
+  .diagram-box-sub {
+    font-size: var(--text-2xs);
+  }
+
+  .diagram-box-note {
+    font-size: var(--text-2xs);
+  }
+
   .diagram-subcards-grid {
     grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2xs);
   }
 
+  .diagram-subcard {
+    padding: var(--space-2xs) var(--space-xs);
+    gap: 2px;
+  }
+
+  .diagram-subcard strong {
+    font-size: var(--text-xs);
+  }
+
+  .diagram-subcard span {
+    font-size: var(--text-2xs);
+  }
+
+  .diagram-flow-arrow {
+    padding: 2px 0;
+    gap: var(--space-2xs);
+  }
+
+  .diagram-flow-arrow .flow-label {
+    font-size: var(--text-2xs);
+    padding: 2px var(--space-xs);
+  }
+
+  /* Compact Metrics on Mobile */
   .modal-metrics-grid {
     grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xs);
   }
 
+  .modal-metric-card {
+    padding: var(--space-xs) var(--space-sm);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  .modal-metric-value {
+    font-size: var(--text-lg);
+    flex-shrink: 0;
+  }
+
+  .modal-metric-info {
+    text-align: right;
+  }
+
+  /* Compact Tradeoffs on Mobile */
   .modal-tradeoffs-grid {
     grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xs);
+  }
+
+  .modal-tradeoff-item {
+    padding: var(--space-xs) var(--space-sm);
+    gap: var(--space-3xs);
+  }
+
+  .modal-tradeoff-item strong {
+    font-size: var(--text-xs);
+  }
+
+  .modal-tradeoff-item p {
+    font-size: var(--text-2xs);
+  }
+
+  /* Mobile Footer */
+  .modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-xs);
+    padding-top: var(--space-sm);
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .modal-footer .source-note {
+    text-align: center;
   }
 }

@@ -85,7 +85,7 @@
 
   /* Surfaces & Overlays */
   --color-header-bg: oklch(14% 0.02 245);
-  --color-backdrop: oklch(10% 0.015 245 / 0.82);
+  --color-backdrop: oklch(8% 0.015 245 / 0.95);
 
   /* Typefaces */
   --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
