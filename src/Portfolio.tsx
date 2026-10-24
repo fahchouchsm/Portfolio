@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  ShieldCheck,
   Github,
   Linkedin,
   Mail,
@@ -10,178 +9,26 @@ import {
   X,
   Copy,
   Check,
-  FileText,
   Download,
   ExternalLink,
   Calendar,
   Building2,
-  Server,
-  Database,
   ArrowRight,
-  Layers,
 } from "lucide-react";
 import {
   projects,
-  cvVariants,
   principles,
   skillGroups,
   experiences,
   educations,
   type Project,
-  type CvVariant,
 } from "./data/portfolio.ts";
 
+const CV_PATH = "/cv/CV_Fahchouch_Mohammed.pdf";
 const GITHUB_URL = "https://github.com/fahchouchsm";
 const LINKEDIN_URL = "https://www.linkedin.com/in/fahchchouch-mohammed/";
 const EMAIL_ADDRESS = "fahchouchmd@gmail.com";
 const PHONE_NUMBER = "+212 600 242 374";
-
-function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" }) {
-  if (project.visual === "bettergit") {
-    return (
-      <div className="project-spec-panel" aria-label="Visualisation Git et analyse AST">
-        <div className="spec-panel-bar">
-          <span className="spec-panel-title">AST · JGit DAG</span>
-          <span className="spec-panel-status status-success">Quality Gate A</span>
-        </div>
-        <div className="spec-panel-body">
-          <div className="branch-flow">
-            <div className="branch-node">
-              <span className="branch-label branch-main">main</span>
-              <span className="branch-hash">5ac40df</span>
-              <span className="branch-text">SonarQube score A</span>
-            </div>
-            <div className="branch-node">
-              <span className="branch-label">feat/ast</span>
-              <span className="branch-hash">parser</span>
-              <span className="branch-text">JavaParser → PlantUML</span>
-            </div>
-            <div className="branch-node">
-              <span className="branch-label">core/dag</span>
-              <span className="branch-hash">staging</span>
-              <span className="branch-text">Index &amp; graphe DAG</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (project.visual === "gateway") {
-    return (
-      <div className="project-spec-panel" aria-label="Architecture AuthGateway">
-        <div className="spec-panel-bar">
-          <span className="spec-panel-title">
-            {lang === "fr" ? "Sécurité Microservices" : "Microservices Security"}
-          </span>
-          <span className="spec-panel-status status-success">Tokens RS256</span>
-        </div>
-        <div className="spec-panel-body">
-          <div className="service-pipeline">
-            <div className="pipeline-step step-accent">
-              <ShieldCheck size={16} />
-              <div className="step-desc">
-                <strong>AuthGateway</strong>
-                <span>Spring Security</span>
-              </div>
-            </div>
-            <ArrowRight size={12} className="pipeline-arrow" />
-            <div className="pipeline-step">
-              <Database size={16} />
-              <div className="step-desc">
-                <strong>Redis</strong>
-                <span>Cache tokens</span>
-              </div>
-            </div>
-            <ArrowRight size={12} className="pipeline-arrow" />
-            <div className="pipeline-step">
-              <Server size={16} />
-              <div className="step-desc">
-                <strong>Services</strong>
-                <span>BusWay &amp; City</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (project.visual === "city") {
-    return (
-      <div className="project-spec-panel" aria-label="Routage de signalements FixMyCity">
-        <div className="spec-panel-bar">
-          <span className="spec-panel-title">Clean Architecture</span>
-          <span className="spec-panel-status status-success">Route active</span>
-        </div>
-        <div className="spec-panel-body">
-          <div className="api-preview-row">
-            <span className="http-method">POST</span>
-            <code className="api-route">/api/v1/incidents/route</code>
-            <span className="http-status">201 Created</span>
-          </div>
-          <p className="api-note">
-            {lang === "fr"
-              ? "Routage dynamique vers les services municipaux via Entity Framework Core."
-              : "Dynamic incident routing to municipal departments via Entity Framework Core."}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (project.visual === "database") {
-    return (
-      <div className="project-spec-panel" aria-label="Exploration SGBD MySQL Compass">
-        <div className="spec-panel-bar">
-          <span className="spec-panel-title">
-            {lang === "fr" ? "Moteur SGBD & Intégrité" : "DBMS Engine & Integrity"}
-          </span>
-          <span className="spec-panel-status status-accent">Multi-SGBD</span>
-        </div>
-        <div className="spec-panel-body">
-          <div className="db-dataset-preview">
-            <div className="db-schema-row">
-              <Database size={14} />
-              <span>MySQL 8.0, PostgreSQL 16 et SQLite</span>
-            </div>
-            <div className="db-stats-row">
-              <span className="db-stat-highlight">50&nbsp;000+</span>
-              <span className="db-stat-caption">
-                {lang === "fr"
-                  ? "tuples synthétiques avec contraintes FK vérifiées"
-                  : "synthetic tuples with foreign keys validated"}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="project-spec-panel" aria-label="Plateforme web réactive">
-      <div className="spec-panel-bar">
-        <span className="spec-panel-title">WebSockets &amp; MongoDB</span>
-        <span className="spec-panel-status status-success">Live stream</span>
-      </div>
-      <div className="spec-panel-body">
-        <div className="realtime-stream">
-          <div className="stream-badge">
-            <span className="stream-live-indicator" />
-            <span className="stream-protocol">wss://</span>
-            <code>api.skillzhire.com/socket.io</code>
-          </div>
-          <p className="stream-desc">
-            {lang === "fr"
-              ? "Canaux de messagerie instantanée bidirectionnelle et indexation MongoDB."
-              : "Bidirectional instant messaging channels and indexed MongoDB queries."}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function ProjectDialog({
   project,
@@ -319,7 +166,6 @@ export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState<string>("Tous");
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
   const [lastTriggerButton, setLastTriggerButton] = useState<HTMLButtonElement | null>(null);
-  const [selectedCv, setSelectedCv] = useState<CvVariant>(cvVariants[0]);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [githubChartFailed, setGithubChartFailed] = useState(false);
 
@@ -361,7 +207,6 @@ export default function Portfolio() {
 
   const navLinks = [
     { href: "#projets", label: lang === "fr" ? "Projets" : "Projects" },
-    { href: "#cv-variantes", label: lang === "fr" ? "Variantes CV" : "CV Variants" },
     { href: "#approche", label: lang === "fr" ? "Approche" : "Approach" },
     { href: "#competences", label: lang === "fr" ? "Compétences" : "Skills" },
     { href: "#parcours", label: lang === "fr" ? "Parcours" : "Journey" },
@@ -378,7 +223,6 @@ export default function Portfolio() {
             className="brand-link"
             aria-label="Mohammed Fahchouch, accueil"
           >
-            <span className="brand-avatar-badge">MF</span>
             <div className="brand-text-col">
               <span className="brand-name">
                 Mohammed <strong>Fahchouch</strong>
@@ -428,11 +272,12 @@ export default function Portfolio() {
             </div>
 
             <a
-              href="#cv-variantes"
+              href={CV_PATH}
+              download
               className="btn btn-secondary btn-sm header-cv-btn"
             >
-              <FileText size={14} />
-              {lang === "fr" ? "Variantes CV" : "CV Variants"}
+              <Download size={14} />
+              {lang === "fr" ? "Mon CV" : "Resume"}
             </a>
 
             <button
@@ -453,65 +298,25 @@ export default function Portfolio() {
         <section className="hero-section container" aria-labelledby="hero-title">
           <div className="hero-grid">
             <div className="hero-lead-col">
-              <div className="hero-badge-row">
-                <span className="status-badge">
-                  {lang === "fr"
-                    ? "Élève ingénieur 5e année · EHEIM Oujda"
-                    : "5th Year Engineering Student · EHEIM Oujda"}
-                </span>
-                <span className="status-badge status-accent">
-                  {lang === "fr" ? "Stage PFE (2026/2027)" : "PFE Internship (2026/2027)"}
-                </span>
-              </div>
-
               <h1 id="hero-title" className="hero-title">
                 Mohammed Fahchouch
               </h1>
 
               <p className="hero-summary">
                 {lang === "fr"
-                  ? "Élève ingénieur logiciel orienté architectures distribuées, moteurs Git et conception résiliente."
-                  : "Software engineering student focused on distributed architectures, Git engines, and resilient system design."}
+                  ? "Élève ingénieur en Génie Informatique à l’EHEIM d’Oujda, orienté architectures distribuées, moteurs Git et conception résiliente. Je recherche un stage PFE de février à juillet 2027."
+                  : "Software engineering student at EHEIM Oujda, focused on distributed architectures, Git engines and resilient system design. Looking for a PFE internship from February to July 2027."}
               </p>
 
               <div className="hero-cta-row">
                 <a href="#projets" className="btn btn-primary">
-                  <Layers size={16} />
-                  <span>{lang === "fr" ? "Consulter les projets" : "Explore projects"}</span>
+                  <span>{lang === "fr" ? "Voir les projets" : "See projects"}</span>
+                  <ArrowRight size={16} />
                 </a>
-                <a href="#cv-variantes" className="btn btn-secondary">
+                <a href={CV_PATH} download className="btn btn-secondary">
                   <Download size={16} />
-                  <span>
-                    {lang === "fr" ? "Télécharger un CV (6 variantes)" : "Download CV (6 variants)"}
-                  </span>
+                  <span>{lang === "fr" ? "Télécharger mon CV" : "Download my resume"}</span>
                 </a>
-              </div>
-
-              <div className="hero-metrics-grid">
-                <div className="metric-cell">
-                  <span className="metric-val">CHU Oujda</span>
-                  <span className="metric-label">
-                    {lang === "fr"
-                      ? "Stage · BetterGit & AST JavaParser"
-                      : "Internship · BetterGit & AST JavaParser"}
-                  </span>
-                </div>
-                <div className="metric-cell">
-                  <span className="metric-val">Score A</span>
-                  <span className="metric-label">
-                    {lang === "fr"
-                      ? "SonarQube · 0 vulnérabilité critique"
-                      : "SonarQube · 0 critical vulnerabilities"}
-                  </span>
-                </div>
-                <div className="metric-cell">
-                  <span className="metric-val">11 conteneurs</span>
-                  <span className="metric-label">
-                    {lang === "fr"
-                      ? "Écosystème microservices Docker"
-                      : "Docker microservices ecosystem"}
-                  </span>
-                </div>
               </div>
             </div>
 
@@ -520,11 +325,7 @@ export default function Portfolio() {
               <div className="profile-spec-card">
                 <div className="spec-card-header">
                   <span className="spec-header-title">
-                    {lang === "fr" ? "Fiche de profil ingénieur" : "Engineering Profile Coordinates"}
-                  </span>
-                  <span className="spec-online-chip">
-                    <span className="online-dot" />
-                    <span>{lang === "fr" ? "Disponible PFE" : "Available for PFE"}</span>
+                    {lang === "fr" ? "En bref" : "At a glance"}
                   </span>
                 </div>
 
@@ -573,80 +374,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* GITHUB ACTIVITY SECTION */}
-        <section className="section github-section" aria-labelledby="github-title">
-          <div className="container">
-            <div className="section-head">
-              <h2 id="github-title" className="section-title">
-                {lang === "fr" ? "Activité GitHub" : "GitHub Activity"}
-              </h2>
-              <p className="section-subtitle">
-                {lang === "fr"
-                  ? "Régularité des contributions et versioning continu sur GitHub."
-                  : "Consistent contributions and ongoing versioning on GitHub."}
-              </p>
-            </div>
-
-            <div className="github-card">
-              <div className="github-card-header">
-                <div className="github-user-info">
-                  <Github size={20} />
-                  <a
-                    href={GITHUB_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="github-username-link"
-                  >
-                    github.com/fahchouchsm
-                  </a>
-                </div>
-                <a
-                  href={GITHUB_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-secondary btn-sm"
-                >
-                  <ExternalLink size={14} />
-                  <span>{lang === "fr" ? "Profil GitHub" : "GitHub Profile"}</span>
-                </a>
-              </div>
-
-              <div className="github-chart-wrap">
-                {!githubChartFailed ? (
-                  <img
-                    src="https://ghchart.rshah.org/10b981/fahchouchsm"
-                    alt="Graphique des contributions GitHub de Mohammed Fahchouch"
-                    className="github-chart-img"
-                    onError={() => setGithubChartFailed(true)}
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="chart-fallback">
-                    <p>
-                      {lang === "fr"
-                        ? "Visualisation des contributions disponible directement sur GitHub :"
-                        : "Contribution visualization available directly on GitHub:"}
-                    </p>
-                    <a
-                      href={GITHUB_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                    >
-                      <Github size={16} />
-                      <span>
-                        {lang === "fr"
-                          ? "Accéder au dépôt GitHub de Mohammed Fahchouch"
-                          : "Access Mohammed Fahchouch's GitHub profile"}
-                      </span>
-                    </a>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* PROJECTS SECTION */}
         <section className="section projects-section" id="projets" aria-labelledby="projects-title">
           <div className="container">
@@ -676,71 +403,52 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="projects-grid">
+            <div className="projects-list">
               {filteredProjects.map((project) => (
                 <article key={project.id} className="project-card">
-                  <div className="project-card-header">
-                    <div className="project-meta-row">
-                      <span className="pill-badge">{project.category}</span>
-                      <span className="project-context-label">
-                        {lang === "fr" ? project.context : project.contextEn}
-                      </span>
-                    </div>
+                  <div className="project-main">
                     <h3 className="project-title">{project.title}</h3>
-                    <p className="project-short-desc">
-                      {lang === "fr" ? project.description : project.descriptionEn}
+                    <p className="project-context-label">
+                      {project.category}
+                      {" "}
+                      <span>{lang === "fr" ? project.context : project.contextEn}</span>
                     </p>
                   </div>
 
-                  <div className="project-card-visual">
-                    <ProjectVisual project={project} lang={lang} />
+                  <div className="project-body">
+                    <p className="project-short-desc">
+                      {lang === "fr" ? project.description : project.descriptionEn}
+                    </p>
+                    <p className="project-stack">{project.stack.slice(0, 6).join(", ")}</p>
                   </div>
 
-                  <div className="project-card-footer">
-                    <div className="stack-wrap">
-                      {project.stack.slice(0, 4).map((tech) => (
-                        <span key={tech} className="tech-badge">
-                          {tech}
-                        </span>
-                      ))}
-                      {project.stack.length > 4 && (
-                        <span className="tech-badge-more">
-                          +{project.stack.length - 4}
-                        </span>
-                      )}
-                    </div>
+                  <div className="project-actions">
+                    <button
+                      type="button"
+                      className="project-btn-cta"
+                      onClick={(e) => openProjectModal(project, e.currentTarget)}
+                      aria-label={`Découvrir le projet ${project.title}`}
+                    >
+                      <span>{lang === "fr" ? "Voir le projet" : "View project"}</span>
+                      <ArrowRight size={14} className="cta-arrow" />
+                    </button>
 
-                    <div className="project-actions">
-                      <button
-                        type="button"
-                        className="project-btn-cta"
-                        onClick={(e) => openProjectModal(project, e.currentTarget)}
-                        aria-label={`Découvrir le projet ${project.title}`}
+                    {project.url ? (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-code-link"
+                        aria-label={`Code source ${project.title}`}
                       >
-                        <span>{lang === "fr" ? `Découvrir le projet ${project.title}` : `Discover ${project.title} project`}</span>
-                        <ArrowRight size={14} className="cta-arrow" />
-                      </button>
-
-                      {project.url ? (
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="project-btn-github"
-                          aria-label={`Code source ${project.title}`}
-                        >
-                          <Github size={16} />
-                        </a>
-                      ) : (
-                        <span
-                          className="project-btn-confidential"
-                          title={lang === "fr" ? "Code source interne · CHU / SRMO" : "Internal source code · CHU / SRMO"}
-                          aria-label={lang === "fr" ? "Code interne" : "Internal code"}
-                        >
-                          <Layers size={16} />
-                        </span>
-                      )}
-                    </div>
+                        <Github size={16} />
+                        <span>Code</span>
+                      </a>
+                    ) : (
+                      <span className="project-code-private">
+                        {lang === "fr" ? "Code non publié" : "Code not public"}
+                      </span>
+                    )}
                   </div>
                 </article>
               ))}
@@ -748,111 +456,23 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* CV VARIANTS HUB SECTION */}
-        <section
-          className="section cv-hub-section"
-          id="cv-variantes"
-          aria-labelledby="cv-hub-title"
-        >
-          <div className="container">
-            <div className="section-head">
-              <h2 id="cv-hub-title" className="section-title">
-                {lang === "fr" ? "Curriculum Vitae ciblés" : "Targeted Resumes & CVs"}
+        {/* CV */}
+        <section className="section cv-section" id="cv" aria-labelledby="cv-title">
+          <div className="container cv-band">
+            <div>
+              <h2 id="cv-title" className="section-title">
+                {lang === "fr" ? "Mon CV" : "My resume"}
               </h2>
               <p className="section-subtitle">
                 {lang === "fr"
-                  ? "Six variantes adaptées aux besoins de recrutement pour le stage PFE (2026/2027)."
-                  : "Six variants tailored to recruitment needs for the 2026/2027 PFE internship."}
+                  ? "Une page, à jour pour la recherche de stage PFE 2026/2027."
+                  : "One page, up to date for the 2026/2027 PFE internship search."}
               </p>
             </div>
-
-            <div className="cv-hub-grid">
-              <div className="cv-selector-list" role="tablist" aria-label="Variantes de CV">
-                {cvVariants.map((variant) => (
-                  <button
-                    key={variant.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={selectedCv.id === variant.id}
-                    className={`cv-tab-item ${selectedCv.id === variant.id ? "cv-tab-active" : ""}`}
-                    onClick={() => setSelectedCv(variant)}
-                  >
-                    <div className="cv-tab-text">
-                      <strong className="cv-tab-title">
-                        {lang === "fr" ? variant.title : variant.titleEn}
-                      </strong>
-                      <span className="cv-tab-subtitle">
-                        {lang === "fr" ? variant.roleSubtitle : variant.roleSubtitleEn}
-                      </span>
-                    </div>
-                    <FileText size={18} className="cv-tab-icon" />
-                  </button>
-                ))}
-              </div>
-
-              <div className="cv-preview-panel" role="tabpanel">
-                <div className="cv-preview-body">
-                  <div className="cv-preview-header">
-                    <div>
-                      <h3 className="cv-preview-title">
-                        {lang === "fr" ? selectedCv.title : selectedCv.titleEn}
-                      </h3>
-                      <p className="cv-preview-subtitle">
-                        {lang === "fr" ? selectedCv.roleSubtitle : selectedCv.roleSubtitleEn}
-                      </p>
-                    </div>
-                    <a
-                      href={selectedCv.path}
-                      download
-                      className="btn btn-primary"
-                    >
-                      <Download size={16} />
-                      <span>{lang === "fr" ? "Télécharger ce CV PDF" : "Download this PDF CV"}</span>
-                    </a>
-                  </div>
-
-                  <div className="cv-highlights-box">
-                    <h4>{lang === "fr" ? "Points d’ancrage du profil" : "Profile Focus Points"}</h4>
-                    <ul className="cv-points-list">
-                      {(lang === "fr" ? selectedCv.highlights : selectedCv.highlightsEn).map((pt, i) => (
-                        <li key={i}>{pt}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="cv-tech-row">
-                    <h4>{lang === "fr" ? "Technologies prioritaires" : "Key Technologies"}</h4>
-                    <div className="stack-wrap">
-                      {selectedCv.primaryTech.map((item) => (
-                        <span key={item} className="stack-pill">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="cv-direct-actions">
-                    <a
-                      href={selectedCv.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-secondary btn-sm"
-                    >
-                      <ExternalLink size={14} />
-                      <span>{lang === "fr" ? "Ouvrir le PDF dans un nouvel onglet" : "Open PDF in new tab"}</span>
-                    </a>
-                    <a
-                      href="/cv/CV_Fahchouch_Mohammed.pdf"
-                      download
-                      className="btn btn-secondary btn-sm"
-                    >
-                      <Download size={14} />
-                      <span>{lang === "fr" ? "Version généraliste standard" : "Standard generalist version"}</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <a href={CV_PATH} download className="btn btn-primary">
+              <Download size={16} />
+              <span>{lang === "fr" ? "Télécharger le CV (PDF)" : "Download resume (PDF)"}</span>
+            </a>
           </div>
         </section>
 
@@ -988,6 +608,80 @@ export default function Portfolio() {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* GITHUB ACTIVITY SECTION */}
+        <section className="section github-section" aria-labelledby="github-title">
+          <div className="container">
+            <div className="section-head">
+              <h2 id="github-title" className="section-title">
+                {lang === "fr" ? "Activité GitHub" : "GitHub Activity"}
+              </h2>
+              <p className="section-subtitle">
+                {lang === "fr"
+                  ? "Régularité des contributions et versioning continu sur GitHub."
+                  : "Consistent contributions and ongoing versioning on GitHub."}
+              </p>
+            </div>
+
+            <div className="github-card">
+              <div className="github-card-header">
+                <div className="github-user-info">
+                  <Github size={20} />
+                  <a
+                    href={GITHUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="github-username-link"
+                  >
+                    github.com/fahchouchsm
+                  </a>
+                </div>
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary btn-sm"
+                >
+                  <ExternalLink size={14} />
+                  <span>{lang === "fr" ? "Profil GitHub" : "GitHub Profile"}</span>
+                </a>
+              </div>
+
+              <div className="github-chart-wrap">
+                {!githubChartFailed ? (
+                  <img
+                    src="https://ghchart.rshah.org/10b981/fahchouchsm"
+                    alt="Graphique des contributions GitHub de Mohammed Fahchouch"
+                    className="github-chart-img"
+                    onError={() => setGithubChartFailed(true)}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="chart-fallback">
+                    <p>
+                      {lang === "fr"
+                        ? "Visualisation des contributions disponible directement sur GitHub :"
+                        : "Contribution visualization available directly on GitHub:"}
+                    </p>
+                    <a
+                      href={GITHUB_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary"
+                    >
+                      <Github size={16} />
+                      <span>
+                        {lang === "fr"
+                          ? "Accéder au dépôt GitHub de Mohammed Fahchouch"
+                          : "Access Mohammed Fahchouch's GitHub profile"}
+                      </span>
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -1209,7 +903,7 @@ export default function Portfolio() {
 
           <div className="footer-links">
             <a href="#projets">{lang === "fr" ? "Projets" : "Projects"}</a>
-            <a href="#cv-variantes">{lang === "fr" ? "CV" : "Resumes"}</a>
+            <a href={CV_PATH} download>{lang === "fr" ? "CV" : "Resume"}</a>
             <a href="#parcours">{lang === "fr" ? "Parcours" : "Journey"}</a>
             <a href="#contact">Contact</a>
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
