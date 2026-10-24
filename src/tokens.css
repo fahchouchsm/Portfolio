@@ -50,25 +50,26 @@
   --z-toast: 500;
   --z-tooltip: 600;
 
-  /* Modern obsidian slate ground */
-  --color-paper: oklch(14% 0.012 255);
-  --color-paper-2: oklch(18% 0.016 255);
-  --color-paper-3: oklch(23% 0.020 255);
-  --color-paper-elevated: oklch(20% 0.018 255);
+  /* Refined midnight navy obsidian canvas ground */
+  --color-paper: oklch(11% 0.016 250);
+  --color-paper-2: oklch(16.5% 0.022 250);
+  --color-paper-3: oklch(21.5% 0.026 250);
+  --color-paper-elevated: oklch(19% 0.024 250);
 
-  --color-ink: oklch(97% 0.005 250);
-  --color-ink-2: oklch(84% 0.012 250);
-  --color-muted: oklch(66% 0.018 250);
+  --color-ink: oklch(98% 0.005 250);
+  --color-ink-2: oklch(86% 0.012 250);
+  --color-muted: oklch(70% 0.018 250);
 
-  --color-rule: oklch(25% 0.016 255);
-  --color-rule-2: oklch(33% 0.022 255);
+  --color-rule: oklch(24% 0.025 250);
+  --color-rule-2: oklch(32% 0.030 250);
 
-  /* Modern luminous emerald accent */
-  --color-accent: oklch(78% 0.17 154);
-  --color-accent-ink: oklch(15% 0.03 154);
-  --color-focus: oklch(78% 0.17 154);
-  --color-accent-wash: oklch(24% 0.05 154);
-  --color-accent-soft: oklch(85% 0.12 154);
+  /* Modern high-craft emerald accent (WCAG AAA compliant) */
+  --color-accent: oklch(75% 0.165 162);
+  --color-accent-hover: oklch(81% 0.155 162);
+  --color-accent-ink: oklch(16% 0.05 162);
+  --color-focus: oklch(75% 0.165 162);
+  --color-accent-wash: oklch(22% 0.045 162);
+  --color-accent-soft: oklch(88% 0.09 162);
 
   --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-body: var(--font-display);
@@ -78,7 +79,9 @@
   --radius-inner: 10px;
   --radius-pill: 999px;
   --rule-hair: 1px;
-  --shadow-card: none;
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+  --shadow-hover: 0 12px 32px -4px rgba(0, 0, 0, 0.65);
+  --shadow-modal: 0 24px 64px -12px rgba(0, 0, 0, 0.85);
 
   --tracking-display: -0.025em;
   --display-weight: 700;

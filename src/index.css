@@ -505,6 +505,7 @@ button:disabled {
   border: var(--rule-hair) solid var(--color-rule-2);
   border-radius: var(--radius-card);
   padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
 }
 
 .github-card-header {
@@ -530,14 +531,18 @@ button:disabled {
 
 .github-chart-wrap {
   overflow-x: auto;
-  padding: var(--space-xs);
+  padding: var(--space-sm) var(--space-xs);
+  display: flex;
+  justify-content: center;
 }
 
 .github-chart-img {
   width: 100%;
   max-width: 900px;
-  filter: contrast(1.1);
   display: block;
+  /* Invert empty bright cells to deep slate while preserving emerald green hue */
+  filter: invert(0.92) hue-rotate(180deg) brightness(0.9) contrast(1.15);
+  border-radius: var(--radius-inner);
 }
 
 .chart-fallback {
@@ -576,11 +581,13 @@ button:disabled {
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition: color var(--dur-micro) var(--ease-out),
-              background-color var(--dur-micro) var(--ease-out);
+              background-color var(--dur-micro) var(--ease-out),
+              border-color var(--dur-micro) var(--ease-out);
 }
 
 .filter-btn:hover {
   color: var(--color-ink);
+  background-color: var(--color-paper-3);
 }
 
 .filter-btn:active {
@@ -591,7 +598,7 @@ button:disabled {
   background-color: var(--color-paper-3);
   color: var(--color-accent);
   border-color: var(--color-accent);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .projects-grid {
@@ -608,11 +615,16 @@ button:disabled {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: border-color var(--dur-short) var(--ease-out);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--dur-short) var(--ease-out),
+              box-shadow var(--dur-short) var(--ease-out),
+              transform var(--dur-short) var(--ease-out);
 }
 
 .project-card:hover {
   border-color: var(--color-accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
 }
 
 .project-card-header {
