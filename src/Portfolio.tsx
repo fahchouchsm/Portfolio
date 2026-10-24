@@ -39,25 +39,24 @@ const PHONE_NUMBER = "+212 600 242 374";
 function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" }) {
   if (project.visual === "bettergit") {
     return (
-      <div className="preview-card" aria-label="Visualisation Git et analyse AST">
-        <div className="preview-badge-row">
-          <span className="visual-tag tag-accent">Quality Gate A</span>
-          <span className="visual-tag">Java 21 · JGit</span>
-          <span className="visual-tag">Tauri Desktop</span>
+      <div className="project-spec-panel" aria-label="Visualisation Git et analyse AST">
+        <div className="spec-panel-bar">
+          <span className="spec-panel-title">AST · JGit DAG</span>
+          <span className="spec-panel-status status-success">Quality Gate A</span>
         </div>
-        <div className="preview-content-box">
+        <div className="spec-panel-body">
           <div className="branch-flow">
             <div className="branch-node branch-master">
               <span className="node-dot dot-accent" />
-              <span className="node-text">main : commit 5ac40df · Quality Gate SonarQube score A</span>
+              <span className="node-text">main : commit 5ac40df · SonarQube score A</span>
             </div>
             <div className="branch-node branch-feature">
               <span className="node-dot" />
-              <span className="node-text">feat/ast : analyse AST JavaParser → export PlantUML</span>
+              <span className="node-text">feat/ast : analyse AST JavaParser → PlantUML</span>
             </div>
             <div className="branch-node branch-sub">
               <span className="node-dot" />
-              <span className="node-text">core/dag : index de staging et calcul de graphe DAG</span>
+              <span className="node-text">core/dag : index staging &amp; graphe DAG</span>
             </div>
           </div>
         </div>
@@ -67,35 +66,34 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
 
   if (project.visual === "gateway") {
     return (
-      <div className="preview-card" aria-label="Architecture AuthGateway">
-        <div className="preview-badge-row">
-          <span className="visual-tag tag-accent">Tokens JWT (RS256)</span>
-          <span className="visual-tag">Rotation JWKS</span>
-          <span className="visual-tag">Cache Redis</span>
+      <div className="project-spec-panel" aria-label="Architecture AuthGateway">
+        <div className="spec-panel-bar">
+          <span className="spec-panel-title">Microservices · RS256</span>
+          <span className="spec-panel-status status-success">JWKS Active</span>
         </div>
-        <div className="preview-content-box">
+        <div className="spec-panel-body">
           <div className="service-pipeline">
             <div className="pipeline-step step-accent">
-              <ShieldCheck size={18} />
+              <ShieldCheck size={16} />
               <div className="step-desc">
                 <strong>AuthGateway</strong>
-                <span>Spring Security & JWKS</span>
+                <span>Spring Security</span>
               </div>
             </div>
-            <ArrowRight size={14} className="pipeline-arrow" />
+            <ArrowRight size={12} className="pipeline-arrow" />
             <div className="pipeline-step">
-              <Database size={18} />
+              <Database size={16} />
               <div className="step-desc">
                 <strong>Redis</strong>
-                <span>Refresh tokens HttpOnly</span>
+                <span>Cache tokens</span>
               </div>
             </div>
-            <ArrowRight size={14} className="pipeline-arrow" />
+            <ArrowRight size={12} className="pipeline-arrow" />
             <div className="pipeline-step">
-              <Server size={18} />
+              <Server size={16} />
               <div className="step-desc">
                 <strong>Services</strong>
-                <span>BusWay GIS & FixMyCity</span>
+                <span>BusWay &amp; City</span>
               </div>
             </div>
           </div>
@@ -106,13 +104,12 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
 
   if (project.visual === "city") {
     return (
-      <div className="preview-card" aria-label="Routage de signalements FixMyCity">
-        <div className="preview-badge-row">
-          <span className="visual-tag tag-accent">C# / .NET 10</span>
-          <span className="visual-tag">Clean Architecture</span>
-          <span className="visual-tag">SQL Server</span>
+      <div className="project-spec-panel" aria-label="Routage de signalements FixMyCity">
+        <div className="spec-panel-bar">
+          <span className="spec-panel-title">Clean Architecture · REST</span>
+          <span className="spec-panel-status status-success">201 Created</span>
         </div>
-        <div className="preview-content-box">
+        <div className="spec-panel-body">
           <div className="api-preview-row">
             <span className="http-method">POST</span>
             <span className="api-route">/api/v1/incidents/route</span>
@@ -130,13 +127,14 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
 
   if (project.visual === "database") {
     return (
-      <div className="preview-card" aria-label="Exploration SGBD MySQL Compass">
-        <div className="preview-badge-row">
-          <span className="visual-tag tag-accent">Multi-SGBD</span>
-          <span className="visual-tag">Générateur volumique</span>
-          <span className="visual-tag">Electron</span>
+      <div className="project-spec-panel" aria-label="Exploration SGBD MySQL Compass">
+        <div className="spec-panel-bar">
+          <span className="spec-panel-title">
+            {lang === "fr" ? "Moteur SGBD & Intégrité" : "DBMS Engine & Integrity"}
+          </span>
+          <span className="spec-panel-status status-accent">50 000+ tuples</span>
         </div>
-        <div className="preview-content-box">
+        <div className="spec-panel-body">
           <div className="db-dataset-preview">
             <div className="db-schema-row">
               <Database size={14} />
@@ -144,7 +142,11 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
             </div>
             <div className="db-stats-row">
               <span className="db-stat-highlight">50 000+</span>
-              <span>{lang === "fr" ? "tuples synthétiques avec contraintes FK vérifiées" : "synthetic tuples with foreign keys validated"}</span>
+              <span>
+                {lang === "fr"
+                  ? "tuples synthétiques avec contraintes FK vérifiées"
+                  : "synthetic tuples with foreign keys validated"}
+              </span>
             </div>
           </div>
         </div>
@@ -153,22 +155,21 @@ function ProjectVisual({ project, lang }: { project: Project; lang: "fr" | "en" 
   }
 
   return (
-    <div className="preview-card" aria-label="Plateforme web réactive">
-      <div className="preview-badge-row">
-        <span className="visual-tag tag-accent">Next.js</span>
-        <span className="visual-tag">WebSockets</span>
-        <span className="visual-tag">MongoDB</span>
+    <div className="project-spec-panel" aria-label="Plateforme web réactive">
+      <div className="spec-panel-bar">
+        <span className="spec-panel-title">WebSockets &amp; MongoDB</span>
+        <span className="spec-panel-status status-success">Live (wss://)</span>
       </div>
-      <div className="preview-content-box">
+      <div className="spec-panel-body">
         <div className="realtime-stream">
           <div className="stream-badge">
             <span className="stream-live-indicator" />
-            <span>WebSockets active stream</span>
+            <code>wss://api.skillzhire.com/socket.io</code>
           </div>
           <span className="stream-desc">
             {lang === "fr"
-              ? "Canaux de messagerie instantanée bidirectionnelle et mise à jour de catalogue en temps réel."
-              : "Bidirectional instant messaging channels and real-time catalog state updates."}
+              ? "Canaux de messagerie instantanée bidirectionnelle et indexation MongoDB."
+              : "Bidirectional instant messaging channels and indexed MongoDB queries."}
           </span>
         </div>
       </div>
@@ -706,13 +707,12 @@ export default function Portfolio() {
                     <div className="project-actions">
                       <button
                         type="button"
-                        className="btn btn-primary btn-sm"
+                        className="project-btn-cta"
                         onClick={(e) => openProjectModal(project, e.currentTarget)}
                         aria-label={`Découvrir le projet ${project.title}`}
                       >
-                        {lang === "fr"
-                          ? `Découvrir le projet ${project.title}`
-                          : `Découvrir le projet ${project.title}`}
+                        <span>{lang === "fr" ? `Découvrir le projet ${project.title}` : `Discover ${project.title} project`}</span>
+                        <ArrowRight size={14} className="cta-arrow" />
                       </button>
 
                       {project.url && (
@@ -720,7 +720,7 @@ export default function Portfolio() {
                           href={project.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="btn-icon"
+                          className="project-btn-github"
                           aria-label={`Code source ${project.title}`}
                         >
                           <Github size={16} />
