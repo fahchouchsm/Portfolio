@@ -84,7 +84,7 @@ function ProjectDialog({
             </div>
             <button
               type="button"
-              className="btn-icon"
+              className="btn-close"
               autoFocus
               onClick={() => dialogRef.current?.close()}
               aria-label="Fermer le projet"
@@ -207,6 +207,7 @@ export default function Portfolio() {
 
   const navLinks = [
     { href: "#projets", label: lang === "fr" ? "Projets" : "Projects" },
+    { href: "#cv", label: lang === "fr" ? "CV" : "Resume" },
     { href: "#approche", label: lang === "fr" ? "Approche" : "Approach" },
     { href: "#competences", label: lang === "fr" ? "Compétences" : "Skills" },
     { href: "#parcours", label: lang === "fr" ? "Parcours" : "Journey" },
@@ -228,7 +229,7 @@ export default function Portfolio() {
                 Mohammed <strong>Fahchouch</strong>
               </span>
               <span className="brand-role">
-                {lang === "fr" ? "Génie Informatique" : "Software Engineering"}
+                {lang === "fr" ? "Élève Ingénieur en Génie Informatique" : "Software Engineering Student"}
               </span>
             </div>
           </a>
@@ -277,7 +278,7 @@ export default function Portfolio() {
               className="btn btn-secondary btn-sm header-cv-btn"
             >
               <Download size={14} />
-              {lang === "fr" ? "Mon CV" : "Resume"}
+              {lang === "fr" ? "Télécharger CV" : "Download CV"}
             </a>
 
             <button
@@ -298,75 +299,84 @@ export default function Portfolio() {
         <section className="hero-section container" aria-labelledby="hero-title">
           <div className="hero-grid">
             <div className="hero-lead-col">
+              <div className="hero-status-pill">
+                <span className="status-dot"></span>
+                <span>
+                  {lang === "fr"
+                    ? "Recherche de stage PFE : Février à Juillet 2027"
+                    : "Seeking PFE Internship: February to July 2027"}
+                </span>
+              </div>
+
               <h1 id="hero-title" className="hero-title">
                 Mohammed Fahchouch
               </h1>
 
               <p className="hero-summary">
                 {lang === "fr"
-                  ? "Élève ingénieur en Génie Informatique à l’EHEIM d’Oujda, orienté architectures distribuées, moteurs Git et conception résiliente. Je recherche un stage PFE de février à juillet 2027."
-                  : "Software engineering student at EHEIM Oujda, focused on distributed architectures, Git engines and resilient system design. Looking for a PFE internship from February to July 2027."}
+                  ? "Élève ingénieur en Génie Informatique à l’EHEIM d’Oujda (5e année). Spécialisé dans les architectures logicielles distribuées, les moteurs de code et la conception résiliente avec Java 21, Spring Boot et C# .NET."
+                  : "Software engineering student at EHEIM Oujda (5th year). Specializing in distributed software architecture, code analysis engines, and resilient systems with Java 21, Spring Boot, and C# .NET."}
               </p>
 
               <div className="hero-cta-row">
                 <a href="#projets" className="btn btn-primary">
-                  <span>{lang === "fr" ? "Voir les projets" : "See projects"}</span>
+                  <span>{lang === "fr" ? "Consulter les projets" : "Explore projects"}</span>
                   <ArrowRight size={16} />
                 </a>
                 <a href={CV_PATH} download className="btn btn-secondary">
                   <Download size={16} />
-                  <span>{lang === "fr" ? "Télécharger mon CV" : "Download my resume"}</span>
+                  <span>{lang === "fr" ? "Télécharger mon CV (PDF)" : "Download resume (PDF)"}</span>
                 </a>
               </div>
             </div>
 
-            {/* Profile coordinates card */}
+            {/* Profile summary spec card */}
             <div className="hero-card-col">
               <div className="profile-spec-card">
                 <div className="spec-card-header">
-                  <span className="spec-header-title">
-                    {lang === "fr" ? "En bref" : "At a glance"}
-                  </span>
+                  <h2 className="spec-header-title">
+                    {lang === "fr" ? "Profil d'ingénierie" : "Engineering Profile"}
+                  </h2>
                 </div>
 
                 <div className="spec-card-body">
                   <div className="spec-row">
-                    <span className="spec-key">{lang === "fr" ? "diplôme visé" : "degree"}</span>
+                    <span className="spec-key">{lang === "fr" ? "Formation" : "Education"}</span>
                     <span className="spec-val">
                       {lang === "fr"
-                        ? "Ingénieur d'État en Génie Informatique (EHEIM)"
-                        : "State Software Engineering Degree (EHEIM)"}
+                        ? "Ingénieur d'État en Génie Informatique (EHEIM Oujda, 5e année)"
+                        : "State Software Engineering Degree (EHEIM Oujda, 5th Year)"}
                     </span>
                   </div>
                   <div className="spec-row">
-                    <span className="spec-key">{lang === "fr" ? "recherche" : "seeking"}</span>
+                    <span className="spec-key">{lang === "fr" ? "Objectif" : "Target"}</span>
                     <span className="spec-val highlight-val">
                       {lang === "fr"
-                        ? "Stage PFE 4 à 6 mois (Février à Juillet 2027)"
-                        : "PFE Internship 4 to 6 months (Feb to July 2027)"}
+                        ? "Stage PFE de 4 à 6 mois (Février – Juillet 2027)"
+                        : "PFE Internship 4 to 6 months (Feb – July 2027)"}
                     </span>
                   </div>
                   <div className="spec-row">
-                    <span className="spec-key">{lang === "fr" ? "mobilité" : "location"}</span>
+                    <span className="spec-key">{lang === "fr" ? "Mobilité" : "Mobility"}</span>
                     <span className="spec-val">
-                      {lang === "fr" ? "Oujda, Casablanca, Rabat, Remote" : "Oujda, Casablanca, Rabat, Remote"}
+                      {lang === "fr" ? "Casablanca, Rabat, Tanger, Oujda, Remote" : "Casablanca, Rabat, Tangier, Oujda, Remote"}
                     </span>
                   </div>
                   <div className="spec-row">
-                    <span className="spec-key">{lang === "fr" ? "langages" : "languages"}</span>
-                    <span className="spec-val font-code">Java 21, TypeScript, C#, SQL, Python, C/C++</span>
+                    <span className="spec-key">{lang === "fr" ? "Langages" : "Languages"}</span>
+                    <span className="spec-val font-code">Java 21, C#, TypeScript, SQL, Python, C/C++</span>
                   </div>
                   <div className="spec-row">
-                    <span className="spec-key">{lang === "fr" ? "frameworks" : "frameworks"}</span>
+                    <span className="spec-key">{lang === "fr" ? "Frameworks" : "Frameworks"}</span>
                     <span className="spec-val font-code">Spring Boot 3, ASP.NET Core, React, Docker</span>
                   </div>
                   <div className="spec-row">
-                    <span className="spec-key">{lang === "fr" ? "qualité" : "standards"}</span>
-                    <span className="spec-val">SOLID, Clean Architecture, SonarQube score A</span>
+                    <span className="spec-key">{lang === "fr" ? "Standards" : "Standards"}</span>
+                    <span className="spec-val">Clean Architecture, Principes SOLID, SonarQube score A</span>
                   </div>
                   <div className="spec-row spec-footer-row">
-                    <span className="spec-key">{lang === "fr" ? "contacts" : "contact"}</span>
-                    <span className="spec-val font-code">fahchouchmd@gmail.com · +212 600 242 374</span>
+                    <span className="spec-key">{lang === "fr" ? "Contact" : "Contact"}</span>
+                    <span className="spec-val font-code">fahchouchmd@gmail.com</span>
                   </div>
                 </div>
               </div>
@@ -384,8 +394,8 @@ export default function Portfolio() {
                 </h2>
                 <p className="section-subtitle">
                   {lang === "fr"
-                    ? "Sélection de travaux réalisés en stage et en cycle d’ingénieur."
-                    : "Selected work from professional internships and engineering curriculum."}
+                    ? "Travaux d'architecture logicielle réalisés en stage en entreprise et en cycle d'ingénieur."
+                    : "Software architecture and systems work delivered during corporate internships and engineering curriculum."}
                 </p>
               </div>
 
@@ -403,34 +413,56 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="projects-list">
+            <div className="projects-grid">
               {filteredProjects.map((project) => (
                 <article key={project.id} className="project-card">
-                  <div className="project-main">
+                  <div className="project-card-header">
+                    <div className="project-meta-row">
+                      <span className="project-category-badge">{project.category}</span>
+                      <span className="project-context">
+                        {lang === "fr" ? project.context : project.contextEn}
+                      </span>
+                    </div>
                     <h3 className="project-title">{project.title}</h3>
-                    <p className="project-context-label">
-                      {project.category}
-                      {" "}
-                      <span>{lang === "fr" ? project.context : project.contextEn}</span>
-                    </p>
                   </div>
 
-                  <div className="project-body">
-                    <p className="project-short-desc">
-                      {lang === "fr" ? project.description : project.descriptionEn}
-                    </p>
-                    <p className="project-stack">{project.stack.slice(0, 6).join(", ")}</p>
+                  <p className="project-desc">
+                    {lang === "fr" ? project.description : project.descriptionEn}
+                  </p>
+
+                  <div className="project-highlights">
+                    <span className="highlights-label">
+                      {lang === "fr" ? "Points clés d'ingénierie :" : "Key highlights:"}
+                    </span>
+                    <ul className="highlights-list">
+                      {(lang === "fr" ? project.details : project.detailsEn).slice(0, 2).map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div className="project-actions">
+                  <div className="project-stack-wrap">
+                    {project.stack.slice(0, 6).map((tech) => (
+                      <span key={tech} className="tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                    {project.stack.length > 6 && (
+                      <span className="tech-tag tech-more">
+                        +{project.stack.length - 6}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="project-card-footer">
                     <button
                       type="button"
-                      className="project-btn-cta"
+                      className="btn btn-secondary btn-sm"
                       onClick={(e) => openProjectModal(project, e.currentTarget)}
                       aria-label={`Découvrir le projet ${project.title}`}
                     >
-                      <span>{lang === "fr" ? "Voir le projet" : "View project"}</span>
-                      <ArrowRight size={14} className="cta-arrow" />
+                      <span>{lang === "fr" ? "Découvrir le projet" : "Explore project"}</span>
+                      <ArrowRight size={14} />
                     </button>
 
                     {project.url ? (
@@ -441,12 +473,13 @@ export default function Portfolio() {
                         className="project-code-link"
                         aria-label={`Code source ${project.title}`}
                       >
-                        <Github size={16} />
-                        <span>Code</span>
+                        <Github size={15} />
+                        <span>{lang === "fr" ? "Code source" : "Source code"}</span>
+                        <ExternalLink size={12} />
                       </a>
                     ) : (
                       <span className="project-code-private">
-                        {lang === "fr" ? "Code non publié" : "Code not public"}
+                        {lang === "fr" ? "Code source privé (propriété CHU)" : "Private source (CHU property)"}
                       </span>
                     )}
                   </div>
@@ -456,23 +489,38 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* CV */}
+        {/* CV SECTION - SINGLE DOCUMENT DOWNLOAD */}
         <section className="section cv-section" id="cv" aria-labelledby="cv-title">
-          <div className="container cv-band">
-            <div>
-              <h2 id="cv-title" className="section-title">
-                {lang === "fr" ? "Mon CV" : "My resume"}
-              </h2>
-              <p className="section-subtitle">
-                {lang === "fr"
-                  ? "Une page, à jour pour la recherche de stage PFE 2026/2027."
-                  : "One page, up to date for the 2026/2027 PFE internship search."}
-              </p>
+          <div className="container">
+            <div className="cv-banner-card">
+              <div className="cv-banner-content">
+                <h2 id="cv-title" className="cv-banner-title">
+                  {lang === "fr" ? "Curriculum Vitae officiel" : "Official Resume"}
+                </h2>
+                <p className="cv-banner-desc">
+                  {lang === "fr"
+                    ? "Document synthétique d'une page détaillant ma formation d'ingénieur d'État (EHEIM Oujda), mes expériences en développement logiciel (CHU Oujda, SRM Oriental) et mes compétences en backend distribué."
+                    : "Comprehensive one-page document presenting my state engineering education (EHEIM Oujda), software engineering internships (CHU Oujda, SRM Oriental), and distributed backend skills."}
+                </p>
+                <div className="cv-meta-chips">
+                  <span className="cv-chip">Format PDF standard</span>
+                  <span className="cv-chip">1 page synthétique</span>
+                  <span className="cv-chip">Recherche Stage PFE 2027</span>
+                </div>
+              </div>
+
+              <div className="cv-banner-action">
+                <a
+                  href={CV_PATH}
+                  download
+                  className="btn btn-primary cv-download-btn"
+                  aria-label="Télécharger le CV officiel de Mohammed Fahchouch"
+                >
+                  <Download size={18} />
+                  <span>{lang === "fr" ? "Télécharger le CV (PDF)" : "Download Resume (PDF)"}</span>
+                </a>
+              </div>
             </div>
-            <a href={CV_PATH} download className="btn btn-primary">
-              <Download size={16} />
-              <span>{lang === "fr" ? "Télécharger le CV (PDF)" : "Download resume (PDF)"}</span>
-            </a>
           </div>
         </section>
 
@@ -485,8 +533,8 @@ export default function Portfolio() {
               </h2>
               <p className="section-subtitle">
                 {lang === "fr"
-                  ? "Application concrète des principes SOLID et de l’architecture logicielle."
-                  : "Concrete application of SOLID principles and clean software architecture."}
+                  ? "Conception orientée maintenabilité : application concrète des principes SOLID et de la Clean Architecture."
+                  : "Maintainability-first design: practical application of SOLID principles and clean software architecture."}
               </p>
             </div>
 
@@ -523,8 +571,8 @@ export default function Portfolio() {
               </h2>
               <p className="section-subtitle">
                 {lang === "fr"
-                  ? "Outils, frameworks et langages maîtrisés au fil des projets et stages."
-                  : "Tools, frameworks, and languages mastered across projects and internships."}
+                  ? "Technologies, frameworks et langages maîtrisés au fil des projets et stages professionnels."
+                  : "Technologies, frameworks, and programming languages mastered across engineering projects and internships."}
               </p>
             </div>
 
@@ -559,8 +607,8 @@ export default function Portfolio() {
               </h2>
               <p className="section-subtitle">
                 {lang === "fr"
-                  ? "Expériences professionnelles en entreprise et cursus académique."
-                  : "Professional internships and state engineering academic curriculum."}
+                  ? "Missions en entreprise et cursus académique en école d'ingénieurs."
+                  : "Corporate software development internships and state engineering academic curriculum."}
               </p>
             </div>
 
@@ -654,7 +702,7 @@ export default function Portfolio() {
               <div className="github-chart-wrap">
                 {!githubChartFailed ? (
                   <img
-                    src="https://ghchart.rshah.org/10b981/fahchouchsm"
+                    src="https://ghchart.rshah.org/38bdf8/fahchouchsm"
                     alt="Graphique des contributions GitHub de Mohammed Fahchouch"
                     className="github-chart-img"
                     onError={() => setGithubChartFailed(true)}
@@ -720,9 +768,9 @@ export default function Portfolio() {
                       </p>
                       <p>
                         Mon parcours mêle l'exploration bas niveau des structures de données (moteur Git
-                        en Java, parcours d'arbres syntaxiques AST) et la mise en œuvre de systèmes
-                        distribués résilients (sécurité JWT/JWKS, cache Redis, pipelines Docker et
-                        services ASP.NET Core).
+                        en Java, manipulation des graphes DAG et parcours d'arbres syntaxiques AST) et
+                        la mise en œuvre de systèmes distribués résilients (sécurité JWT/JWKS, cache Redis,
+                        pipelines Docker et services ASP.NET Core).
                       </p>
                       <p>
                         Disponible pour un <strong>Stage PFE (2026/2027)</strong> de 4 à 6 mois.
@@ -737,9 +785,9 @@ export default function Portfolio() {
                         consumers without unnecessary friction.
                       </p>
                       <p>
-                        My background combines low-level data structures (Git engine in Java, AST syntax
-                        tree traversal) with distributed systems design (JWT/JWKS security, Redis caching,
-                        Docker pipelines, and ASP.NET Core services).
+                        My background combines low-level data structures (Git engine in Java, DAG graphs,
+                        and AST syntax tree traversal) with distributed systems design (JWT/JWKS security,
+                        Redis caching, Docker pipelines, and ASP.NET Core services).
                       </p>
                       <p>
                         Available for a 4 to 6 months <strong>Graduation Internship (PFE 2026/2027)</strong>.
@@ -789,11 +837,13 @@ export default function Portfolio() {
             <div className="contact-box">
               <div className="contact-grid">
                 <div className="contact-channel">
-                  <Mail size={22} className="contact-icon" />
-                  <div className="contact-details">
+                  <div className="channel-header">
+                    <Mail size={20} className="contact-icon" />
                     <span className="contact-type">
                       {lang === "fr" ? "Courrier électronique" : "Email Address"}
                     </span>
+                  </div>
+                  <div className="contact-details">
                     <a
                       href={`mailto:${EMAIL_ADDRESS}`}
                       className="contact-value-link"
@@ -803,7 +853,7 @@ export default function Portfolio() {
                   </div>
                   <button
                     type="button"
-                    className="btn btn-secondary btn-sm"
+                    className="btn btn-secondary btn-sm copy-btn"
                     onClick={handleCopyEmail}
                     aria-label="Copier l’adresse email"
                   >
@@ -822,11 +872,13 @@ export default function Portfolio() {
                 </div>
 
                 <div className="contact-channel">
-                  <Phone size={22} className="contact-icon" />
-                  <div className="contact-details">
+                  <div className="channel-header">
+                    <Phone size={20} className="contact-icon" />
                     <span className="contact-type">
                       {lang === "fr" ? "Téléphone direct" : "Direct Phone"}
                     </span>
+                  </div>
+                  <div className="contact-details">
                     <a
                       href={`tel:${PHONE_NUMBER.replace(/\s+/g, "")}`}
                       className="contact-value-link"
@@ -837,11 +889,13 @@ export default function Portfolio() {
                 </div>
 
                 <div className="contact-channel">
-                  <Linkedin size={22} className="contact-icon" />
-                  <div className="contact-details">
+                  <div className="channel-header">
+                    <Linkedin size={20} className="contact-icon" />
                     <span className="contact-type">
                       {lang === "fr" ? "Réseau professionnel" : "Professional Network"}
                     </span>
+                  </div>
+                  <div className="contact-details">
                     <a
                       href={LINKEDIN_URL}
                       target="_blank"
@@ -854,11 +908,13 @@ export default function Portfolio() {
                 </div>
 
                 <div className="contact-channel">
-                  <Github size={22} className="contact-icon" />
-                  <div className="contact-details">
+                  <div className="channel-header">
+                    <Github size={20} className="contact-icon" />
                     <span className="contact-type">
-                      {lang === "fr" ? "Code & dépôts" : "Code & Repositories"}
+                      {lang === "fr" ? "Dépôts & code" : "Repositories & Code"}
                     </span>
+                  </div>
+                  <div className="contact-details">
                     <a
                       href={GITHUB_URL}
                       target="_blank"
@@ -871,11 +927,13 @@ export default function Portfolio() {
                 </div>
 
                 <div className="contact-channel">
-                  <MapPin size={22} className="contact-icon" />
-                  <div className="contact-details">
+                  <div className="channel-header">
+                    <MapPin size={20} className="contact-icon" />
                     <span className="contact-type">
-                      {lang === "fr" ? "Localisation" : "Location"}
+                      {lang === "fr" ? "Localisation & Mobilité" : "Location & Mobility"}
                     </span>
+                  </div>
+                  <div className="contact-details">
                     <span className="contact-value-static">
                       {lang === "fr"
                         ? "Oujda, Maroc (mobilité nationale & internationale)"
@@ -896,14 +954,16 @@ export default function Portfolio() {
             <span className="footer-name">Mohammed Fahchouch</span>
             <span className="footer-role">
               {lang === "fr"
-                ? "Élève ingénieur en Génie Informatique (EHEIM)"
-                : "Software Engineering Student (EHEIM)"}
+                ? "Élève Ingénieur d'État en Génie Informatique (EHEIM Oujda)"
+                : "Software Engineering Student (EHEIM Oujda)"}
             </span>
           </div>
 
           <div className="footer-links">
             <a href="#projets">{lang === "fr" ? "Projets" : "Projects"}</a>
             <a href={CV_PATH} download>{lang === "fr" ? "CV" : "Resume"}</a>
+            <a href="#approche">{lang === "fr" ? "Approche" : "Approach"}</a>
+            <a href="#competences">{lang === "fr" ? "Compétences" : "Skills"}</a>
             <a href="#parcours">{lang === "fr" ? "Parcours" : "Journey"}</a>
             <a href="#contact">Contact</a>
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
