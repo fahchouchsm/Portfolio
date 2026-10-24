@@ -117,3 +117,19 @@ test("responsive navigation and layout do not overflow", async ({
     expect(overflows, `No horizontal overflow at ${width}px`).toBe(false);
   }
 });
+
+test("user can switch language between French and English", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("lang", "fr");
+  await expect(page.getByRole("heading", { name: "Projets d’ingénierie" })).toBeVisible();
+
+  // Switch to English
+  await page.getByRole("button", { name: "English" }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(page.getByRole("heading", { name: "Engineering Projects" })).toBeVisible();
+
+  // Switch back to French
+  await page.getByRole("button", { name: "Français" }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "fr");
+  await expect(page.getByRole("heading", { name: "Projets d’ingénierie" })).toBeVisible();
+});
