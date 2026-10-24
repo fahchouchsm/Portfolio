@@ -133,3 +133,52 @@ test("user can switch language between French and English", async ({ page }) => 
   await expect(page.locator("html")).toHaveAttribute("lang", "fr");
   await expect(page.getByRole("heading", { name: "Projets d’ingénierie" })).toBeVisible();
 });
+
+test("clicking anywhere on project card opens modal with diagrams and metrics", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  const expectedProjects = [
+    { name: "BetterGit", diagramLabel: "BetterGit", metric: "Grade A" },
+    { name: "AuthGateway", diagramLabel: "AuthGateway", metric: "RS256" },
+    { name: "FixMyCity", diagramLabel: "FixMyCity", metric: "4 Couches" },
+    { name: "Skillz Hire", diagramLabel: "Skillz Hire", metric: "Full-Duplex" },
+    { name: "MySQL Compass", diagramLabel: "MySQL Compass", metric: "50 000+" },
+  ];
+
+  const dialog = page.getByRole("dialog");
+
+  for (let i = 0; i < expectedProjects.length; i++) {
+    const item = expectedProjects[i];
+    const card = page.locator(".project-card").nth(i);
+
+    // Clicking anywhere on card surface opens modal
+    await card.click({ position: { x: 30, y: 30 } });
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByRole("heading", { name: item.name })).toBeVisible();
+
+    // Verify diagram is visible
+    await expect(
+      dialog.locator(`.project-diagram[aria-label*='${item.diagramLabel}']`),
+    ).toBeVisible();
+
+    // Verify engineering metrics are visible
+    await expect(dialog.locator(".modal-metrics-grid")).toBeVisible();
+    await expect(dialog.getByText(item.metric, { exact: true })).toBeVisible();
+
+    // Close dialog
+    await page.keyboard.press("Escape");
+    await expect(dialog).not.toBeVisible();
+  }
+
+  // Verify that clicking "Code source" external link does NOT open modal
+  const codeSourceLink = page.locator(".project-code-link").first();
+  const [popup] = await Promise.all([
+    page.waitForEvent("popup"),
+    codeSourceLink.click(),
+  ]);
+  expect(popup.url()).toContain("github.com");
+  await popup.close();
+  await expect(dialog).not.toBeVisible();
+});

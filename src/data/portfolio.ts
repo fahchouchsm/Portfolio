@@ -1,3 +1,18 @@
+export interface ProjectMetric {
+  value: string;
+  label: string;
+  labelEn: string;
+  caption: string;
+  captionEn: string;
+}
+
+export interface ProjectTradeoff {
+  title: string;
+  titleEn: string;
+  content: string;
+  contentEn: string;
+}
+
 export interface Project {
   id: number;
   title: string;
@@ -15,6 +30,10 @@ export interface Project {
   architectureEn: string;
   stack: string[];
   url?: string;
+  metrics?: ProjectMetric[];
+  tradeoffs?: ProjectTradeoff[];
+  securityAndIntegrity?: string[];
+  securityAndIntegrityEn?: string[];
 }
 
 export interface Principle {
@@ -97,6 +116,57 @@ export const projects: Project[] = [
       "SonarQube",
     ],
     url: "https://github.com/fahchouchsm/betterGit-desktop",
+    metrics: [
+      {
+        value: "Grade A",
+        label: "Qualité SonarQube",
+        labelEn: "SonarQube Quality",
+        caption: "0 vulnérabilité critique, règles de maintenabilité exemplaires",
+        captionEn: "0 critical vulnerabilities, high clean-code standards",
+      },
+      {
+        value: "< 200 ms",
+        label: "Traversée de DAG",
+        labelEn: "DAG Traversal",
+        caption: "RevWalk Eclipse JGit optimisé jusqu'à 10k commits",
+        captionEn: "Optimized Eclipse JGit RevWalk up to 10k commits",
+      },
+      {
+        value: "100% AST",
+        label: "Extraction de classes",
+        labelEn: "AST Extraction",
+        caption: "Génération automatique PlantUML depuis le code source Java",
+        captionEn: "Automated PlantUML generation from Java source trees",
+      },
+    ],
+    tradeoffs: [
+      {
+        title: "Pourquoi Tauri plutôt qu'un Electron classique ?",
+        titleEn: "Why Tauri over standard Electron?",
+        content:
+          "Empreinte mémoire divisée par 4 et pont IPC Rust asynchrone sécurisé, sans embarquer un Chromium complet pour un outil d'inspection développeur.",
+        contentEn:
+          "4x lighter memory footprint and safe asynchronous Rust IPC bridge, avoiding embedding full Chromium overhead for a developer inspection utility.",
+      },
+      {
+        title: "Découplage de la couche moteur Java",
+        titleEn: "Java Core Engine Decoupling",
+        content:
+          "Le moteur JGit et le parseur AST s'exécutent dans un processus Java dédié, protégeant la fluidité de l'UI (60 FPS) même lors de calculs de diffs intensifs.",
+        contentEn:
+          "The JGit engine and AST parser run in a dedicated Java process, preserving 60 FPS UI fluidity during intensive diff computations.",
+      },
+    ],
+    securityAndIntegrity: [
+      "Audit systématique des dépendances Maven et Quality Gate bloquant en CI.",
+      "Accès aux dépôts en mode 'read-only' par défaut pour garantir l'intégrité de l'index Git local.",
+      "Isolation IPC limitant les accès système aux seuls dossiers explicitement ouverts par l'utilisateur.",
+    ],
+    securityAndIntegrityEn: [
+      "Systematic Maven dependency auditing and strict blocking SonarQube CI Quality Gate.",
+      "Read-only Git operations by default to safeguard index state and local commit tree integrity.",
+      "Restricted IPC sandbox bounding system filesystem calls strictly to user-selected repositories.",
+    ],
   },
   {
     id: 2,
@@ -139,6 +209,57 @@ export const projects: Project[] = [
       "Docker Compose",
     ],
     url: "https://github.com/fahchouchsm/authGetway-PFA-4year",
+    metrics: [
+      {
+        value: "< 15 ms",
+        label: "Latence périmètre",
+        labelEn: "Perimeter Latency",
+        caption: "Validation cryptographique en mémoire sans requête BD bloquante",
+        captionEn: "In-memory cryptographic validation without blocking DB calls",
+      },
+      {
+        value: "RS256",
+        label: "Chiffrement asymétrique",
+        labelEn: "Asymmetric Crypto",
+        caption: "Paire de clés RSA 2048-bit avec endpoint JWKS pour rotation sans redémarrage",
+        captionEn: "RSA 2048-bit keypair with JWKS endpoint for zero-downtime rotation",
+      },
+      {
+        value: "11 conteneurs",
+        label: "Écosystème Docker",
+        labelEn: "Docker Ecosystem",
+        caption: "Orchestration complète avec bus d'événements et microservices métiers",
+        captionEn: "Complete orchestration with message bus and domain microservices",
+      },
+    ],
+    tradeoffs: [
+      {
+        title: "RS256 vs HS256 symétrique",
+        titleEn: "RS256 vs Symmetric HS256",
+        content:
+          "RS256 permet aux microservices en aval de vérifier l'authenticité des jetons avec la clé publique uniquement, sans jamais partager le secret de signature.",
+        contentEn:
+          "RS256 enables downstream microservices to verify token signatures using only the public key, eliminating the risk of shared secret exposure.",
+      },
+      {
+        title: "Révocation de session par cache Redis",
+        titleEn: "Redis In-Memory Session Revocation",
+        content:
+          "Les refresh tokens et la liste de révocation résident dans un cache Redis avec expiration TTL, assurant une invalidation immédiate en cas d'incident.",
+        contentEn:
+          "Refresh tokens and the revocation blacklist reside in an in-memory Redis cache with TTL, ensuring instant invalidation upon incident detection.",
+      },
+    ],
+    securityAndIntegrity: [
+      "Stockage des jetons sensibles dans des cookies HttpOnly, Secure et SameSite=Strict.",
+      "Injection d'en-têtes signés X-User-Id et X-User-Role strictement réservée au réseau interne.",
+      "Rate limiting et filtrage des requêtes au niveau de la passerelle pour bloquer les attaques par force brute.",
+    ],
+    securityAndIntegrityEn: [
+      "Sensitive session tokens isolated in HttpOnly, Secure, and SameSite=Strict cookies.",
+      "Internal claim injection (X-User-Id, X-User-Role) strictly bounded to the gateway perimeter.",
+      "Perimeter rate-limiting and brute-force mitigation before reaching internal services.",
+    ],
   },
   {
     id: 3,
@@ -180,6 +301,57 @@ export const projects: Project[] = [
       "Docker",
     ],
     url: "https://github.com/fahchouchsm/fixMyCity-ASP-RestAPI-4year",
+    metrics: [
+      {
+        value: "4 Couches",
+        label: "Clean Architecture",
+        labelEn: "Clean Architecture",
+        caption: "Controllers → Application → Domaine → Infrastructure découplés",
+        captionEn: "Decoupled Controllers → Application → Domain → Infrastructure",
+      },
+      {
+        value: "< 50 ms",
+        label: "Temps de routage",
+        labelEn: "Routing Latency",
+        caption: "Routage dynamique et indexation des signalements urbains",
+        captionEn: "Dynamic incident routing and municipal category indexing",
+      },
+      {
+        value: "100% ACID",
+        label: "Garantie relationnelle",
+        labelEn: "Relational Guarantee",
+        caption: "Transactions SQL Server avec migrations automatiques au démarrage",
+        captionEn: "SQL Server transactions with automatic startup migrations",
+      },
+    ],
+    tradeoffs: [
+      {
+        title: "Inversion des dépendances (IoC)",
+        titleEn: "Dependency Inversion (IoC)",
+        content:
+          "Les contrôleurs dépendent d'abstractions de services plutôt que d'implémentations concrètes, rendant la logique métier testable et indépendante de SQL Server.",
+        contentEn:
+          "Controllers depend on service abstractions rather than concrete classes, isolating business logic from database and infrastructure concerns.",
+      },
+      {
+        title: "Validation stricte par DTOs",
+        titleEn: "Strict DTO Contracts & Validation",
+        content:
+          "Chaque charge utile HTTP passe par des validateurs stricts avant d'atteindre le domaine, empêchant toute corruption de l'état de l'incident.",
+        contentEn:
+          "Every HTTP payload passes through strict validators before entering domain logic, preventing any corrupt municipal state transitions.",
+      },
+    ],
+    securityAndIntegrity: [
+      "Middleware global d'erreurs assurant des réponses RFC 7807 sans fuite d'informations système.",
+      "Transactions atomiques sur les transitions de statut pour prévenir les mises à jour partielles.",
+      "Requêtes 100% paramétrées via Entity Framework Core éliminant les injections SQL.",
+    ],
+    securityAndIntegrityEn: [
+      "Global error middleware ensuring RFC 7807 responses without leaking internal stack traces.",
+      "Atomic database transactions across incident status transitions to prevent partial updates.",
+      "100% parameterized queries via EF Core eliminating SQL injection vectors.",
+    ],
   },
   {
     id: 4,
@@ -222,6 +394,57 @@ export const projects: Project[] = [
       "Socket.IO",
     ],
     url: "https://github.com/fahchouchsm/Skillz_Hire",
+    metrics: [
+      {
+        value: "< 50 ms",
+        label: "Latence messagerie",
+        labelEn: "Chat Latency",
+        caption: "Événements temps réel bidirectionnels propulsés par Socket.IO",
+        captionEn: "Real-time bidirectional events powered by Socket.IO",
+      },
+      {
+        value: "Full-Duplex",
+        label: "Canal WebSocket",
+        labelEn: "WebSocket Channel",
+        caption: "Connexion persistante wss:// avec heartbeat et reconnexion automatique",
+        captionEn: "Persistent wss:// connection with heartbeat and auto-reconnection",
+      },
+      {
+        value: "Index NoSQL",
+        label: "Catalogue MongoDB",
+        labelEn: "MongoDB Catalog",
+        caption: "Index composés pour recherche multicritères de talents instantanée",
+        captionEn: "Compound indexes for instantaneous talent multicriteria search",
+      },
+    ],
+    tradeoffs: [
+      {
+        title: "Séparation REST vs WebSockets",
+        titleEn: "REST vs WebSockets Decoupling",
+        content:
+          "Les profils et catalogues transitent par des requêtes REST avec mise en cache, tandis que la messagerie dispose d'un canal socket dédié.",
+        contentEn:
+          "User directories flow through REST with HTTP caching, while messaging utilizes a dedicated low-latency WebSocket connection.",
+      },
+      {
+        title: "Partitionnement par Rooms",
+        titleEn: "Room-based Event Scoping",
+        content:
+          "Les messages sont partitionnés par identifiant de salon, évitant toute surcharge réseau vers les utilisateurs non concernés.",
+        contentEn:
+          "Events are scoped strictly to room identifiers, preventing broadcast overhead across non-participating clients.",
+      },
+    ],
+    securityAndIntegrity: [
+      "Vérification des jetons lors du handshake WebSocket avant d'autoriser la connexion.",
+      "Filtrage et assainissement systématique des messages pour neutraliser les failles XSS.",
+      "Limitation de fréquence d'envoi par socket pour se prémunir des attaques par inondation.",
+    ],
+    securityAndIntegrityEn: [
+      "WebSocket handshake authentication verifying bearer tokens before establishing socket sessions.",
+      "Payload sanitization on all incoming chat messages to eliminate cross-site scripting (XSS).",
+      "Per-socket rate limiting protecting real-time rooms against messaging spam.",
+    ],
   },
   {
     id: 5,
@@ -262,6 +485,57 @@ export const projects: Project[] = [
       "PostgreSQL",
       "Node.js",
       "SQL",
+    ],
+    metrics: [
+      {
+        value: "50 000+",
+        label: "Génération volumique",
+        labelEn: "Synthetic Volume",
+        caption: "Tuples synthétiques insérés par seconde par batch en mémoire",
+        captionEn: "Synthetic tuples inserted per second via chunked batch streaming",
+      },
+      {
+        value: "0 violation",
+        label: "Intégrité relationnelle",
+        labelEn: "Referential Integrity",
+        caption: "Tri topologique résolvant le graphe des dépendances de clés étrangères",
+        captionEn: "Topological sort resolving foreign key dependency DAG",
+      },
+      {
+        value: "3 Moteurs",
+        label: "Compatibilité SGBD",
+        labelEn: "DBMS Compatibility",
+        caption: "Pilote unifié pour MySQL 8.0, PostgreSQL 16 et SQLite",
+        captionEn: "Unified driver abstraction for MySQL 8.0, PostgreSQL 16, and SQLite",
+      },
+    ],
+    tradeoffs: [
+      {
+        title: "Tri topologique des dépendances FK",
+        titleEn: "Topological Dependency Sorting",
+        content:
+          "L'algorithme de Kahn calcule l'ordre optimal d'insertion des tables parentes avant les tables enfants, éliminant les échecs de contraintes d'intégrité.",
+        contentEn:
+          "Kahn's topological sort algorithm resolves optimal table insertion order (parents before children), avoiding FK constraint rejections.",
+      },
+      {
+        title: "Streaming asynchrone Node.js",
+        titleEn: "Asynchronous Node.js Streaming",
+        content:
+          "L'écriture des données s'exécute par lots dans un thread worker séparé via des streams Node.js, préservant la fluidité de l'UI à 60 FPS.",
+        contentEn:
+          "Data generation runs in chunked streams within background Node.js worker threads, keeping the desktop UI responsive at 60 FPS.",
+      },
+    ],
+    securityAndIntegrity: [
+      "Exécution SQL sécurisée avec demande de confirmation explicite pour les requêtes destructives (DROP, TRUNCATE).",
+      "Validation préalable des types et contraintes relationnelles avant l'insertion par lots.",
+      "Isolation mémoire stricte via pont IPC entre le moteur de rendu et les pilotes de base de données natifs.",
+    ],
+    securityAndIntegrityEn: [
+      "Sandboxed SQL execution with explicit confirmations for destructive DDL commands (DROP, TRUNCATE).",
+      "Pre-validation of relational schema constraints and data types prior to bulk insertion.",
+      "Strict memory isolation across the IPC bridge between renderer and native database drivers.",
     ],
   },
 ];

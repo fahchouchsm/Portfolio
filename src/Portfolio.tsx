@@ -23,6 +23,7 @@ import {
   educations,
   type Project,
 } from "./data/portfolio.ts";
+import { ProjectDiagram } from "./components/ProjectDiagram.tsx";
 
 const CV_PATH = "/cv/CV_Fahchouch_Mohammed.pdf";
 const GITHUB_URL = "https://github.com/fahchouchsm";
@@ -101,6 +102,40 @@ function ProjectDialog({
             {lang === "fr" ? project.description : project.descriptionEn}
           </p>
 
+          {/* SYSTEM ARCHITECTURE DIAGRAM */}
+          <div className="modal-section modal-diagram-section">
+            <h4>
+              {lang === "fr"
+                ? "Architecture du système & flux de données"
+                : "System Architecture & Data Flow"}
+            </h4>
+            <ProjectDiagram project={project} lang={lang} />
+          </div>
+
+          {/* KEY IMPACT & METRICS */}
+          {project.metrics && project.metrics.length > 0 && (
+            <div className="modal-section">
+              <h4>
+                {lang === "fr"
+                  ? "Indicateurs d'impact & métriques d'ingénierie"
+                  : "Key Engineering Metrics & Impact"}
+              </h4>
+              <div className="modal-metrics-grid">
+                {project.metrics.map((metric, idx) => (
+                  <div key={idx} className="modal-metric-card">
+                    <span className="modal-metric-value">{metric.value}</span>
+                    <strong className="modal-metric-label">
+                      {lang === "fr" ? metric.label : metric.labelEn}
+                    </strong>
+                    <span className="modal-metric-caption">
+                      {lang === "fr" ? metric.caption : metric.captionEn}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="modal-section">
             <h4>{lang === "fr" ? "Problématique traitée" : "Problem Addressed"}</h4>
             <p>{lang === "fr" ? project.problem : project.problemEn}</p>
@@ -119,6 +154,44 @@ function ProjectDialog({
             <h4>Le regard architecture</h4>
             <p>{lang === "fr" ? project.architecture : project.architectureEn}</p>
           </div>
+
+          {/* TECHNICAL TRADEOFFS */}
+          {project.tradeoffs && project.tradeoffs.length > 0 && (
+            <div className="modal-section">
+              <h4>
+                {lang === "fr"
+                  ? "Décisions techniques & arbitrage"
+                  : "Technical Decisions & Trade-offs"}
+              </h4>
+              <div className="modal-tradeoffs-grid">
+                {project.tradeoffs.map((item, idx) => (
+                  <div key={idx} className="modal-tradeoff-item">
+                    <strong>{lang === "fr" ? item.title : item.titleEn}</strong>
+                    <p>{lang === "fr" ? item.content : item.contentEn}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* SECURITY & DATA INTEGRITY */}
+          {project.securityAndIntegrity && (
+            <div className="modal-section">
+              <h4>
+                {lang === "fr"
+                  ? "Sécurité & intégrité des données"
+                  : "Security & Data Integrity"}
+              </h4>
+              <ul className="modal-bullets">
+                {(lang === "fr"
+                  ? project.securityAndIntegrity
+                  : project.securityAndIntegrityEn || project.securityAndIntegrity
+                ).map((sec, idx) => (
+                  <li key={idx}>{sec}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="modal-section">
             <h4>{lang === "fr" ? "Technologies utilisées" : "Technologies Used"}</h4>
@@ -169,6 +242,7 @@ export default function Portfolio() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [githubChartFailed, setGithubChartFailed] = useState(false);
 
+  const cardButtonRefs = useRef<Record<number, HTMLButtonElement | null>>({});
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
@@ -414,7 +488,35 @@ export default function Portfolio() {
 
             <div className="projects-grid">
               {filteredProjects.map((project) => (
-                <article key={project.id} className="project-card">
+                <article
+                  key={project.id}
+                  className="project-card"
+                  onClick={() => {
+                    const btn = cardButtonRefs.current[project.id];
+                    if (btn) {
+                      openProjectModal(project, btn);
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      const target = e.target as HTMLElement;
+                      if (target.tagName !== "A" && target.tagName !== "BUTTON") {
+                        e.preventDefault();
+                        const btn = cardButtonRefs.current[project.id];
+                        if (btn) {
+                          openProjectModal(project, btn);
+                        }
+                      }
+                    }
+                  }}
+                  tabIndex={0}
+                  role="region"
+                  aria-label={
+                    lang === "fr"
+                      ? `Projet ${project.title}`
+                      : `Project ${project.title}`
+                  }
+                >
                   <div className="project-card-header">
                     <div className="project-meta-row">
                       <span className="project-category-badge">{project.category}</span>
@@ -456,8 +558,14 @@ export default function Portfolio() {
                   <div className="project-card-footer">
                     <button
                       type="button"
+                      ref={(el) => {
+                        cardButtonRefs.current[project.id] = el;
+                      }}
                       className="btn btn-secondary btn-sm"
-                      onClick={(e) => openProjectModal(project, e.currentTarget)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openProjectModal(project, e.currentTarget);
+                      }}
                       aria-label={`Découvrir le projet ${project.title}`}
                     >
                       <span>{lang === "fr" ? "Découvrir le projet" : "Explore project"}</span>
@@ -470,6 +578,7 @@ export default function Portfolio() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="project-code-link"
+                        onClick={(e) => e.stopPropagation()}
                         aria-label={`Code source ${project.title}`}
                       >
                         <Github size={15} />
@@ -477,7 +586,10 @@ export default function Portfolio() {
                         <ExternalLink size={12} />
                       </a>
                     ) : (
-                      <span className="project-code-private">
+                      <span
+                        className="project-code-private"
+                        onClick={(e) => e.stopPropagation()}
+                      >
                         {lang === "fr" ? "Code source privé (propriété CHU)" : "Private source (CHU property)"}
                       </span>
                     )}
