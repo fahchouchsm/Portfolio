@@ -1936,3 +1936,116 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
     gap: var(--space-sm);
   }
 }
+
+/* ==========================================================================
+   UNBOXED EDITORIAL TIMELINE (EXPERIENCE & EDUCATION) + SKILLS MATRIX
+   ========================================================================== */
+.journey-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 24px;
+  border-left: 1px solid var(--color-rule-2);
+}
+
+.journey-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 0 28px 0 !important;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--color-rule) !important;
+  position: relative;
+}
+
+.journey-card:last-child {
+  margin-bottom: 0;
+  padding-bottom: 4px !important;
+  border-bottom: none !important;
+}
+
+.journey-card::before {
+  content: "";
+  position: absolute;
+  left: -29px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #3282b8;
+  border: 2px solid var(--color-paper);
+  box-shadow: 0 0 0 1px rgba(187, 225, 250, 0.45);
+}
+
+.journey-card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 6px;
+}
+
+.journey-date {
+  font-family: var(--font-outlier);
+  font-size: 0.78rem;
+  color: #bbe1fa;
+  letter-spacing: 0.02em;
+}
+
+.journey-company {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.journey-role {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+.exp-impact {
+  display: inline-block;
+  margin: 10px 0 12px;
+  padding: 5px 10px;
+  border-radius: var(--radius-inner);
+  background-color: rgba(15, 76, 117, 0.35);
+  border-left: 2px solid #3282b8;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  color: #bbe1fa;
+  font-size: 0.78rem;
+}
+
+/* Unboxed Skills Matrix */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 36px;
+}
+
+.skill-card {
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid var(--color-rule-2) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 20px 0 0 0 !important;
+}
+
+@media (max-width: 960px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
