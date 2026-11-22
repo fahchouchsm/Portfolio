@@ -1802,9 +1802,17 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 
 .project-category-badge {
   border-radius: var(--radius-inner);
-  background-color: var(--color-accent-wash);
-  color: var(--color-accent-soft);
-  border: 1px solid rgba(52, 211, 153, 0.28);
+  background-color: #0f4c75;
+  color: #bbe1fa;
+  border: 1px solid rgba(50, 130, 184, 0.6);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #bbe1fa;
+  flex-shrink: 0;
 }
 
 .hero-summary,

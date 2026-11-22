@@ -1,4 +1,4 @@
-/* Neutral Graphite Pro Dark (#141416 / #1c1c1f) · Zero Blue Tint · High Readability */
+/* ColorHunt Palette: #1B262C · #0F4C75 · #3282B8 · #BBE1FA */
 :root {
   color-scheme: dark;
 
@@ -54,38 +54,38 @@
   --z-toast: 500;
   --z-tooltip: 600;
 
-  /* Neutral Graphite Surfaces (No blue tint, no pitch-black) */
-  --color-paper: #141416;
-  --color-paper-2: #1c1c1f;
-  --color-paper-3: #252529;
-  --color-paper-elevated: #2e2e34;
+  /* ColorHunt Surfaces (#1B262C base, elevated #223038, #0F4C75 deep accent) */
+  --color-paper: #1b262c;
+  --color-paper-2: #223038;
+  --color-paper-3: #2a3b45;
+  --color-paper-elevated: #0f4c75;
 
-  /* High-Contrast Text Hierarchy */
-  --color-ink: #ffffff;
-  --color-ink-2: #e4e4e7;
-  --color-muted: #c4c4cc;
+  /* High-Legibility Text Hierarchy */
+  --color-ink: #f8fbfe;
+  --color-ink-2: #dcebf7;
+  --color-muted: #bbe1fa;
 
-  /* Crisp Neutral Borders */
-  --color-rule: #2e2e34;
-  --color-rule-2: #44444c;
+  /* Borders derived from #0F4C75 / #3282B8 */
+  --color-rule: rgba(187, 225, 250, 0.14);
+  --color-rule-2: rgba(50, 130, 184, 0.45);
 
-  /* Clear Emerald Accent for Hierarchy & Scannability (on Neutral Graphite) */
-  --color-accent: #34d399;
-  --color-accent-hover: #6ee7b7;
-  --color-accent-ink: #052e16;
-  --color-focus: #34d399;
-  --color-accent-wash: rgba(52, 211, 153, 0.12);
-  --color-accent-soft: #6ee7b7;
+  /* Accents: #3282B8 & #BBE1FA */
+  --color-accent: #3282b8;
+  --color-accent-hover: #bbe1fa;
+  --color-accent-ink: #1b262c;
+  --color-focus: #bbe1fa;
+  --color-accent-wash: rgba(15, 76, 117, 0.45);
+  --color-accent-soft: #bbe1fa;
 
-  /* Button Primary: Crisp Emerald-600 with High-Contrast White Text */
-  --color-btn-primary-bg: #059669;
-  --color-btn-primary-hover: #047857;
+  /* Button Primary: #3282B8 -> #0F4C75 hover with crisp white text */
+  --color-btn-primary-bg: #3282b8;
+  --color-btn-primary-hover: #0f4c75;
   --color-btn-primary-text: #ffffff;
-  --color-btn-primary-border: #10b981;
+  --color-btn-primary-border: #bbe1fa;
 
   /* Surfaces & Overlays */
-  --color-header-bg: rgba(20, 20, 22, 0.9);
-  --color-backdrop: rgba(10, 10, 12, 0.82);
+  --color-header-bg: rgba(27, 38, 44, 0.92);
+  --color-backdrop: rgba(16, 23, 27, 0.85);
 
   /* Typefaces */
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -97,6 +97,6 @@
   --radius-inner: 6px;
   --radius-pill: 6px;
   --rule-hair: 1px;
-  --shadow-card: 0 2px 10px -2px rgba(0, 0, 0, 0.35);
-  --shadow-hover: 0 12px 28px -8px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 2px 12px -2px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 12px 28px -8px rgba(0, 0, 0, 0.45);
 }
