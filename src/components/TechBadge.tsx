@@ -52,7 +52,7 @@ const TECH_ICON_MAP: Array<[RegExp, string]> = [
   [/socket/i, `${DEVICON_BASE}/socketio/socketio-original.svg`],
 ];
 
-export function getTechIconUrl(label: string): string | null {
+function getTechIconUrl(label: string): string | null {
   for (const [re, url] of TECH_ICON_MAP) {
     if (re.test(label)) return url;
   }
