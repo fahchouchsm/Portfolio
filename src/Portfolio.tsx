@@ -389,8 +389,8 @@ export default function Portfolio() {
 
               <p className="hero-summary">
                 {lang === "fr"
-                  ? "Élève ingénieur en Génie Informatique à l’EHEIM d’Oujda (5e année). Spécialisé dans les architectures logicielles distribuées, les moteurs de code et la conception résiliente avec Java 21, Spring Boot et C# .NET."
-                  : "Software engineering student at EHEIM Oujda (5th year). Specializing in distributed software architecture, code analysis engines, and resilient systems with Java 21, Spring Boot, and C# .NET."}
+                  ? "Élève ingénieur en Génie Informatique à l’EHEIM d’Oujda (5e année). Spécialisé en architectures distribuées (Java 21/Spring Boot, C# .NET, Node.js), Full-Stack (React, Angular, TypeScript), Data/IA et Cloud & DevOps."
+                  : "Software engineering student at EHEIM Oujda (5th year). Specializing in distributed architectures (Java 21/Spring Boot, C# .NET, Node.js), Full-Stack (React, Angular, TypeScript), Data/AI, and Cloud & DevOps."}
               </p>
 
               <div className="hero-cta-row">
@@ -443,7 +443,11 @@ export default function Portfolio() {
                   </div>
                   <div className="spec-row">
                     <span className="spec-key">{lang === "fr" ? "Frameworks" : "Frameworks"}</span>
-                    <span className="spec-val font-code">Spring Boot 3, ASP.NET Core, React, Docker</span>
+                    <span className="spec-val font-code">Spring Boot 3, ASP.NET Core, React, Angular, Next.js</span>
+                  </div>
+                  <div className="spec-row">
+                    <span className="spec-key">{lang === "fr" ? "Cloud & IA" : "Cloud & AI"}</span>
+                    <span className="spec-val font-code">Docker, Kubernetes, AWS/Azure, CI/CD, Python ML/IA</span>
                   </div>
                   <div className="spec-row">
                     <span className="spec-key">{lang === "fr" ? "Standards" : "Standards"}</span>
