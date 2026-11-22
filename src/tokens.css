@@ -1,4 +1,4 @@
-/* ColorHunt Palette: #1B262C · #0F4C75 · #3282B8 · #BBE1FA */
+/* Official GitHub Dark Default Palette (#0d1117 · #161b22 · #30363d · #58a6ff · #238636) */
 :root {
   color-scheme: dark;
 
@@ -54,38 +54,38 @@
   --z-toast: 500;
   --z-tooltip: 600;
 
-  /* Neutral Dark Surfaces (Zero blue background tint) */
-  --color-paper: #161618;
-  --color-paper-2: #202024;
-  --color-paper-3: #28282d;
-  --color-paper-elevated: #303036;
+  /* GitHub Dark Default Surfaces */
+  --color-paper: #0d1117;
+  --color-paper-2: #161b22;
+  --color-paper-3: #21262d;
+  --color-paper-elevated: #282e36;
 
-  /* High-Legibility Text Hierarchy */
-  --color-ink: #f8fafc;
-  --color-ink-2: #e4e4e7;
-  --color-muted: #bbe1fa;
+  /* GitHub Dark Text Hierarchy */
+  --color-ink: #f0f6fc;
+  --color-ink-2: #e6edf3;
+  --color-muted: #8b949e;
 
-  /* Borders */
-  --color-rule: #2e2e34;
-  --color-rule-2: #3f3f46;
+  /* GitHub Borders */
+  --color-rule: #30363d;
+  --color-rule-2: #444c56;
 
-  /* Accents: #3282B8 & #BBE1FA */
-  --color-accent: #3282b8;
-  --color-accent-hover: #bbe1fa;
-  --color-accent-ink: #161618;
-  --color-focus: #bbe1fa;
-  --color-accent-wash: rgba(50, 130, 184, 0.16);
-  --color-accent-soft: #bbe1fa;
+  /* GitHub Link Blue & Accent */
+  --color-accent: #58a6ff;
+  --color-accent-hover: #79c0ff;
+  --color-accent-ink: #0d1117;
+  --color-focus: #58a6ff;
+  --color-accent-wash: rgba(56, 139, 253, 0.15);
+  --color-accent-soft: #79c0ff;
 
-  /* Button Primary: #3282B8 -> #0F4C75 hover with crisp white text */
-  --color-btn-primary-bg: #3282b8;
-  --color-btn-primary-hover: #0f4c75;
+  /* GitHub Primary Action Button (#238636 -> #2ea043) */
+  --color-btn-primary-bg: #238636;
+  --color-btn-primary-hover: #2ea043;
   --color-btn-primary-text: #ffffff;
-  --color-btn-primary-border: #bbe1fa;
+  --color-btn-primary-border: rgba(240, 246, 252, 0.15);
 
   /* Surfaces & Overlays */
-  --color-header-bg: rgba(22, 22, 24, 0.92);
-  --color-backdrop: rgba(10, 10, 12, 0.85);
+  --color-header-bg: rgba(13, 17, 23, 0.92);
+  --color-backdrop: rgba(1, 4, 9, 0.84);
 
   /* Typefaces */
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -93,10 +93,10 @@
   --font-outlier: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
   /* Crisp Radii & Subtle Elevation */
-  --radius-card: 8px;
+  --radius-card: 6px;
   --radius-inner: 6px;
   --radius-pill: 6px;
   --rule-hair: 1px;
-  --shadow-card: 0 2px 12px -2px rgba(0, 0, 0, 0.25);
-  --shadow-hover: 0 12px 28px -8px rgba(0, 0, 0, 0.45);
+  --shadow-card: none;
+  --shadow-hover: 0 8px 24px rgba(1, 4, 9, 0.45);
 }

@@ -1802,9 +1802,9 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 
 .project-category-badge {
   border-radius: var(--radius-inner);
-  background-color: #0f4c75;
-  color: #bbe1fa;
-  border: 1px solid rgba(50, 130, 184, 0.6);
+  background-color: rgba(56, 139, 253, 0.15);
+  color: #58a6ff;
+  border: 1px solid rgba(56, 139, 253, 0.4);
 }
 
 @keyframes statusPulse {
@@ -1836,12 +1836,12 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 }
 
 .hero-section {
-  background-image: radial-gradient(rgba(187, 225, 250, 0.065) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(139, 148, 158, 0.12) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
 .profile-spec-card {
-  border-top: 2px solid #3282b8;
+  border-top: 2px solid #238636;
 }
 
 .exp-location {
@@ -1864,16 +1864,16 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 }
 
 .exp-deliverables li::marker {
-  color: #3282b8;
+  color: #3fb950;
 }
 
 .exp-impact {
   margin: 10px 0 12px;
   padding: 7px 11px;
   border-radius: var(--radius-inner);
-  background-color: rgba(15, 76, 117, 0.45);
-  border: 1px solid rgba(50, 130, 184, 0.5);
-  color: #bbe1fa;
+  background-color: rgba(35, 134, 54, 0.14);
+  border-left: 2px solid #3fb950;
+  color: #7ee787;
   font-size: 0.78rem;
   font-weight: 500;
 }
@@ -1884,7 +1884,7 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
   border-radius: var(--radius-inner);
   background-color: var(--color-paper-3);
   border: 1px solid var(--color-rule-2);
-  color: #bbe1fa;
+  color: #7ee787;
   font-size: 0.72rem;
   font-weight: 600;
 }
@@ -1974,9 +1974,9 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background-color: #3282b8;
+  background-color: #3fb950;
   border: 2px solid var(--color-paper);
-  box-shadow: 0 0 0 1px rgba(187, 225, 250, 0.45);
+  box-shadow: 0 0 0 1px rgba(63, 185, 80, 0.5);
 }
 
 .journey-card-top {
@@ -2129,7 +2129,7 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, #3282b8 0%, rgba(187, 225, 250, 0.25) 100%);
+  background: linear-gradient(90deg, #3fb950 0%, #30363d 100%);
   z-index: 0;
 }
 
@@ -2150,9 +2150,9 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background-color: #3282b8;
+  background-color: #3fb950;
   border: 2px solid var(--color-paper);
-  box-shadow: 0 0 0 2px rgba(187, 225, 250, 0.45);
+  box-shadow: 0 0 0 2px rgba(63, 185, 80, 0.4);
   z-index: 1;
 }
 
