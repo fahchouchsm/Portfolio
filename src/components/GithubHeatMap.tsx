@@ -29,6 +29,7 @@ export const GithubHeatMap: React.FC<{ username: string; lang?: "fr" | "en" }> =
   const [days, setDays] = useState<ContributionDay[]>([]);
   const [total, setTotal] = useState<number | null>(null);
   const [failed, setFailed] = useState(false);
+  const [imgFailed, setImgFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -55,12 +56,34 @@ export const GithubHeatMap: React.FC<{ username: string; lang?: "fr" | "en" }> =
   }, [username]);
 
   if (failed) {
+    if (imgFailed) {
+      return (
+        <div className="chart-fallback">
+          <p>
+            {lang === "fr"
+              ? "Visualisation des contributions disponible directement sur GitHub :"
+              : "Contribution visualization available directly on GitHub:"}
+          </p>
+          <a
+            href={`https://github.com/${username}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            {lang === "fr"
+              ? "Accéder au dépôt GitHub de Mohammed Fahchouch"
+              : "Access Mohammed Fahchouch's GitHub profile"}
+          </a>
+        </div>
+      );
+    }
     return (
       <img
         src={`https://ghchart.rshah.org/26a641/${username}`}
         alt="Graphique des contributions GitHub"
         className="github-chart-img github-chart-dark-fallback"
         loading="lazy"
+        onError={() => setImgFailed(true)}
       />
     );
   }

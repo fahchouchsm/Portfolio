@@ -3,6 +3,7 @@ import { expect, test } from "@playwright/test";
 test("name branding remains visible and unavailable GitHub chart has a fallback", async ({
   page,
 }) => {
+  await page.route("https://github-contributions-api.jogruber.de/**", (route) => route.abort());
   await page.route("https://ghchart.rshah.org/**", (route) => route.abort());
   await page.goto("/");
   const brand = page.getByRole("link", { name: "Mohammed Fahchouch, accueil" });
@@ -27,9 +28,9 @@ test("recruiter can explore projects, filter, and inspect a case study", async (
     "Mohammed",
   );
   await expect(page.locator("html")).toHaveAttribute("lang", "fr");
-  await expect(page.locator(".project-card")).toHaveCount(5);
+  await expect(page.locator(".project-card")).toHaveCount(8);
   await page.getByRole("button", { name: "Backend", exact: true }).click();
-  await expect(page.locator(".project-card")).toHaveCount(2);
+  await expect(page.locator(".project-card")).toHaveCount(3);
   await page
     .getByRole("button", {
       name: "Découvrir le projet AuthGateway",
@@ -67,7 +68,7 @@ test("recruiter can explore projects, filter, and inspect a case study", async (
   await expect(dialog.getByRole("link")).toHaveCount(0);
   await page.getByRole("button", { name: "Fermer le projet" }).click();
   await page.getByRole("button", { name: "Tous" }).click();
-  await expect(page.locator(".project-card")).toHaveCount(5);
+  await expect(page.locator(".project-card")).toHaveCount(8);
   expect(errors).toEqual([]);
 });
 
@@ -102,7 +103,7 @@ test("responsive navigation and layout do not overflow", async ({
     await expect(page.getByRole("navigation")).toBeVisible();
     await page
       .getByRole("navigation")
-      .getByRole("link", { name: "Parcours" })
+      .getByRole("link", { name: "Expériences" })
       .click();
     await expect(page.getByRole("navigation")).not.toBeVisible();
     await expect(page).toHaveURL(/#parcours$/);
