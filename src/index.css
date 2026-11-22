@@ -2305,3 +2305,56 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ==========================================================================
+   GITHUB DARK AUTHENTIC TYPOGRAPHY & COLOR RESTRAINT (NO BLUE PROSE/LABELS)
+   ========================================================================== */
+.spec-header-title,
+.skill-group-title,
+.journey-subhead,
+.channel-header,
+.contact-type {
+  color: #f0f6fc !important;
+}
+
+.spec-key,
+.journey-date,
+.highlights-label,
+.contact-icon,
+.footer-right {
+  color: #8b949e !important;
+}
+
+.journey-subhead svg {
+  color: #8b949e;
+}
+
+.highlight-val {
+  color: #7ee787 !important;
+}
+
+.principle-letter {
+  color: #f0f6fc !important;
+  background-color: #21262d !important;
+  border-color: #30363d !important;
+}
+
+.filter-btn.active {
+  background-color: #21262d !important;
+  border-color: #8b949e !important;
+  color: #f0f6fc !important;
+}
+
+/* GitHub Link Blue strictly for actual clickable links */
+a.contact-value-link,
+a.project-code-link,
+a.github-username-link {
+  color: #58a6ff !important;
+}
+
+a.contact-value-link:hover,
+a.project-code-link:hover,
+a.github-username-link:hover {
+  color: #79c0ff !important;
+  text-decoration: underline;
+}
