@@ -2282,3 +2282,26 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
   filter: invert(0.9) hue-rotate(180deg) saturate(1.1);
   border-radius: var(--radius-inner);
 }
+
+/* Balanced 4-Column Contact Grid (Zero Empty Space) */
+.contact-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+}
+
+.contact-value-link {
+  word-break: break-word;
+}
+
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

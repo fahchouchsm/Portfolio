@@ -4,7 +4,6 @@ import {
   Linkedin,
   Mail,
   Phone,
-  MapPin,
   Menu,
   X,
   Copy,
@@ -1063,22 +1062,6 @@ export default function Portfolio() {
                     >
                       github.com/fahchouchsm
                     </a>
-                  </div>
-                </div>
-
-                <div className="contact-channel">
-                  <div className="channel-header">
-                    <MapPin size={20} className="contact-icon" />
-                    <span className="contact-type">
-                      {lang === "fr" ? "Localisation & Mobilité" : "Location & Mobility"}
-                    </span>
-                  </div>
-                  <div className="contact-details">
-                    <span className="contact-value-static">
-                      {lang === "fr"
-                        ? "Oujda, Maroc (mobilité nationale & internationale)"
-                        : "Oujda, Morocco (national & international mobility)"}
-                    </span>
                   </div>
                 </div>
               </div>

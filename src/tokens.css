@@ -54,27 +54,27 @@
   --z-toast: 500;
   --z-tooltip: 600;
 
-  /* ColorHunt Surfaces (#1B262C base, elevated #223038, #0F4C75 deep accent) */
-  --color-paper: #1b262c;
-  --color-paper-2: #223038;
-  --color-paper-3: #2a3b45;
-  --color-paper-elevated: #0f4c75;
+  /* Neutral Dark Surfaces (Zero blue background tint) */
+  --color-paper: #161618;
+  --color-paper-2: #202024;
+  --color-paper-3: #28282d;
+  --color-paper-elevated: #303036;
 
   /* High-Legibility Text Hierarchy */
-  --color-ink: #f8fbfe;
-  --color-ink-2: #dcebf7;
+  --color-ink: #f8fafc;
+  --color-ink-2: #e4e4e7;
   --color-muted: #bbe1fa;
 
-  /* Borders derived from #0F4C75 / #3282B8 */
-  --color-rule: rgba(187, 225, 250, 0.14);
-  --color-rule-2: rgba(50, 130, 184, 0.45);
+  /* Borders */
+  --color-rule: #2e2e34;
+  --color-rule-2: #3f3f46;
 
   /* Accents: #3282B8 & #BBE1FA */
   --color-accent: #3282b8;
   --color-accent-hover: #bbe1fa;
-  --color-accent-ink: #1b262c;
+  --color-accent-ink: #161618;
   --color-focus: #bbe1fa;
-  --color-accent-wash: rgba(15, 76, 117, 0.45);
+  --color-accent-wash: rgba(50, 130, 184, 0.16);
   --color-accent-soft: #bbe1fa;
 
   /* Button Primary: #3282B8 -> #0F4C75 hover with crisp white text */
@@ -84,8 +84,8 @@
   --color-btn-primary-border: #bbe1fa;
 
   /* Surfaces & Overlays */
-  --color-header-bg: rgba(27, 38, 44, 0.92);
-  --color-backdrop: rgba(16, 23, 27, 0.85);
+  --color-header-bg: rgba(22, 22, 24, 0.92);
+  --color-backdrop: rgba(10, 10, 12, 0.85);
 
   /* Typefaces */
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
