@@ -628,10 +628,12 @@ export default function Portfolio() {
                 >
                   <div className="project-card-header">
                     <div className="project-meta-row">
-                      <span className="project-category-badge">{project.category}</span>
-                      <span className="project-context">
-                        {lang === "fr" ? project.context : project.contextEn}
-                      </span>
+                      <div className="project-meta-left">
+                        <span className="project-category-badge">{project.category}</span>
+                        <span className="project-context">
+                          {lang === "fr" ? project.context : project.contextEn}
+                        </span>
+                      </div>
                       {project.metrics && project.metrics[0] && (
                         <span className="project-metric-pill font-code">
                           {project.metrics[0].value}
@@ -702,7 +704,7 @@ export default function Portfolio() {
                         className="project-code-private"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        {lang === "fr" ? "Code source privé (propriété CHU)" : "Private source (CHU property)"}
+                        {lang === "fr" ? "Code source privé (propriété entreprise)" : "Private source (enterprise property)"}
                       </span>
                     )}
                   </div>

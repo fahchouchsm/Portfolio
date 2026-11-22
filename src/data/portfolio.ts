@@ -664,6 +664,55 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    id: 8,
+    title: "CasaChores",
+    category: "Web",
+    context: "Projet collaboratif · WebSockets",
+    contextEn: "Collaborative Project · WebSockets",
+    visual: "market",
+    description:
+      "Application web collaborative full-stack de mise en relation géolocalisée par ville avec messagerie temps réel Socket.io et vérification OTP WhatsApp (Twilio).",
+    descriptionEn:
+      "Full-stack collaborative web app with city-based geolocation search, real-time Socket.io chat, and WhatsApp OTP verification via Twilio.",
+    problem:
+      "Permettre une mise en relation fiable et instantanée entre utilisateurs locaux avec vérification d'identité et messagerie temps réel.",
+    problemEn:
+      "Enable reliable, real-time local user matching with identity verification and instant messaging.",
+    details: [
+      "Interface React / TypeScript / Tailwind CSS & shadcn/ui avec recherche géolocalisée et filtres multicritères.",
+      "Chat bidirectionnel temps réel propulsé par Socket.io, authentification JWT et persistance MongoDB/Mongoose.",
+      "Vérification de compte par code OTP WhatsApp via l'API Twilio.",
+    ],
+    detailsEn: [
+      "React / TypeScript / Tailwind CSS & shadcn/ui interface with geolocated search and multi-criteria filters.",
+      "Bidirectional real-time chat powered by Socket.io, JWT authentication, and MongoDB/Mongoose persistence.",
+      "Account verification via WhatsApp OTP codes using the Twilio API.",
+    ],
+    architecture:
+      "Architecture client-serveur découplée combinant API REST Express, canaux WebSocket Socket.io et intégration Twilio.",
+    architectureEn:
+      "Decoupled client-server architecture combining Express REST APIs, Socket.io WebSocket channels, and Twilio integration.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "Socket.IO",
+      "MongoDB",
+    ],
+    url: "https://github.com/fahchouchsm/CasaChores",
+    metrics: [
+      {
+        value: "OTP + Socket.IO",
+        label: "Temps réel & Sécurité",
+        labelEn: "Real-Time & Security",
+        caption: "Messagerie instantanée et validation OTP WhatsApp Twilio",
+        captionEn: "Instant messaging and Twilio WhatsApp OTP verification",
+      },
+    ],
+  },
 ];
 
 export const principles: Principle[] = [

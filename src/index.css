@@ -2358,3 +2358,39 @@ a.github-username-link:hover {
   color: #79c0ff !important;
   text-decoration: underline;
 }
+
+/* ==========================================================================
+   PROJECT META-ROW ALIGNMENT FIX (METRIC BADGE ALWAYS TOP-RIGHT, SAME LINE)
+   ========================================================================== */
+.project-meta-row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  width: 100%;
+}
+
+.project-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.project-category-badge {
+  flex-shrink: 0;
+}
+
+.project-context {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-metric-pill {
+  margin-left: 0 !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+}
