@@ -201,7 +201,9 @@ function ProjectDialog({
             <h4>{lang === "fr" ? "Technologies utilisées" : "Technologies Used"}</h4>
             <div className="stack-wrap">
               {project.stack.map((item) => (
-                <TechBadge key={item} label={item} className="tech-tag" />
+                <span key={item} className="stack-pill">
+                  {item}
+                </span>
               ))}
             </div>
           </div>
