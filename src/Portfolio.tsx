@@ -512,7 +512,24 @@ export default function Portfolio() {
                         <span className="journey-company">{exp.company}</span>
                       </div>
                       <h4 className="journey-role">{lang === "fr" ? exp.role : exp.roleEn}</h4>
+                      {(exp.location || exp.locationEn) && (
+                        <span className="exp-location font-code">
+                          {lang === "fr" ? exp.location : exp.locationEn}
+                        </span>
+                      )}
                       <p className="journey-desc">{lang === "fr" ? exp.description : exp.descriptionEn}</p>
+                      {(exp.deliverables || exp.deliverablesEn) && (
+                        <ul className="exp-deliverables">
+                          {(lang === "fr" ? exp.deliverables : exp.deliverablesEn)?.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                          ))}
+                        </ul>
+                      )}
+                      {(exp.impact || exp.impactEn) && (
+                        <div className="exp-impact font-code">
+                          {lang === "fr" ? exp.impact : exp.impactEn}
+                        </div>
+                      )}
                       <div className="stack-wrap">
                         {exp.tags.map((t) => (
                           <span key={t} className="tech-badge">
@@ -613,6 +630,11 @@ export default function Portfolio() {
                       <span className="project-context">
                         {lang === "fr" ? project.context : project.contextEn}
                       </span>
+                      {project.metrics && project.metrics[0] && (
+                        <span className="project-metric-pill font-code">
+                          {project.metrics[0].value}
+                        </span>
+                      )}
                     </div>
                     <h3 className="project-title">{project.title}</h3>
                   </div>
@@ -626,7 +648,7 @@ export default function Portfolio() {
                       {lang === "fr" ? "Points clés d'ingénierie :" : "Key highlights:"}
                     </span>
                     <ul className="highlights-list">
-                      {(lang === "fr" ? project.details : project.detailsEn).slice(0, 2).map((item, idx) => (
+                      {(lang === "fr" ? project.details : project.detailsEn).slice(0, 3).map((item, idx) => (
                         <li key={idx}>{item}</li>
                       ))}
                     </ul>

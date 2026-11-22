@@ -47,12 +47,18 @@ export interface Principle {
 
 export interface Experience {
   company: string;
+  location?: string;
+  locationEn?: string;
   date: string;
   dateEn: string;
   role: string;
   roleEn: string;
   description: string;
   descriptionEn: string;
+  deliverables?: string[];
+  deliverablesEn?: string[];
+  impact?: string;
+  impactEn?: string;
   tags: string[];
 }
 
@@ -538,6 +544,126 @@ export const projects: Project[] = [
       "Strict memory isolation across the IPC bridge between renderer and native database drivers.",
     ],
   },
+  {
+    id: 6,
+    title: "BusWay GIS & Spatial Engine",
+    category: "Backend",
+    context: "Projet académique PFA · Smart City · 4e année",
+    contextEn: "Academic PFA Project · Smart City · 4th Year",
+    visual: "city",
+    description:
+      "Microservice géospatial Java / Spring Boot exploitant PostgreSQL + PostGIS et Hibernate Spatial pour l'indexation spatiale et le calcul d'itinéraires urbains.",
+    descriptionEn:
+      "Geospatial Java / Spring Boot microservice using PostgreSQL + PostGIS and Hibernate Spatial for spatial indexing and urban transit routing.",
+    problem:
+      "Calculer des arrêts de proximité et des itinéraires urbains temps réel sur des données géographiques volumineuses sans saturer les bases relationnelles.",
+    problemEn:
+      "Compute nearby transit stops and real-time urban routes across large geospatial datasets without overloading relational databases.",
+    details: [
+      "Stockage et requêtage géométrique avancé via PostGIS (index GIST) et Hibernate Spatial.",
+      "Sécurisation des endpoints par AuthGateway (JWT RS256) et mise en cache des sessions dans Redis.",
+      "Orchestration multi-bases (PostgreSQL/PostGIS, MySQL, SQL Server, Redis) sous Docker Compose.",
+      "Documentation OpenAPI / Swagger et tests d'intégration isolés par conteneur.",
+    ],
+    detailsEn: [
+      "Advanced geometric storage and queries via PostGIS (GIST indexes) and Hibernate Spatial.",
+      "Endpoints secured by AuthGateway (RS256 JWT) with Redis-backed session caching.",
+      "Multi-database Docker Compose orchestration (PostgreSQL/PostGIS, MySQL, SQL Server, Redis).",
+      "OpenAPI / Swagger documentation and container-isolated integration tests.",
+    ],
+    architecture:
+      "Service géospatial découplé communiquant avec la passerelle AuthGateway sur un réseau Docker interne dédié.",
+    architectureEn:
+      "Decoupled geospatial microservice communicating with AuthGateway over an isolated internal Docker network.",
+    stack: [
+      "Java 21",
+      "Spring Boot 3",
+      "PostgreSQL",
+      "PostGIS",
+      "Hibernate Spatial",
+      "Redis",
+      "Docker Compose",
+    ],
+    url: "https://github.com/fahchouchsm/authGetway-PFA-4year",
+    metrics: [
+      {
+        value: "PostGIS GIST",
+        label: "Indexation spatiale",
+        labelEn: "Spatial Indexing",
+        caption: "Requêtes géographiques de proximité et trajets optimisés par index spatial",
+        captionEn: "Proximity and route queries accelerated by PostGIS GIST spatial indexes",
+      },
+      {
+        value: "< 20 ms",
+        label: "Cache Redis",
+        labelEn: "Redis Cache",
+        caption: "Accès rapide aux sessions et métadonnées de lignes urbaines",
+        captionEn: "Low-latency access for urban line metadata and auth sessions",
+      },
+      {
+        value: "4 SGBD",
+        label: "Stack multi-bases",
+        labelEn: "Multi-DB Stack",
+        caption: "PostgreSQL/PostGIS, MySQL, SQL Server et Redis orchestrés",
+        captionEn: "Orchestrated PostgreSQL/PostGIS, MySQL, SQL Server, and Redis",
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "Data & ML Analytics Pipeline",
+    category: "Web",
+    context: "Projets Data Science & IA · Cycle Ingénieur",
+    contextEn: "Data Science & AI Projects · Engineering Degree",
+    visual: "database",
+    description:
+      "Pipelines de nettoyage, feature engineering et entraînement de modèles prédictifs (régression, KNN, clustering K-Means/DBSCAN) exposés via API REST Docker.",
+    descriptionEn:
+      "End-to-end data cleaning, feature engineering, and predictive ML pipelines (regression, KNN, K-Means/DBSCAN clustering) served via containerized REST APIs.",
+    problem:
+      "Transformer des jeux de données bruts hétérogènes en modèles prédictifs évalués et directement consommables par des applications web.",
+    problemEn:
+      "Transform raw heterogeneous datasets into evaluated predictive models ready for direct web consumption.",
+    details: [
+      "Prétraitement, imputation et feature engineering sous Python, Pandas et NumPy.",
+      "Entraînement et validation croisée de modèles supervisés (régression, KNN) et non supervisés (K-Means, DBSCAN).",
+      "Visualisation exploratoire sous Jupyter / Matplotlib et exposition des prédictions via FastAPI + Docker.",
+    ],
+    detailsEn: [
+      "Data preprocessing, imputation, and feature engineering using Python, Pandas, and NumPy.",
+      "Training and cross-validation of supervised (regression, KNN) and unsupervised (K-Means, DBSCAN) models.",
+      "Exploratory visualization in Jupyter / Matplotlib and model serving via FastAPI + Docker.",
+    ],
+    architecture:
+      "Séparation nette entre le pipeline d'entraînement reproductible et le conteneur d'inférence FastAPI.",
+    architectureEn:
+      "Clean separation between reproducible training pipelines and the FastAPI inference container.",
+    stack: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "FastAPI",
+      "Jupyter",
+      "Docker",
+    ],
+    metrics: [
+      {
+        value: "4 Algos ML",
+        label: "Supervisé & Clustering",
+        labelEn: "Supervised & Clustering",
+        caption: "Régression, classification KNN, K-Means et détection de densité DBSCAN",
+        captionEn: "Regression, KNN classification, K-Means, and DBSCAN density clustering",
+      },
+      {
+        value: "REST + Docker",
+        label: "Inférence conteneurisée",
+        labelEn: "Containerized Serving",
+        caption: "Modèles sérialisés et exposés via endpoints FastAPI reproductibles",
+        captionEn: "Serialized models exposed through reproducible FastAPI endpoints",
+      },
+    ],
+  },
 ];
 
 export const principles: Principle[] = [
@@ -701,40 +827,84 @@ export const skillGroups: SkillGroup[] = [
 
 export const experiences: Experience[] = [
   {
-    company: "CHU Oujda · Projet BetterGit",
+    company: "CHU Mohammed VI d'Oujda · Projet BetterGit",
+    location: "Oujda, Maroc · Présentiel",
+    locationEn: "Oujda, Morocco · On-site",
     date: "7 août au 7 septembre 2026",
     dateEn: "August 7 to September 7, 2026",
-    role: "Stagiaire développement logiciel",
-    roleEn: "Software Development Intern",
+    role: "Stagiaire Ingénieur Développement Logiciel",
+    roleEn: "Software Engineering Intern",
     description:
-      "Conception d'un moteur Git modulaire en Java (Eclipse JGit, gestion du staging et graphes DAG) et d'un client desktop Tauri / React. Développement de l'extension CLI Java2Diagram analysant l'arbre syntaxique abstrait (AST) pour générer des diagrammes UML. Intégration d'un Quality Gate SonarQube avec score A.",
+      "Conception et livraison d'une suite modulaire en 3 dépôts (BetterGit Core, Desktop & Java2Diagram) pour auditer les historiques Git et générer des diagrammes UML.",
     descriptionEn:
-      "Built a modular Git engine in Java (Eclipse JGit, staging index management, DAG commit graphs) and a Tauri / React desktop client. Developed the Java2Diagram CLI extension analyzing AST syntax trees with JavaParser to generate PlantUML diagrams. Enforced SonarQube Quality Gate with Score A.",
-    tags: ["Java 21", "Eclipse JGit", "JavaParser AST", "React", "Tauri", "SonarQube score A"],
+      "Architected and delivered a 3-repository modular suite (BetterGit Core, Desktop & Java2Diagram) to inspect Git DAG history and generate UML diagrams.",
+    deliverables: [
+      "Moteur Java 21 / Eclipse JGit optimisé (< 200 ms sur 10 000 commits) manipulant index et graphes DAG.",
+      "Client desktop natif Tauri / React / TypeScript communicant par IPC asynchrone à 60 FPS.",
+      "CLI Java2Diagram (JavaParser AST) générant automatiquement des diagrammes de classes PlantUML.",
+      "Mise en place de tests unitaires JUnit 5 et d'un Quality Gate SonarQube strict (Score A, 0 vulnérabilité).",
+    ],
+    deliverablesEn: [
+      "Optimized Java 21 / Eclipse JGit engine (< 200 ms on 10k commits) manipulating staging & DAG graphs.",
+      "Native Tauri / React / TypeScript desktop client communicating via async IPC at 60 FPS.",
+      "Java2Diagram CLI (JavaParser AST) automatically generating PlantUML class diagrams from source.",
+      "Enforced JUnit 5 unit tests and strict SonarQube Quality Gate (Grade A, 0 critical vulnerabilities).",
+    ],
+    impact: "Score SonarQube A · 3 dépôts livrés · < 200 ms traversal DAG",
+    impactEn: "SonarQube Grade A · 3 repositories delivered · < 200 ms DAG traversal",
+    tags: ["Java 21", "Eclipse JGit", "JavaParser AST", "React", "Tauri", "JUnit 5", "SonarQube A"],
   },
   {
     company: "Société Régionale Multiservices de l'Oriental",
+    location: "Oujda, Maroc · Présentiel",
+    locationEn: "Oujda, Morocco · On-site",
     date: "Juin 2024",
     dateEn: "June 2024",
-    role: "Stagiaire développement d'un client multi-SGBD",
-    roleEn: "Multi-DBMS Desktop Client Intern",
+    role: "Stagiaire Développement Client Multi-SGBD (MySQL Compass)",
+    roleEn: "Multi-DBMS Desktop Client Intern (MySQL Compass)",
     description:
-      "Conception et implémentation de MySQL Compass : client desktop sous Electron, React et Node.js permettant l'exploration multi-bases (MySQL, PostgreSQL, SQLite) et la génération volumique de jeux d'essais synthétiques respectant l'intégrité référentielle.",
+      "Développement de MySQL Compass, client desktop d'exploration de schémas et générateur volumique de données synthétiques cohérentes.",
     descriptionEn:
-      "Designed and implemented MySQL Compass: an Electron, React, and Node.js desktop tool for multi-database exploration (MySQL, PostgreSQL, SQLite) and automated volume synthetic test dataset generation honoring foreign key constraints.",
-    tags: ["Electron", "React", "TypeScript", "Node.js", "SQL", "Bases relationnelles"],
+      "Built MySQL Compass, a cross-platform desktop schema explorer and high-volume synthetic test data generator.",
+    deliverables: [
+      "Explorateur unifié de tables, index et contraintes pour MySQL 8, PostgreSQL 16 et SQLite.",
+      "Générateur volumique (50 000+ lignes/s) respectant l'ordre topologique des clés étrangères (algo de Kahn).",
+      "Éditeur SQL asynchrone en Node.js worker threads avec export instantané CSV et JSON.",
+    ],
+    deliverablesEn: [
+      "Unified schema, index, and constraint explorer for MySQL 8, PostgreSQL 16, and SQLite.",
+      "High-volume generator (50,000+ rows/s) resolving FK dependency order via Kahn's topological sort.",
+      "Asynchronous SQL editor in Node.js worker threads with instant CSV and JSON exports.",
+    ],
+    impact: "50 000+ lignes/s · 0 violation d'intégrité · 3 moteurs SGBD",
+    impactEn: "50,000+ rows/s · 0 FK integrity violations · 3 DBMS engines",
+    tags: ["Electron", "React", "TypeScript", "Node.js", "MySQL", "PostgreSQL", "SQLite"],
   },
   {
     company: "Conseil Régional de l'Oriental",
+    location: "Oujda, Maroc · Présentiel",
+    locationEn: "Oujda, Morocco · On-site",
     date: "Juin 2023",
     dateEn: "June 2023",
-    role: "Stagiaire développement web MVC",
-    roleEn: "Web Development Intern (MVC)",
+    role: "Stagiaire Développement Web Full-Stack (MVC)",
+    roleEn: "Full-Stack Web Development Intern (MVC)",
     description:
-      "Déploiement d'une application web fullstack sous architecture MVC (Node.js, Express, MySQL) dédiée à la centralisation, au filtrage dynamique et au suivi administratif des dossiers de candidatures de stages.",
+      "Digitalisation complète du processus de gestion et de suivi administratif des dossiers de stages via une plateforme web MVC.",
     descriptionEn:
-      "Deployed a fullstack MVC web platform (Node.js, Express, MySQL) for centralizing, filtering, and managing student internship applications for regional administration.",
-    tags: ["Node.js", "Express", "MySQL", "Architecture MVC", "Bootstrap"],
+      "Digitized the end-to-end internship application tracking and administrative review workflow via an MVC web platform.",
+    deliverables: [
+      "Architecture MVC Node.js / Express / EJS avec authentification sécurisée par sessions et bcrypt.",
+      "Base relationnelle MySQL dédiée au filtrage multicritères des candidats, conventions et CV.",
+      "Interface responsive Bootstrap déployée en interne pour les responsables administratifs.",
+    ],
+    deliverablesEn: [
+      "Node.js / Express / EJS MVC architecture with session-based authentication and bcrypt hashing.",
+      "MySQL relational schema for multi-criteria candidate filtering, agreements, and CV uploads.",
+      "Responsive Bootstrap interface deployed internally for regional administrative reviewers.",
+    ],
+    impact: "Processus 100% digitalisé · Auth sécurisée bcrypt · Déploiement interne",
+    impactEn: "100% digitized workflow · bcrypt session auth · Internal deployment",
+    tags: ["Node.js", "Express", "EJS", "MySQL", "bcrypt", "Architecture MVC", "Bootstrap"],
   },
 ];
 
