@@ -2177,3 +2177,22 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
     top: 6px;
   }
 }
+
+/* Technology Icons inside Badges */
+.tech-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tech-icon-img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.tech-icon-fallback {
+  color: #bbe1fa;
+  flex-shrink: 0;
+}

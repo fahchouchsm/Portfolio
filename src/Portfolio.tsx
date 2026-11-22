@@ -15,6 +15,7 @@ import {
   Building2,
   ArrowRight,
 } from "lucide-react";
+import { TechBadge } from "./components/TechBadge";
 import {
   projects,
   principles,
@@ -534,9 +535,7 @@ export default function Portfolio() {
                         )}
                         <div className="stack-wrap">
                           {exp.tags.map((t) => (
-                            <span key={t} className="tech-badge">
-                              {t}
-                            </span>
+                            <TechBadge key={t} label={t} className="tech-badge" />
                           ))}
                         </div>
                       </div>
@@ -659,9 +658,7 @@ export default function Portfolio() {
 
                   <div className="project-stack-wrap">
                     {project.stack.slice(0, 6).map((tech) => (
-                      <span key={tech} className="tech-tag">
-                        {tech}
-                      </span>
+                      <TechBadge key={tech} label={tech} className="tech-tag" />
                     ))}
                     {project.stack.length > 6 && (
                       <span className="tech-tag tech-more">
@@ -813,9 +810,7 @@ export default function Portfolio() {
                   </p>
                   <div className="skill-tags">
                     {group.skills.map((skill) => (
-                      <span key={skill} className="skill-tag">
-                        {skill}
-                      </span>
+                      <TechBadge key={skill} label={skill} className="skill-tag" />
                     ))}
                   </div>
                 </div>
