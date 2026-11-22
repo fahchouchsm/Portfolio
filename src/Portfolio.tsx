@@ -425,13 +425,6 @@ export default function Portfolio() {
             <div className="hero-card-col">
               <div className="profile-spec-card">
                 <div className="spec-card-header">
-                  <img
-                    src="/pfp.png"
-                    alt="Mohammed Fahchouch"
-                    className="spec-avatar"
-                    width={52}
-                    height={52}
-                  />
                   <div>
                     <h2 className="spec-header-title">
                       {lang === "fr" ? "Dossier d'ingénierie" : "Engineering Dossier"}
