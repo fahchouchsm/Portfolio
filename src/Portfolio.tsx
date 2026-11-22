@@ -16,6 +16,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { TechBadge } from "./components/TechBadge";
+import { GithubHeatMap } from "./components/GithubHeatMap.tsx";
 import {
   projects,
   principles,
@@ -243,7 +244,6 @@ export default function Portfolio() {
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
   const [lastTriggerButton, setLastTriggerButton] = useState<HTMLButtonElement | null>(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [githubChartFailed, setGithubChartFailed] = useState(false);
 
   const cardButtonRefs = useRef<Record<number, HTMLButtonElement | null>>({});
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -858,36 +858,7 @@ export default function Portfolio() {
               </div>
 
               <div className="github-chart-wrap">
-                {!githubChartFailed ? (
-                  <img
-                    src="https://ghchart.rshah.org/3282b8/fahchouchsm"
-                    alt="Graphique des contributions GitHub de Mohammed Fahchouch"
-                    className="github-chart-img"
-                    onError={() => setGithubChartFailed(true)}
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="chart-fallback">
-                    <p>
-                      {lang === "fr"
-                        ? "Visualisation des contributions disponible directement sur GitHub :"
-                        : "Contribution visualization available directly on GitHub:"}
-                    </p>
-                    <a
-                      href={GITHUB_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                    >
-                      <Github size={16} />
-                      <span>
-                        {lang === "fr"
-                          ? "Accéder au dépôt GitHub de Mohammed Fahchouch"
-                          : "Access Mohammed Fahchouch's GitHub profile"}
-                      </span>
-                    </a>
-                  </div>
-                )}
+                <GithubHeatMap username="fahchouchsm" lang={lang} />
               </div>
             </div>
           </div>

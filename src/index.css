@@ -2196,3 +2196,89 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
   color: #bbe1fa;
   flex-shrink: 0;
 }
+
+/* Official Dark-Mode GitHub Contribution Heatmap */
+.gh-dark-board {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: var(--radius-inner);
+  padding: 16px 18px;
+}
+
+.gh-top-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.gh-total {
+  font-size: 0.8rem;
+  color: #c9d1d9;
+}
+
+.gh-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: #8b949e;
+}
+
+.gh-scroll-wrap {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.gh-months-row {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 6px;
+}
+
+.gh-month-lbl {
+  width: 11px;
+  font-size: 0.68rem;
+  color: #8b949e;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.gh-grid {
+  display: flex;
+  gap: 3px;
+}
+
+.gh-week-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.gh-cell {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  outline: 1px solid rgba(255, 255, 255, 0.05);
+  outline-offset: -1px;
+  flex-shrink: 0;
+}
+
+.gh-cell-empty {
+  background: transparent;
+  outline: none;
+}
+
+.gh-loading {
+  padding: 24px;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.github-chart-dark-fallback {
+  filter: invert(0.9) hue-rotate(180deg) saturate(1.1);
+  border-radius: var(--radius-inner);
+}
