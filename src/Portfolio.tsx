@@ -862,7 +862,7 @@ export default function Portfolio() {
               <div className="github-chart-wrap">
                 {!githubChartFailed ? (
                   <img
-                    src="https://ghchart.rshah.org/0d7377/fahchouchsm"
+                    src="https://ghchart.rshah.org/3282b8/fahchouchsm"
                     alt="Graphique des contributions GitHub de Mohammed Fahchouch"
                     className="github-chart-img"
                     onError={() => setGithubChartFailed(true)}

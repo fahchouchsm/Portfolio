@@ -1,4 +1,4 @@
-/* ColorHunt Palette: #212121 · #323232 · #0D7377 · #14FFEC */
+/* ColorHunt Palette: #1B262C · #0F4C75 · #3282B8 · #BBE1FA */
 :root {
   color-scheme: dark;
 
@@ -54,38 +54,38 @@
   --z-toast: 500;
   --z-tooltip: 600;
 
-  /* ColorHunt Neutral Charcoal Surfaces (#212121 / #323232) */
-  --color-paper: #212121;
-  --color-paper-2: #2b2b2b;
-  --color-paper-3: #323232;
-  --color-paper-elevated: #3a3a3a;
+  /* ColorHunt Surfaces (#1B262C base, elevated #223038, #0F4C75 deep accent) */
+  --color-paper: #1b262c;
+  --color-paper-2: #223038;
+  --color-paper-3: #2a3b45;
+  --color-paper-elevated: #0f4c75;
 
   /* High-Legibility Text Hierarchy */
-  --color-ink: #f7f7f7;
-  --color-ink-2: #e0e0e0;
-  --color-muted: #b8c9c8;
+  --color-ink: #f8fbfe;
+  --color-ink-2: #dcebf7;
+  --color-muted: #bbe1fa;
 
-  /* Crisp Borders derived from #323232 & #0D7377 */
-  --color-rule: #3a3a3a;
-  --color-rule-2: rgba(13, 115, 119, 0.65);
+  /* Borders derived from #0F4C75 / #3282B8 */
+  --color-rule: rgba(187, 225, 250, 0.14);
+  --color-rule-2: rgba(50, 130, 184, 0.45);
 
-  /* Accents: #0D7377 & #14FFEC (used cleanly with restraint) */
-  --color-accent: #14ffec;
-  --color-accent-hover: #70fff3;
-  --color-accent-ink: #212121;
-  --color-focus: #14ffec;
-  --color-accent-wash: rgba(13, 115, 119, 0.32);
-  --color-accent-soft: #14ffec;
+  /* Accents: #3282B8 & #BBE1FA */
+  --color-accent: #3282b8;
+  --color-accent-hover: #bbe1fa;
+  --color-accent-ink: #1b262c;
+  --color-focus: #bbe1fa;
+  --color-accent-wash: rgba(15, 76, 117, 0.45);
+  --color-accent-soft: #bbe1fa;
 
-  /* Button Primary: Deep Teal #0D7377 with Crisp White Text */
-  --color-btn-primary-bg: #0d7377;
-  --color-btn-primary-hover: #0a5b5e;
+  /* Button Primary: #3282B8 -> #0F4C75 hover with crisp white text */
+  --color-btn-primary-bg: #3282b8;
+  --color-btn-primary-hover: #0f4c75;
   --color-btn-primary-text: #ffffff;
-  --color-btn-primary-border: #14ffec;
+  --color-btn-primary-border: #bbe1fa;
 
   /* Surfaces & Overlays */
-  --color-header-bg: rgba(33, 33, 33, 0.92);
-  --color-backdrop: rgba(18, 18, 18, 0.85);
+  --color-header-bg: rgba(27, 38, 44, 0.92);
+  --color-backdrop: rgba(16, 23, 27, 0.85);
 
   /* Typefaces */
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -97,6 +97,6 @@
   --radius-inner: 6px;
   --radius-pill: 6px;
   --rule-hair: 1px;
-  --shadow-card: 0 2px 12px -2px rgba(0, 0, 0, 0.3);
-  --shadow-hover: 0 12px 28px -8px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 2px 12px -2px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 12px 28px -8px rgba(0, 0, 0, 0.45);
 }

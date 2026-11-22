@@ -1802,9 +1802,9 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 
 .project-category-badge {
   border-radius: var(--radius-inner);
-  background-color: rgba(13, 115, 119, 0.35);
-  color: #14ffec;
-  border: 1px solid rgba(20, 255, 236, 0.35);
+  background-color: #0f4c75;
+  color: #bbe1fa;
+  border: 1px solid rgba(50, 130, 184, 0.6);
 }
 
 @keyframes statusPulse {
@@ -1836,12 +1836,12 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 }
 
 .hero-section {
-  background-image: radial-gradient(rgba(20, 255, 236, 0.055) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(187, 225, 250, 0.065) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
 .profile-spec-card {
-  border-top: 2px solid #0d7377;
+  border-top: 2px solid #3282b8;
 }
 
 .exp-location {
@@ -1864,16 +1864,16 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 }
 
 .exp-deliverables li::marker {
-  color: #14ffec;
+  color: #3282b8;
 }
 
 .exp-impact {
   margin: 10px 0 12px;
   padding: 7px 11px;
   border-radius: var(--radius-inner);
-  background-color: rgba(13, 115, 119, 0.22);
-  border: 1px solid rgba(20, 255, 236, 0.25);
-  color: #14ffec;
+  background-color: rgba(15, 76, 117, 0.45);
+  border: 1px solid rgba(50, 130, 184, 0.5);
+  color: #bbe1fa;
   font-size: 0.78rem;
   font-weight: 500;
 }
@@ -1884,7 +1884,7 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
   border-radius: var(--radius-inner);
   background-color: var(--color-paper-3);
   border: 1px solid var(--color-rule-2);
-  color: #14ffec;
+  color: #bbe1fa;
   font-size: 0.72rem;
   font-weight: 600;
 }
