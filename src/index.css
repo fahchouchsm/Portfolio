@@ -2051,7 +2051,7 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 }
 
 /* ==========================================================================
-   BALANCED FULL-WIDTH EXPERIENCE + 3-COL EDUCATION (ZERO EMPTY VOID)
+   CLEAN 2-COL EXPERIENCE FLOW + HORIZONTAL EDUCATION PATH
    ========================================================================== */
 .journey-dual-grid {
   display: flex !important;
@@ -2059,90 +2059,121 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
   gap: 56px !important;
 }
 
-.journey-col:first-child .journey-card {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 6px 36px;
+.exp-row {
+  display: grid !important;
+  grid-template-columns: 270px 1fr;
+  gap: 12px 40px;
   align-items: start;
 }
 
-.journey-col:first-child .journey-card-top {
-  grid-column: 1;
+.exp-meta-col {
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  margin-bottom: 0;
+  gap: 6px;
 }
 
-.journey-col:first-child .exp-location {
-  grid-column: 1;
-  margin-top: 2px;
-  margin-bottom: 8px;
+.exp-meta-col .exp-location {
+  margin: 0;
 }
 
-.journey-col:first-child .exp-impact {
-  grid-column: 1;
-  margin: 4px 0 0 0;
+.exp-meta-col .exp-impact {
+  margin: 8px 0 0 0;
   width: fit-content;
 }
 
-.journey-col:first-child .journey-role {
-  grid-column: 2;
-  grid-row: 1;
-  margin-bottom: 4px;
+.exp-body-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.journey-col:first-child .journey-desc {
-  grid-column: 2;
-  max-width: 72ch;
+.exp-body-col .journey-role {
+  margin: 0;
+  font-size: 1.18rem;
+  color: #ffffff;
 }
 
-.journey-col:first-child .exp-deliverables {
-  grid-column: 2;
-  max-width: 72ch;
+.exp-body-col .journey-desc {
+  margin: 0;
+  max-width: 70ch;
+  color: #e2eef7;
+  line-height: 1.6;
 }
 
-.journey-col:first-child .stack-wrap {
-  grid-column: 2;
-  margin-top: 8px;
+.exp-body-col .exp-deliverables {
+  margin: 4px 0 6px 18px;
+  max-width: 70ch;
+  gap: 7px;
+  font-size: 0.92rem;
+  color: #d4e6f4;
 }
 
-/* Formation académique: clean 3-column horizontal row */
+.exp-body-col .stack-wrap {
+  margin-top: 4px;
+}
+
+/* Formation académique: Horizontal Progression Path */
 .journey-col:last-child .journey-cards-list {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 28px !important;
   padding-left: 0 !important;
   border-left: none !important;
+  position: relative;
+}
+
+.journey-col:last-child .journey-cards-list::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #3282b8 0%, rgba(187, 225, 250, 0.25) 100%);
+  z-index: 0;
 }
 
 .journey-col:last-child .journey-card {
   border-bottom: none !important;
-  border-top: 1px solid var(--color-rule-2) !important;
-  padding: 18px 0 0 0 !important;
+  border-top: none !important;
+  padding: 26px 0 0 0 !important;
   margin-bottom: 0 !important;
+  position: relative;
 }
 
 .journey-col:last-child .journey-card::before {
-  display: none !important;
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #3282b8;
+  border: 2px solid var(--color-paper);
+  box-shadow: 0 0 0 2px rgba(187, 225, 250, 0.45);
+  z-index: 1;
 }
 
 @media (max-width: 900px) {
-  .journey-col:first-child .journey-card {
+  .exp-row {
     grid-template-columns: 1fr;
-    gap: 6px;
-  }
-  .journey-col:first-child .journey-card-top,
-  .journey-col:first-child .exp-location,
-  .journey-col:first-child .exp-impact,
-  .journey-col:first-child .journey-role,
-  .journey-col:first-child .journey-desc,
-  .journey-col:first-child .exp-deliverables,
-  .journey-col:first-child .stack-wrap {
-    grid-column: 1;
-    grid-row: auto;
+    gap: 14px;
   }
   .journey-col:last-child .journey-cards-list {
     grid-template-columns: 1fr !important;
+    padding-left: 24px !important;
+    border-left: 1px solid var(--color-rule-2) !important;
+  }
+  .journey-col:last-child .journey-cards-list::before {
+    display: none;
+  }
+  .journey-col:last-child .journey-card {
+    padding: 0 0 20px 0 !important;
+  }
+  .journey-col:last-child .journey-card::before {
+    left: -29px;
+    top: 6px;
   }
 }

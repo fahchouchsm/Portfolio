@@ -506,36 +506,39 @@ export default function Portfolio() {
                 </h3>
                 <div className="journey-cards-list">
                   {experiences.map((exp) => (
-                    <div key={exp.company} className="journey-card">
-                      <div className="journey-card-top">
+                    <div key={exp.company} className="journey-card exp-row">
+                      <div className="exp-meta-col">
                         <span className="journey-date">{lang === "fr" ? exp.date : exp.dateEn}</span>
                         <span className="journey-company">{exp.company}</span>
-                      </div>
-                      <h4 className="journey-role">{lang === "fr" ? exp.role : exp.roleEn}</h4>
-                      {(exp.location || exp.locationEn) && (
-                        <span className="exp-location font-code">
-                          {lang === "fr" ? exp.location : exp.locationEn}
-                        </span>
-                      )}
-                      <p className="journey-desc">{lang === "fr" ? exp.description : exp.descriptionEn}</p>
-                      {(exp.deliverables || exp.deliverablesEn) && (
-                        <ul className="exp-deliverables">
-                          {(lang === "fr" ? exp.deliverables : exp.deliverablesEn)?.map((item, idx) => (
-                            <li key={idx}>{item}</li>
-                          ))}
-                        </ul>
-                      )}
-                      {(exp.impact || exp.impactEn) && (
-                        <div className="exp-impact font-code">
-                          {lang === "fr" ? exp.impact : exp.impactEn}
-                        </div>
-                      )}
-                      <div className="stack-wrap">
-                        {exp.tags.map((t) => (
-                          <span key={t} className="tech-badge">
-                            {t}
+                        {(exp.location || exp.locationEn) && (
+                          <span className="exp-location font-code">
+                            {lang === "fr" ? exp.location : exp.locationEn}
                           </span>
-                        ))}
+                        )}
+                        {(exp.impact || exp.impactEn) && (
+                          <div className="exp-impact font-code">
+                            {lang === "fr" ? exp.impact : exp.impactEn}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="exp-body-col">
+                        <h4 className="journey-role">{lang === "fr" ? exp.role : exp.roleEn}</h4>
+                        <p className="journey-desc">{lang === "fr" ? exp.description : exp.descriptionEn}</p>
+                        {(exp.deliverables || exp.deliverablesEn) && (
+                          <ul className="exp-deliverables">
+                            {(lang === "fr" ? exp.deliverables : exp.deliverablesEn)?.map((item, idx) => (
+                              <li key={idx}>{item}</li>
+                            ))}
+                          </ul>
+                        )}
+                        <div className="stack-wrap">
+                          {exp.tags.map((t) => (
+                            <span key={t} className="tech-badge">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   ))}
