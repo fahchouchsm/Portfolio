@@ -14,6 +14,7 @@ import {
   Calendar,
   Building2,
   ArrowRight,
+  MessageCircle,
 } from "lucide-react";
 import { TechBadge } from "./components/TechBadge";
 import { GithubHeatMap } from "./components/GithubHeatMap.tsx";
@@ -1015,6 +1016,16 @@ export default function Portfolio() {
                       {PHONE_NUMBER}
                     </a>
                   </div>
+                  <a
+                    href={`https://wa.me/${PHONE_NUMBER.replace(/\D/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary btn-sm copy-btn"
+                    aria-label={lang === "fr" ? "Contacter sur WhatsApp" : "Message on WhatsApp"}
+                  >
+                    <MessageCircle size={14} />
+                    <span>{lang === "fr" ? "Écrire sur WhatsApp" : "Message on WhatsApp"}</span>
+                  </a>
                 </div>
 
                 <div className="contact-channel">
