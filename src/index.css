@@ -1661,3 +1661,179 @@ button:disabled {
     text-align: center;
   }
 }
+
+
+/* ==========================================================================
+   SWISS ARCHITECTURAL REDESIGN — ANTI-SLOP OVERRIDES
+   ========================================================================== */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
+  font-family: var(--font-display);
+}
+
+.site-header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-section {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-3xl);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.hero-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: var(--radius-inner);
+  border: 1px solid var(--color-rule-2);
+  background-color: var(--color-paper-2);
+  color: var(--color-ink-2);
+  font-family: var(--font-outlier);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.hero-title {
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.hero-proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-rule);
+}
+
+.proof-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.proof-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.proof-lbl {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+.spec-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.spec-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-inner);
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--color-rule-2);
+  flex-shrink: 0;
+}
+
+.spec-header-sub {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.profile-spec-card,
+.project-card,
+.skill-card,
+.journey-card,
+.github-card,
+.contact-box,
+.cv-banner-card,
+.principle-item {
+  background-color: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+  box-shadow: none;
+}
+
+.project-card {
+  transition: transform var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-ink);
+  box-shadow: var(--shadow-hover);
+}
+
+.tech-tag,
+.tech-badge,
+.skill-tag,
+.cv-chip {
+  border-radius: var(--radius-inner);
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-rule);
+  color: var(--color-ink-2);
+}
+
+.project-category-badge {
+  border-radius: var(--radius-inner);
+  background-color: var(--color-accent-wash);
+  color: var(--color-accent);
+  border: 1px solid transparent;
+}
+
+.btn {
+  border-radius: var(--radius-inner);
+  transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  background-color: var(--color-paper-2);
+  border: 1px solid var(--color-rule-2);
+  color: var(--color-ink);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-ink);
+  background-color: var(--color-paper-3);
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    min-height: auto;
+    padding-block: var(--space-xl);
+  }
+  .hero-proof-strip {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+}

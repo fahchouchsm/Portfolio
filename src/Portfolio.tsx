@@ -376,10 +376,11 @@ export default function Portfolio() {
           <div className="hero-grid">
             <div className="hero-lead-col">
               <div className="hero-status-pill">
+                <span className="status-dot" aria-hidden="true" />
                 <span>
                   {lang === "fr"
-                    ? "Recherche de stage PFE : Février à Juillet 2027"
-                    : "Seeking PFE Internship: February to July 2027"}
+                    ? "Disponible · Stage PFE Février – Juillet 2027"
+                    : "Available · PFE Internship Feb – July 2027"}
                 </span>
               </div>
 
@@ -403,15 +404,42 @@ export default function Portfolio() {
                   <span>{lang === "fr" ? "Télécharger mon CV (PDF)" : "Download resume (PDF)"}</span>
                 </a>
               </div>
+
+              <div className="hero-proof-strip" aria-label={lang === "fr" ? "Repères techniques" : "Engineering highlights"}>
+                <div className="proof-item">
+                  <span className="proof-val font-code">Grade A</span>
+                  <span className="proof-lbl">{lang === "fr" ? "Quality Gate SonarQube" : "SonarQube Quality Gate"}</span>
+                </div>
+                <div className="proof-item">
+                  <span className="proof-val font-code">11 conteneurs</span>
+                  <span className="proof-lbl">{lang === "fr" ? "Microservices Docker" : "Docker Microservices"}</span>
+                </div>
+                <div className="proof-item">
+                  <span className="proof-val font-code">50 000+ / s</span>
+                  <span className="proof-lbl">{lang === "fr" ? "Génération SQL batch" : "Batch SQL streaming"}</span>
+                </div>
+              </div>
             </div>
 
             {/* Profile summary spec card */}
             <div className="hero-card-col">
               <div className="profile-spec-card">
                 <div className="spec-card-header">
-                  <h2 className="spec-header-title">
-                    {lang === "fr" ? "Profil d'ingénierie" : "Engineering Profile"}
-                  </h2>
+                  <img
+                    src="/pfp.png"
+                    alt="Mohammed Fahchouch"
+                    className="spec-avatar"
+                    width={52}
+                    height={52}
+                  />
+                  <div>
+                    <h2 className="spec-header-title">
+                      {lang === "fr" ? "Dossier d'ingénierie" : "Engineering Dossier"}
+                    </h2>
+                    <span className="spec-header-sub font-code">
+                      {lang === "fr" ? "EHEIM Oujda · 5e année" : "EHEIM Oujda · 5th Year"}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="spec-card-body">
@@ -819,7 +847,7 @@ export default function Portfolio() {
               <div className="github-chart-wrap">
                 {!githubChartFailed ? (
                   <img
-                    src="https://ghchart.rshah.org/38bdf8/fahchouchsm"
+                    src="https://ghchart.rshah.org/1b49f5/fahchouchsm"
                     alt="Graphique des contributions GitHub de Mohammed Fahchouch"
                     className="github-chart-img"
                     onError={() => setGithubChartFailed(true)}

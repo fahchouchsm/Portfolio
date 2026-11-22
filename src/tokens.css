@@ -1,8 +1,8 @@
-/* Hallmark · shape: Workbench · genre: modern-minimal · theme: Obsidian Slate · axes: dark/grotesk-sans/azure */
+/* Swiss Architectural Engineering · Light Paper Canvas · Crisp Hairline Rules · Cobalt Ink */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Spacing Scale - Strictly on the 4px Grid */
+  /* Spacing Scale - 4px Grid */
   --space-3xs: 4px;
   --space-2xs: 4px;
   --space-xs: 8px;
@@ -14,19 +14,19 @@
   --space-3xl: 64px;
   --space-4xl: 96px;
 
-  /* Typography Scale - High Legibility */
-  --text-2xs: 0.75rem;    /* 12px */
-  --text-xs: 0.8125rem;   /* 13px */
-  --text-sm: 0.9375rem;   /* 15px */
-  --text-base: 1rem;      /* 16px */
-  --text-md: 1.0625rem;   /* 17px */
-  --text-lg: 1.25rem;     /* 20px */
-  --text-xl: 1.4375rem;   /* 23px */
-  --text-2xl: 1.875rem;   /* 30px */
-  --text-3xl: 2.25rem;    /* 36px */
-  --text-display: clamp(2.4rem, 4.2vw + 0.8rem, 3.75rem);
+  /* Typography Scale */
+  --text-2xs: 0.75rem;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.4375rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.25rem;
+  --text-display: clamp(2.6rem, 4.4vw + 0.75rem, 4rem);
   --text-section: clamp(1.85rem, 2.2vw + 1rem, 2.5rem);
-  --text-lead: clamp(1.0625rem, 0.4vw + 1rem, 1.25rem);
+  --text-lead: clamp(1.0625rem, 0.4vw + 1rem, 1.2rem);
 
   /* Animation Timings */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -41,7 +41,7 @@
   --gutter: 24px;
   --gap-columns: 24px;
   --section-gap-s: 48px;
-  --section-gap: 80px;
+  --section-gap: 88px;
   --section-gap-l: 112px;
 
   /* Z-Index Hierarchy */
@@ -54,49 +54,49 @@
   --z-toast: 500;
   --z-tooltip: 600;
 
-  /* Refined Custom OKLCH Palette (Tuned for Clarity, Contrast, and Anti-Slop) */
-  --color-paper: oklch(14% 0.02 245);
-  --color-paper-2: oklch(18.5% 0.025 245);
-  --color-paper-3: oklch(23% 0.028 245);
-  --color-paper-elevated: oklch(26% 0.032 245);
+  /* Architectural Paper & Ink Palette */
+  --color-paper: #f6f5f1;
+  --color-paper-2: #ffffff;
+  --color-paper-3: #eeece6;
+  --color-paper-elevated: #ffffff;
 
-  /* Text Hierarchy */
-  --color-ink: oklch(98% 0.005 240);
-  --color-ink-2: oklch(88% 0.012 240);
-  --color-muted: oklch(72% 0.018 240);
+  /* Text Hierarchy (WCAG AAA/AA on #f6f5f1 & #ffffff) */
+  --color-ink: #111315;
+  --color-ink-2: #2b3036;
+  --color-muted: #585f67;
 
-  /* Structural Rules */
-  --color-rule: oklch(26% 0.025 245);
-  --color-rule-2: oklch(34% 0.03 245);
+  /* Structural Hairline Rules */
+  --color-rule: #dedcd4;
+  --color-rule-2: #c5c2b8;
 
-  /* Primary Accent: Engineering Azure */
-  --color-accent: oklch(74% 0.15 225);
-  --color-accent-hover: oklch(80% 0.14 225);
-  --color-accent-ink: oklch(15% 0.05 225);
-  --color-focus: oklch(74% 0.15 225);
-  --color-accent-wash: oklch(24% 0.04 225);
-  --color-accent-soft: oklch(85% 0.08 225);
+  /* Primary Accent: Engineering Cobalt */
+  --color-accent: #1b49f5;
+  --color-accent-hover: #1337c2;
+  --color-accent-ink: #ffffff;
+  --color-focus: #1b49f5;
+  --color-accent-wash: #eaeeff;
+  --color-accent-soft: #1b49f5;
 
-  /* Button Primary - High Contrast (>6:1 against white text) */
-  --color-btn-primary-bg: oklch(44% 0.22 255);
-  --color-btn-primary-hover: oklch(38% 0.22 255);
-  --color-btn-primary-text: oklch(99% 0.002 240);
-  --color-btn-primary-border: oklch(52% 0.2 255);
+  /* Button Primary */
+  --color-btn-primary-bg: #111315;
+  --color-btn-primary-hover: #1b49f5;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-border: #111315;
 
   /* Surfaces & Overlays */
-  --color-header-bg: oklch(14% 0.02 245);
-  --color-backdrop: oklch(8% 0.015 245 / 0.95);
+  --color-header-bg: rgba(246, 245, 241, 0.92);
+  --color-backdrop: rgba(17, 19, 21, 0.72);
 
-  /* Typefaces */
-  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-body: var(--font-display);
-  --font-outlier: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  /* Intentional Typefaces */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-outlier: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Radii & Shadows */
-  --radius-card: 16px;
-  --radius-inner: 8px;
-  --radius-pill: 999px;
+  /* Crisp Architectural Radii & Flat Hairline Elevation */
+  --radius-card: 6px;
+  --radius-inner: 4px;
+  --radius-pill: 4px;
   --rule-hair: 1px;
-  --shadow-card: 0 4px 16px -2px rgba(0, 0, 0, 0.4);
-  --shadow-hover: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
+  --shadow-card: none;
+  --shadow-hover: 0 8px 24px -12px rgba(17, 19, 21, 0.14);
 }
