@@ -1786,7 +1786,7 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 
 .project-card:hover {
   transform: translateY(-2px);
-  border-color: var(--color-ink);
+  border-color: rgba(255, 255, 255, 0.28);
   box-shadow: var(--shadow-hover);
 }
 
@@ -1795,7 +1795,7 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 .skill-tag,
 .cv-chip {
   border-radius: var(--radius-inner);
-  background-color: var(--color-paper);
+  background-color: var(--color-paper-3);
   border: 1px solid var(--color-rule);
   color: var(--color-ink-2);
 }
@@ -1804,7 +1804,7 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
   border-radius: var(--radius-inner);
   background-color: var(--color-accent-wash);
   color: var(--color-accent);
-  border: 1px solid transparent;
+  border: 1px solid rgba(52, 211, 153, 0.25);
 }
 
 .btn {
@@ -1823,7 +1823,7 @@ h1, h2, h3, h4, .brand-name, .section-title, .hero-title {
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-ink);
+  border-color: rgba(255, 255, 255, 0.32);
   background-color: var(--color-paper-3);
 }
 

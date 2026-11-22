@@ -1,6 +1,6 @@
-/* Swiss Architectural Engineering · Light Paper Canvas · Crisp Hairline Rules · Cobalt Ink */
+/* Executive Engineering · Obsidian Zinc (#09090b) · Crisp White Ink · Emerald Signal */
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
   /* Spacing Scale - 4px Grid */
   --space-3xs: 4px;
@@ -24,9 +24,9 @@
   --text-xl: 1.4375rem;
   --text-2xl: 1.875rem;
   --text-3xl: 2.25rem;
-  --text-display: clamp(2.6rem, 4.4vw + 0.75rem, 4rem);
-  --text-section: clamp(1.85rem, 2.2vw + 1rem, 2.5rem);
-  --text-lead: clamp(1.0625rem, 0.4vw + 1rem, 1.2rem);
+  --text-display: clamp(2.5rem, 4vw + 0.75rem, 3.75rem);
+  --text-section: clamp(1.75rem, 2vw + 1rem, 2.25rem);
+  --text-lead: clamp(1.05rem, 0.4vw + 1rem, 1.18rem);
 
   /* Animation Timings */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -37,12 +37,12 @@
   --dur-long: 380ms;
 
   /* Layout Widths */
-  --container: 1200px;
+  --container: 1160px;
   --gutter: 24px;
   --gap-columns: 24px;
   --section-gap-s: 48px;
-  --section-gap: 88px;
-  --section-gap-l: 112px;
+  --section-gap: 76px;
+  --section-gap-l: 104px;
 
   /* Z-Index Hierarchy */
   --z-base: 1;
@@ -54,49 +54,49 @@
   --z-toast: 500;
   --z-tooltip: 600;
 
-  /* Architectural Paper & Ink Palette */
-  --color-paper: #f6f5f1;
-  --color-paper-2: #ffffff;
-  --color-paper-3: #eeece6;
-  --color-paper-elevated: #ffffff;
+  /* Obsidian Zinc Surfaces (Linear / Vercel / Brittany Chiang discipline) */
+  --color-paper: #09090b;
+  --color-paper-2: #111114;
+  --color-paper-3: #18181b;
+  --color-paper-elevated: #1c1c21;
 
-  /* Text Hierarchy (WCAG AAA/AA on #f6f5f1 & #ffffff) */
-  --color-ink: #111315;
-  --color-ink-2: #2b3036;
-  --color-muted: #585f67;
+  /* Text Hierarchy */
+  --color-ink: #fafafa;
+  --color-ink-2: #d4d4d8;
+  --color-muted: #a1a1aa;
 
-  /* Structural Hairline Rules */
-  --color-rule: #dedcd4;
-  --color-rule-2: #c5c2b8;
+  /* Subtle Hairline Rules */
+  --color-rule: rgba(255, 255, 255, 0.08);
+  --color-rule-2: rgba(255, 255, 255, 0.14);
 
-  /* Primary Accent: Engineering Cobalt */
-  --color-accent: #1b49f5;
-  --color-accent-hover: #1337c2;
-  --color-accent-ink: #ffffff;
-  --color-focus: #1b49f5;
-  --color-accent-wash: #eaeeff;
-  --color-accent-soft: #1b49f5;
+  /* Primary Accent: Crisp Emerald */
+  --color-accent: #34d399;
+  --color-accent-hover: #6ee7b7;
+  --color-accent-ink: #052e16;
+  --color-focus: #34d399;
+  --color-accent-wash: rgba(52, 211, 153, 0.1);
+  --color-accent-soft: #6ee7b7;
 
-  /* Button Primary */
-  --color-btn-primary-bg: #111315;
-  --color-btn-primary-hover: #1b49f5;
-  --color-btn-primary-text: #ffffff;
-  --color-btn-primary-border: #111315;
+  /* Button Primary: Crisp High-Contrast White on Obsidian */
+  --color-btn-primary-bg: #fafafa;
+  --color-btn-primary-hover: #e4e4e7;
+  --color-btn-primary-text: #09090b;
+  --color-btn-primary-border: #fafafa;
 
   /* Surfaces & Overlays */
-  --color-header-bg: rgba(246, 245, 241, 0.92);
-  --color-backdrop: rgba(17, 19, 21, 0.72);
+  --color-header-bg: rgba(9, 9, 11, 0.85);
+  --color-backdrop: rgba(0, 0, 0, 0.82);
 
-  /* Intentional Typefaces */
+  /* Typefaces */
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-outlier: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Crisp Architectural Radii & Flat Hairline Elevation */
-  --radius-card: 6px;
-  --radius-inner: 4px;
-  --radius-pill: 4px;
+  /* Crisp Radii & Subtle Elevation */
+  --radius-card: 8px;
+  --radius-inner: 6px;
+  --radius-pill: 6px;
   --rule-hair: 1px;
   --shadow-card: none;
-  --shadow-hover: 0 8px 24px -12px rgba(17, 19, 21, 0.14);
+  --shadow-hover: 0 12px 32px -12px rgba(0, 0, 0, 0.65);
 }

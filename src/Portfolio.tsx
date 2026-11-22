@@ -282,11 +282,11 @@ export default function Portfolio() {
   });
 
   const navLinks = [
+    { href: "#parcours", label: lang === "fr" ? "Expériences" : "Experience" },
     { href: "#projets", label: lang === "fr" ? "Projets" : "Projects" },
-    { href: "#cv", label: lang === "fr" ? "CV" : "Resume" },
-    { href: "#approche", label: lang === "fr" ? "Approche" : "Approach" },
     { href: "#competences", label: lang === "fr" ? "Compétences" : "Skills" },
-    { href: "#parcours", label: lang === "fr" ? "Parcours" : "Journey" },
+    { href: "#approche", label: lang === "fr" ? "Approche" : "Approach" },
+    { href: "#cv", label: lang === "fr" ? "CV" : "Resume" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -485,6 +485,69 @@ export default function Portfolio() {
                     <span className="spec-key">{lang === "fr" ? "Contact" : "Contact"}</span>
                     <span className="spec-val font-code">fahchouchmd@gmail.com</span>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* JOURNEY & EDUCATION */}
+        <section className="section journey-section" id="parcours" aria-labelledby="journey-title">
+          <div className="container">
+            <div className="section-head">
+              <h2 id="journey-title" className="section-title">
+                {lang === "fr" ? "Parcours & formations" : "Experience & Education"}
+              </h2>
+              <p className="section-subtitle">
+                {lang === "fr"
+                  ? "Missions en entreprise et cursus académique en école d'ingénieurs."
+                  : "Corporate software development internships and state engineering academic curriculum."}
+              </p>
+            </div>
+
+            <div className="journey-dual-grid">
+              <div className="journey-col">
+                <h3 className="journey-subhead">
+                  <Building2 size={18} />
+                  <span>{lang === "fr" ? "Expériences professionnelles" : "Professional Experience"}</span>
+                </h3>
+                <div className="journey-cards-list">
+                  {experiences.map((exp) => (
+                    <div key={exp.company} className="journey-card">
+                      <div className="journey-card-top">
+                        <span className="journey-date">{lang === "fr" ? exp.date : exp.dateEn}</span>
+                        <span className="journey-company">{exp.company}</span>
+                      </div>
+                      <h4 className="journey-role">{lang === "fr" ? exp.role : exp.roleEn}</h4>
+                      <p className="journey-desc">{lang === "fr" ? exp.description : exp.descriptionEn}</p>
+                      <div className="stack-wrap">
+                        {exp.tags.map((t) => (
+                          <span key={t} className="tech-badge">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="journey-col">
+                <h3 className="journey-subhead">
+                  <Calendar size={18} />
+                  <span>{lang === "fr" ? "Formation académique" : "Academic Education"}</span>
+                </h3>
+                <div className="journey-cards-list">
+                  {educations.map((edu) => (
+                    <div key={edu.degree} className="journey-card">
+                      <div className="journey-card-top">
+                        <span className="journey-date">{edu.period}</span>
+                        <span className="journey-company">{edu.institution}</span>
+                      </div>
+                      <h4 className="journey-role">{lang === "fr" ? edu.degree : edu.degreeEn}</h4>
+                      <p className="journey-desc">{lang === "fr" ? edu.description : edu.descriptionEn}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -743,69 +806,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* JOURNEY & EDUCATION */}
-        <section className="section journey-section" id="parcours" aria-labelledby="journey-title">
-          <div className="container">
-            <div className="section-head">
-              <h2 id="journey-title" className="section-title">
-                {lang === "fr" ? "Parcours & formations" : "Experience & Education"}
-              </h2>
-              <p className="section-subtitle">
-                {lang === "fr"
-                  ? "Missions en entreprise et cursus académique en école d'ingénieurs."
-                  : "Corporate software development internships and state engineering academic curriculum."}
-              </p>
-            </div>
-
-            <div className="journey-dual-grid">
-              <div className="journey-col">
-                <h3 className="journey-subhead">
-                  <Building2 size={18} />
-                  <span>{lang === "fr" ? "Expériences professionnelles" : "Professional Experience"}</span>
-                </h3>
-                <div className="journey-cards-list">
-                  {experiences.map((exp) => (
-                    <div key={exp.company} className="journey-card">
-                      <div className="journey-card-top">
-                        <span className="journey-date">{lang === "fr" ? exp.date : exp.dateEn}</span>
-                        <span className="journey-company">{exp.company}</span>
-                      </div>
-                      <h4 className="journey-role">{lang === "fr" ? exp.role : exp.roleEn}</h4>
-                      <p className="journey-desc">{lang === "fr" ? exp.description : exp.descriptionEn}</p>
-                      <div className="stack-wrap">
-                        {exp.tags.map((t) => (
-                          <span key={t} className="tech-badge">
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="journey-col">
-                <h3 className="journey-subhead">
-                  <Calendar size={18} />
-                  <span>{lang === "fr" ? "Formation académique" : "Academic Education"}</span>
-                </h3>
-                <div className="journey-cards-list">
-                  {educations.map((edu) => (
-                    <div key={edu.degree} className="journey-card">
-                      <div className="journey-card-top">
-                        <span className="journey-date">{edu.period}</span>
-                        <span className="journey-company">{edu.institution}</span>
-                      </div>
-                      <h4 className="journey-role">{lang === "fr" ? edu.degree : edu.degreeEn}</h4>
-                      <p className="journey-desc">{lang === "fr" ? edu.description : edu.descriptionEn}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* GITHUB ACTIVITY SECTION */}
         <section className="section github-section" aria-labelledby="github-title">
           <div className="container">
@@ -847,7 +847,7 @@ export default function Portfolio() {
               <div className="github-chart-wrap">
                 {!githubChartFailed ? (
                   <img
-                    src="https://ghchart.rshah.org/1b49f5/fahchouchsm"
+                    src="https://ghchart.rshah.org/34d399/fahchouchsm"
                     alt="Graphique des contributions GitHub de Mohammed Fahchouch"
                     className="github-chart-img"
                     onError={() => setGithubChartFailed(true)}
