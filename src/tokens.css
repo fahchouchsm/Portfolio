@@ -1,4 +1,4 @@
-/* Executive Engineering · Obsidian Zinc (#09090b) · Crisp White Ink · Emerald Signal */
+/* Readable Slate Engineering Palette (ui-ux-pro-max Developer Tool / Slate-900 + Slate-800) */
 :root {
   color-scheme: dark;
 
@@ -54,38 +54,38 @@
   --z-toast: 500;
   --z-tooltip: 600;
 
-  /* Obsidian Zinc Surfaces (Linear / Vercel / Brittany Chiang discipline) */
-  --color-paper: #09090b;
-  --color-paper-2: #111114;
-  --color-paper-3: #18181b;
-  --color-paper-elevated: #1c1c21;
+  /* Slate-900 / Slate-800 Balanced Dark Surfaces (No pitch-black crush) */
+  --color-paper: #0f172a;
+  --color-paper-2: #1e293b;
+  --color-paper-3: #273549;
+  --color-paper-elevated: #334155;
 
-  /* Text Hierarchy */
-  --color-ink: #fafafa;
-  --color-ink-2: #d4d4d8;
-  --color-muted: #a1a1aa;
+  /* High-Legibility Text Hierarchy */
+  --color-ink: #f8fafc;
+  --color-ink-2: #e2e8f0;
+  --color-muted: #cbd5e1;
 
-  /* Subtle Hairline Rules */
-  --color-rule: rgba(255, 255, 255, 0.08);
-  --color-rule-2: rgba(255, 255, 255, 0.14);
+  /* Crisp Slate Borders */
+  --color-rule: #334155;
+  --color-rule-2: #475569;
 
-  /* Primary Accent: Crisp Emerald */
-  --color-accent: #34d399;
-  --color-accent-hover: #6ee7b7;
-  --color-accent-ink: #052e16;
-  --color-focus: #34d399;
-  --color-accent-wash: rgba(52, 211, 153, 0.1);
-  --color-accent-soft: #6ee7b7;
+  /* Primary Accent: Calm Engineering Blue + Green Live Dot */
+  --color-accent: #60a5fa;
+  --color-accent-hover: #93c5fd;
+  --color-accent-ink: #0f172a;
+  --color-focus: #60a5fa;
+  --color-accent-wash: rgba(96, 165, 250, 0.14);
+  --color-accent-soft: #93c5fd;
 
-  /* Button Primary: Crisp High-Contrast White on Obsidian */
-  --color-btn-primary-bg: #fafafa;
-  --color-btn-primary-hover: #e4e4e7;
-  --color-btn-primary-text: #09090b;
-  --color-btn-primary-border: #fafafa;
+  /* Button Primary: Crisp High-Contrast Blue-600 with White Text */
+  --color-btn-primary-bg: #2563eb;
+  --color-btn-primary-hover: #1d4ed8;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-border: #3b82f6;
 
   /* Surfaces & Overlays */
-  --color-header-bg: rgba(9, 9, 11, 0.85);
-  --color-backdrop: rgba(0, 0, 0, 0.82);
+  --color-header-bg: rgba(15, 23, 42, 0.9);
+  --color-backdrop: rgba(2, 6, 23, 0.8);
 
   /* Typefaces */
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -97,6 +97,6 @@
   --radius-inner: 6px;
   --radius-pill: 6px;
   --rule-hair: 1px;
-  --shadow-card: none;
-  --shadow-hover: 0 12px 32px -12px rgba(0, 0, 0, 0.65);
+  --shadow-card: 0 2px 10px -2px rgba(2, 6, 23, 0.35);
+  --shadow-hover: 0 12px 28px -8px rgba(2, 6, 23, 0.55);
 }
