@@ -61,27 +61,27 @@
   --color-paper-elevated: #2e2e34;
 
   /* High-Contrast Text Hierarchy */
-  --color-ink: #fafafa;
+  --color-ink: #ffffff;
   --color-ink-2: #e4e4e7;
-  --color-muted: #b4b4bc;
+  --color-muted: #c4c4cc;
 
   /* Crisp Neutral Borders */
   --color-rule: #2e2e34;
-  --color-rule-2: #3f3f46;
+  --color-rule-2: #44444c;
 
-  /* Restrained Professional Accent */
-  --color-accent: #e4e4e7;
-  --color-accent-hover: #ffffff;
-  --color-accent-ink: #141416;
-  --color-focus: #a1a1aa;
-  --color-accent-wash: rgba(255, 255, 255, 0.08);
-  --color-accent-soft: #fafafa;
+  /* Clear Emerald Accent for Hierarchy & Scannability (on Neutral Graphite) */
+  --color-accent: #34d399;
+  --color-accent-hover: #6ee7b7;
+  --color-accent-ink: #052e16;
+  --color-focus: #34d399;
+  --color-accent-wash: rgba(52, 211, 153, 0.12);
+  --color-accent-soft: #6ee7b7;
 
-  /* Button Primary: Crisp White on Neutral Graphite */
-  --color-btn-primary-bg: #fafafa;
-  --color-btn-primary-hover: #e4e4e7;
-  --color-btn-primary-text: #141416;
-  --color-btn-primary-border: #fafafa;
+  /* Button Primary: Crisp Emerald-600 with High-Contrast White Text */
+  --color-btn-primary-bg: #059669;
+  --color-btn-primary-hover: #047857;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-border: #10b981;
 
   /* Surfaces & Overlays */
   --color-header-bg: rgba(20, 20, 22, 0.9);
